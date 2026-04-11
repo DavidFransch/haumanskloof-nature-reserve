@@ -21,7 +21,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden lg:flex items-baseline gap-7">
           {nav.links.map((link) => (
             <div key={link.label} className="relative">
               {link.dropdown ? (
@@ -29,8 +29,8 @@ export default function Navbar() {
                   onMouseEnter={() => setDropdownOpen(link.label)}
                   onMouseLeave={() => setDropdownOpen(null)}
                 >
-                  <button className="text-xs tracking-wide text-text-mid bg-transparent border-none cursor-pointer flex items-center gap-1">
-                    {link.label} <span className="text-[10px] opacity-60">▾</span>
+                  <button className="text-xs tracking-wide text-text-mid bg-transparent border-none cursor-pointer p-0 leading-normal">
+                    {link.label}<span className="text-[10px] opacity-60 ml-1 align-middle">▾</span>
                   </button>
                   {dropdownOpen === link.label && (
                     <div className="absolute top-full left-0 mt-1 bg-white border border-border rounded-md shadow-lg py-1 min-w-[160px] z-[100]">
