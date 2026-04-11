@@ -48,3 +48,41 @@ export interface Post {
   author?: Author
   categories?: Category[]
 }
+
+export type GalleryCategory = 'camera-trap' | 'wildlife' | 'landscapes' | 'family' | 'flora'
+
+export interface GalleryImage {
+  _id: string
+  title: string
+  category: GalleryCategory
+  image: SanityImage
+  caption?: string
+  altText: string
+  order?: number
+  featured?: boolean
+  seriesId?: string
+}
+
+export interface GalleryCategoryCounts {
+  'camera-trap': number
+  wildlife: number
+  landscapes: number
+  family: number
+  flora: number
+}
+
+export const galleryCategoryLabels: Record<GalleryCategory, string> = {
+  'camera-trap': 'Camera Trap',
+  wildlife: 'Wildlife on Foot',
+  landscapes: 'Landscapes',
+  family: 'Haumanskloof Family',
+  flora: 'Flora & Fynbos',
+}
+
+export const galleryCategorySlugs: Record<GalleryCategory, string> = {
+  'camera-trap': 'camera-trap',
+  wildlife: 'wildlife',
+  landscapes: 'landscapes',
+  family: 'family',
+  flora: 'flora',
+}

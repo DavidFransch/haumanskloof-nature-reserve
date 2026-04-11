@@ -28,21 +28,44 @@ export default function Navbar() {
                 <div
                   onMouseEnter={() => setDropdownOpen(link.label)}
                   onMouseLeave={() => setDropdownOpen(null)}
+                  className="relative"
                 >
-                  <button className="text-xs tracking-wide text-text-mid bg-transparent border-none cursor-pointer p-0 leading-normal">
-                    {link.label}<span className="text-[10px] opacity-60 ml-1 align-middle">▾</span>
-                  </button>
+                  <Link
+                    href={link.href}
+                    className="text-xs tracking-wide text-text-mid no-underline inline-flex items-center gap-1 group"
+                  >
+                    {link.label}
+                    <svg
+                      className="w-3 h-3 opacity-50 group-hover:opacity-70 transition-transform duration-200"
+                      style={{ transform: dropdownOpen === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </Link>
                   {dropdownOpen === link.label && (
-                    <div className="absolute top-full left-0 mt-1 bg-white border border-border rounded-md shadow-lg py-1 min-w-[160px] z-[100]">
-                      {link.dropdown.map((item) => (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[100]">
+                      <div className="bg-white border border-border rounded-lg shadow-xl py-2 min-w-[180px] overflow-hidden">
                         <Link
-                          key={item.label}
-                          href={item.href}
-                          className="block px-4 py-2 text-xs text-text-mid no-underline hover:bg-bg-light"
+                          href={link.href}
+                          className="block px-4 py-2.5 text-xs font-medium text-text-dark no-underline hover:bg-bg-light border-b border-border"
                         >
-                          {item.label}
+                          View All
                         </Link>
-                      ))}
+                        <div className="py-1">
+                          {link.dropdown.map((item) => (
+                            <Link
+                              key={item.label}
+                              href={item.href}
+                              className="block px-4 py-2 text-xs text-text-mid no-underline hover:bg-bg-light hover:text-text-dark transition-colors"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
