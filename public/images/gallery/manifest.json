@@ -1,0 +1,632 @@
+{
+  "generatedAt": "2026-04-11T13:09:21.234Z",
+  "totalImages": 88,
+  "categories": {
+    "Camera Trap Images": [
+      {
+        "original": "Aardvark.JPG",
+        "filename": "aardvark.webp",
+        "path": "/images/gallery/Camera Trap Images/aardvark.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "African wild cat.JPG",
+        "filename": "african-wild-cat.webp",
+        "path": "/images/gallery/Camera Trap Images/african-wild-cat.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Boomslang.jpeg",
+        "filename": "boomslang.webp",
+        "path": "/images/gallery/Camera Trap Images/boomslang.webp",
+        "width": 900,
+        "height": 1600
+      },
+      {
+        "original": "Booted eagle.JPG",
+        "filename": "booted-eagle.webp",
+        "path": "/images/gallery/Camera Trap Images/booted-eagle.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Bush Pig.JPG",
+        "filename": "bush-pig.webp",
+        "path": "/images/gallery/Camera Trap Images/bush-pig.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Cape grey mongoose.JPG",
+        "filename": "cape-grey-mongoose.webp",
+        "path": "/images/gallery/Camera Trap Images/cape-grey-mongoose.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Cape grysbok.JPG",
+        "filename": "cape-grysbok.webp",
+        "path": "/images/gallery/Camera Trap Images/cape-grysbok.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Caracal 2.JPG",
+        "filename": "caracal-2.webp",
+        "path": "/images/gallery/Camera Trap Images/caracal-2.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Caracal 3.JPG",
+        "filename": "caracal-3.webp",
+        "path": "/images/gallery/Camera Trap Images/caracal-3.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Caracal daytime.JPG",
+        "filename": "caracal-daytime.webp",
+        "path": "/images/gallery/Camera Trap Images/caracal-daytime.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Caracal.JPG",
+        "filename": "caracal.webp",
+        "path": "/images/gallery/Camera Trap Images/caracal.webp",
+        "width": 1920,
+        "height": 1454
+      },
+      {
+        "original": "Chacma baboon (2).JPG",
+        "filename": "chacma-baboon-2.webp",
+        "path": "/images/gallery/Camera Trap Images/chacma-baboon-2.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Chacma baboon.JPG",
+        "filename": "chacma-baboon.webp",
+        "path": "/images/gallery/Camera Trap Images/chacma-baboon.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Common duiker.JPG",
+        "filename": "common-duiker.webp",
+        "path": "/images/gallery/Camera Trap Images/common-duiker.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Grey rhebok.JPG",
+        "filename": "grey-rhebok.webp",
+        "path": "/images/gallery/Camera Trap Images/grey-rhebok.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Honey Badger 2.JPG",
+        "filename": "honey-badger-2.webp",
+        "path": "/images/gallery/Camera Trap Images/honey-badger-2.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Honey Badger Pack.JPG",
+        "filename": "honey-badger-pack.webp",
+        "path": "/images/gallery/Camera Trap Images/honey-badger-pack.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Honey Badger.JPG",
+        "filename": "honey-badger.webp",
+        "path": "/images/gallery/Camera Trap Images/honey-badger.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Klipspringer Pair.JPG",
+        "filename": "klipspringer-pair.webp",
+        "path": "/images/gallery/Camera Trap Images/klipspringer-pair.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Klipspringer.JPG",
+        "filename": "klipspringer.webp",
+        "path": "/images/gallery/Camera Trap Images/klipspringer.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Kudu 2.JPG",
+        "filename": "kudu-2.webp",
+        "path": "/images/gallery/Camera Trap Images/kudu-2.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Kudu.JPG",
+        "filename": "kudu.webp",
+        "path": "/images/gallery/Camera Trap Images/kudu.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Leopard 2.JPG",
+        "filename": "leopard-2.webp",
+        "path": "/images/gallery/Camera Trap Images/leopard-2.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Leopard 3.JPG",
+        "filename": "leopard-3.webp",
+        "path": "/images/gallery/Camera Trap Images/leopard-3.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Leopard 4.JPG",
+        "filename": "leopard-4.webp",
+        "path": "/images/gallery/Camera Trap Images/leopard-4.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Leopard.JPG",
+        "filename": "leopard.webp",
+        "path": "/images/gallery/Camera Trap Images/leopard.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Porcupine.JPG",
+        "filename": "porcupine.webp",
+        "path": "/images/gallery/Camera Trap Images/porcupine.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "White necked raven.JPG",
+        "filename": "white-necked-raven.webp",
+        "path": "/images/gallery/Camera Trap Images/white-necked-raven.webp",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "Flora": [
+      {
+        "original": "Asteraceae maybe.JPG",
+        "filename": "asteraceae-maybe.webp",
+        "path": "/images/gallery/Flora/asteraceae-maybe.webp",
+        "width": 1280,
+        "height": 853
+      },
+      {
+        "original": "Candelabra lily.jpeg",
+        "filename": "candelabra-lily.webp",
+        "path": "/images/gallery/Flora/candelabra-lily.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "original": "Cat_s claw.jpg",
+        "filename": "cat-s-claw.webp",
+        "path": "/images/gallery/Flora/cat-s-claw.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Crassula sp (uncertain).jpg",
+        "filename": "crassula-sp.webp",
+        "path": "/images/gallery/Flora/crassula-sp.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Jakkalskos.jpg",
+        "filename": "jakkalskos.webp",
+        "path": "/images/gallery/Flora/jakkalskos.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Pink Flowers.JPG",
+        "filename": "pink-flowers.webp",
+        "path": "/images/gallery/Flora/pink-flowers.webp",
+        "width": 1280,
+        "height": 853
+      },
+      {
+        "original": "Rubble aloe.JPG",
+        "filename": "rubble-aloe.webp",
+        "path": "/images/gallery/Flora/rubble-aloe.webp",
+        "width": 808,
+        "height": 591
+      },
+      {
+        "original": "Uncertain.jpg",
+        "filename": "uncertain.webp",
+        "path": "/images/gallery/Flora/uncertain.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Worcester vygie (2).jpg",
+        "filename": "worcester-vygie-2.webp",
+        "path": "/images/gallery/Flora/worcester-vygie-2.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Worcester vygie.JPG",
+        "filename": "worcester-vygie.webp",
+        "path": "/images/gallery/Flora/worcester-vygie.webp",
+        "width": 1280,
+        "height": 591
+      }
+    ],
+    "Haumanskloof Family": [
+      {
+        "original": "A reliable witness.JPG",
+        "filename": "a-reliable-witness.webp",
+        "path": "/images/gallery/Haumanskloof Family/a-reliable-witness.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "original": "Agri House.JPG",
+        "filename": "agri-house.webp",
+        "path": "/images/gallery/Haumanskloof Family/agri-house.webp",
+        "width": 1600,
+        "height": 1059
+      },
+      {
+        "original": "Bicycle Action Shot.JPG",
+        "filename": "bicycle-action-shot.webp",
+        "path": "/images/gallery/Haumanskloof Family/bicycle-action-shot.webp",
+        "width": 1280,
+        "height": 853
+      },
+      {
+        "original": "Entrance Gate (2).JPG",
+        "filename": "entrance-gate-2.webp",
+        "path": "/images/gallery/Haumanskloof Family/entrance-gate-2.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "original": "Entrance Gate.JPG",
+        "filename": "entrance-gate.webp",
+        "path": "/images/gallery/Haumanskloof Family/entrance-gate.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "original": "Homestead Photo.JPG",
+        "filename": "homestead-photo.webp",
+        "path": "/images/gallery/Haumanskloof Family/homestead-photo.webp",
+        "width": 1600,
+        "height": 1059
+      },
+      {
+        "original": "Lloyd on Tractor + Jimmny.JPG",
+        "filename": "lloyd-on-tractor-jimmny.webp",
+        "path": "/images/gallery/Haumanskloof Family/lloyd-on-tractor-jimmny.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "original": "Lloyd on Tractor.JPG",
+        "filename": "lloyd-on-tractor.webp",
+        "path": "/images/gallery/Haumanskloof Family/lloyd-on-tractor.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "original": "Luna at Homestead 2.JPG",
+        "filename": "luna-at-homestead-2.webp",
+        "path": "/images/gallery/Haumanskloof Family/luna-at-homestead-2.webp",
+        "width": 1182,
+        "height": 1328
+      },
+      {
+        "original": "Luna at homestead.JPG",
+        "filename": "luna-at-homestead.webp",
+        "path": "/images/gallery/Haumanskloof Family/luna-at-homestead.webp",
+        "width": 1182,
+        "height": 1328
+      },
+      {
+        "original": "Making it official.JPG",
+        "filename": "making-it-official.webp",
+        "path": "/images/gallery/Haumanskloof Family/making-it-official.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "original": "Sealing the deal.JPG",
+        "filename": "sealing-the-deal.webp",
+        "path": "/images/gallery/Haumanskloof Family/sealing-the-deal.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "original": "Waiting for a break.JPG",
+        "filename": "waiting-for-a-break.webp",
+        "path": "/images/gallery/Haumanskloof Family/waiting-for-a-break.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "original": "Wedding Function.JPG",
+        "filename": "wedding-function.webp",
+        "path": "/images/gallery/Haumanskloof Family/wedding-function.webp",
+        "width": 1920,
+        "height": 1280
+      }
+    ],
+    "Landscapes": [
+      {
+        "original": "Blood Sunset.JPG",
+        "filename": "blood-sunset.webp",
+        "path": "/images/gallery/Landscapes/blood-sunset.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "original": "Cover Photo Portrait.jpg",
+        "filename": "cover-photo-portrait.webp",
+        "path": "/images/gallery/Landscapes/cover-photo-portrait.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Dragonsback.JPG",
+        "filename": "dragonsback.webp",
+        "path": "/images/gallery/Landscapes/dragonsback.webp",
+        "width": 1280,
+        "height": 853
+      },
+      {
+        "original": "Entrance View.JPG",
+        "filename": "entrance-view.webp",
+        "path": "/images/gallery/Landscapes/entrance-view.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Haumanskloof Landscape.JPG",
+        "filename": "haumanskloof-landscape.webp",
+        "path": "/images/gallery/Landscapes/haumanskloof-landscape.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "original": "Hkloof Landscape 2.JPG",
+        "filename": "hkloof-landscape-2.webp",
+        "path": "/images/gallery/Landscapes/hkloof-landscape-2.webp",
+        "width": 1600,
+        "height": 621
+      },
+      {
+        "original": "Hkloof Landscape 3.JPG",
+        "filename": "hkloof-landscape-3.webp",
+        "path": "/images/gallery/Landscapes/hkloof-landscape-3.webp",
+        "width": 1600,
+        "height": 621
+      },
+      {
+        "original": "Hkloof Landscape 4x4 track.jpg",
+        "filename": "hkloof-landscape-4x4-track.webp",
+        "path": "/images/gallery/Landscapes/hkloof-landscape-4x4-track.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "original": "H.Kloof Landscape day.JPG",
+        "filename": "hkloof-landscape-day.webp",
+        "path": "/images/gallery/Landscapes/hkloof-landscape-day.webp",
+        "width": 1280,
+        "height": 591
+      },
+      {
+        "original": "Hkloof Landscape.JPG",
+        "filename": "hkloof-landscape.webp",
+        "path": "/images/gallery/Landscapes/hkloof-landscape.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "original": "homestead landscape.JPG",
+        "filename": "homestead-landscape.webp",
+        "path": "/images/gallery/Landscapes/homestead-landscape.webp",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "original": "Looking South 3.JPG",
+        "filename": "looking-south-3.webp",
+        "path": "/images/gallery/Landscapes/looking-south-3.webp",
+        "width": 1329,
+        "height": 1920
+      },
+      {
+        "original": "Looking South 3b.JPG",
+        "filename": "looking-south-3b.webp",
+        "path": "/images/gallery/Landscapes/looking-south-3b.webp",
+        "width": 1329,
+        "height": 1920
+      },
+      {
+        "original": "Looking South.jpg",
+        "filename": "looking-south.webp",
+        "path": "/images/gallery/Landscapes/looking-south.webp",
+        "width": 1920,
+        "height": 1870
+      },
+      {
+        "original": "March _24 River.jpg",
+        "filename": "march-24-river.webp",
+        "path": "/images/gallery/Landscapes/march-24-river.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Midday views.JPG",
+        "filename": "midday-views.webp",
+        "path": "/images/gallery/Landscapes/midday-views.webp",
+        "width": 1280,
+        "height": 853
+      },
+      {
+        "original": "Pink Sunset.jpg",
+        "filename": "pink-sunset.webp",
+        "path": "/images/gallery/Landscapes/pink-sunset.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "River 24 March.jpg",
+        "filename": "river-24-march.webp",
+        "path": "/images/gallery/Landscapes/river-24-march.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Sunrise Portrait 2.jpg",
+        "filename": "sunrise-portrait-2.webp",
+        "path": "/images/gallery/Landscapes/sunrise-portrait-2.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Sunrise Portrait.jpg",
+        "filename": "sunrise-portrait.webp",
+        "path": "/images/gallery/Landscapes/sunrise-portrait.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Sunrise West 2.jpg",
+        "filename": "sunrise-west-2.webp",
+        "path": "/images/gallery/Landscapes/sunrise-west-2.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Sunrise West.jpg",
+        "filename": "sunrise-west.webp",
+        "path": "/images/gallery/Landscapes/sunrise-west.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Sunset Landscape 2.jpg",
+        "filename": "sunset-landscape-2.webp",
+        "path": "/images/gallery/Landscapes/sunset-landscape-2.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Sunset Landscape.jpg",
+        "filename": "sunset-landscape.webp",
+        "path": "/images/gallery/Landscapes/sunset-landscape.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "Sunset with Flag.JPG",
+        "filename": "sunset-with-flag.webp",
+        "path": "/images/gallery/Landscapes/sunset-with-flag.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ],
+    "Wildlife on foot": [
+      {
+        "original": "Bibron_s thick-toed gecko (2).jpg",
+        "filename": "bibron-s-thick-toed-gecko-2.webp",
+        "path": "/images/gallery/Wildlife on foot/bibron-s-thick-toed-gecko-2.webp",
+        "width": 1811,
+        "height": 1920
+      },
+      {
+        "original": "Bibron_s thick-toed gecko.jpg",
+        "filename": "bibron-s-thick-toed-gecko.webp",
+        "path": "/images/gallery/Wildlife on foot/bibron-s-thick-toed-gecko.webp",
+        "width": 1894,
+        "height": 1741
+      },
+      {
+        "original": "Cape river frog.jpeg",
+        "filename": "cape-river-frog.webp",
+        "path": "/images/gallery/Wildlife on foot/cape-river-frog.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "original": "Clicking stream frog.jpg",
+        "filename": "clicking-stream-frog.webp",
+        "path": "/images/gallery/Wildlife on foot/clicking-stream-frog.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Dictator baboon spider.jpg",
+        "filename": "dictator-baboon-spider.webp",
+        "path": "/images/gallery/Wildlife on foot/dictator-baboon-spider.webp",
+        "width": 1606,
+        "height": 1919
+      },
+      {
+        "original": "Jewel beetle.jpg",
+        "filename": "jewel-beetle.webp",
+        "path": "/images/gallery/Wildlife on foot/jewel-beetle.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Karoo sand snake (2).jpg",
+        "filename": "karoo-sand-snake-2.webp",
+        "path": "/images/gallery/Wildlife on foot/karoo-sand-snake-2.webp",
+        "width": 1920,
+        "height": 1440
+      },
+      {
+        "original": "Karoo sand snake.jpg",
+        "filename": "karoo-sand-snake.webp",
+        "path": "/images/gallery/Wildlife on foot/karoo-sand-snake.webp",
+        "width": 1920,
+        "height": 1210
+      },
+      {
+        "original": "Karoo toad.jpeg",
+        "filename": "karoo-toad.webp",
+        "path": "/images/gallery/Wildlife on foot/karoo-toad.webp",
+        "width": 1280,
+        "height": 877
+      },
+      {
+        "original": "Red Locusts.JPG",
+        "filename": "red-locusts.webp",
+        "path": "/images/gallery/Wildlife on foot/red-locusts.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "original": "Southern rock agama.jpg",
+        "filename": "southern-rock-agama.webp",
+        "path": "/images/gallery/Wildlife on foot/southern-rock-agama.webp",
+        "width": 1491,
+        "height": 1219
+      }
+    ]
+  }
+}
