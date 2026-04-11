@@ -4,15 +4,21 @@ import { siteContent } from '@/content/site.content'
 export default function Footer() {
   const { footer, siteName } = siteContent
   return (
-    <footer style={{ borderTop: '1px solid var(--color-border)', padding: '24px 40px' }}>
-      <div className="container-max" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
-        <span style={{ fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-text-muted)' }}>{siteName}</span>
-        <div style={{ display: 'flex', gap: '24px' }}>
+    <footer className="border-t border-border py-6 px-10">
+      <div className="container-max flex flex-wrap items-center justify-between gap-4">
+        <span className="text-[11px] tracking-widest uppercase text-text-muted">{siteName}</span>
+        <div className="flex gap-6">
           {footer.links.map((link) => (
-            <Link key={link.label} href={link.href} style={{ fontSize: '11px', color: 'var(--color-text-muted)', textDecoration: 'none' }}>{link.label}</Link>
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-[11px] text-text-muted no-underline"
+            >
+              {link.label}
+            </Link>
           ))}
         </div>
-        <p style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>{footer.legal}</p>
+        <p className="text-[11px] text-text-muted">{footer.legal}</p>
       </div>
     </footer>
   )

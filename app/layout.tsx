@@ -1,6 +1,22 @@
 import type { Metadata } from 'next'
+import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 import { siteContent } from '@/content/site.content'
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  style: ['normal', 'italic'],
+  variable: '--font-heading',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-body',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: siteContent.siteName,
@@ -12,28 +28,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
-      <head>
-        {/* 
-          FONTS — loaded via Google Fonts link tag so they work in all environments.
-          To change fonts: update the href below AND update font-family in globals.css
-        */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="text-text-dark bg-white antialiased">
-        {children}
-      </body>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${cormorant.variable} ${inter.variable}`}
+    >
+      <body className="font-body text-text-dark bg-white antialiased">{children}</body>
     </html>
   )
 }

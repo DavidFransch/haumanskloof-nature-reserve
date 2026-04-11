@@ -3,14 +3,6 @@ export const metadata = {
   description: 'Content management for Haumanskloof Nature Reserve',
 }
 
-export default function StudioLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <div className="fixed inset-0 font-sans">
-      {children}
-    </div>
-  )
+export default function StudioLayout({ children }: { children: React.ReactNode }) {
+  return <div className="fixed inset-0 font-sans">{children}</div>
 }

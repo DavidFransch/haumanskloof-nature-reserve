@@ -8,7 +8,6 @@
  */
 
 export const siteContent = {
-
   /**
    * GLOBAL
    */
@@ -50,21 +49,19 @@ export const siteContent = {
    * HOMEPAGE
    */
   home: {
-
     hero: {
       eyebrow: 'Breede Valley · Western Cape',
       headline: 'Hidden deep in the\nBreede Valley mountains',
       subheadline:
         'Where vibrant Renosterveld greens meet the arid beauty of the succulent Karoo. A family-run sanctuary, just two hours from Cape Town, where nature and community thrive.',
-      primaryCta: { label: 'Explore the reserve', href: '#about' },  // scrolls to about section
+      primaryCta: { label: 'Explore the reserve', href: '#about' }, // scrolls to about section
       secondaryCta: { label: 'View accommodation', href: '/accommodation' },
     },
 
     about: {
       label: 'Our sanctuary',
       heading: 'A land of contrast and wonder',
-      body:
-        'Haumanskloof is a place where soaring peaks meet pristine landscapes and rugged roads. Discover ancient rock art, encounter rare wildlife, or simply unwind under the stars — we invite you to join us.',
+      body: 'Haumanskloof is a place where soaring peaks meet pristine landscapes and rugged roads. Discover ancient rock art, encounter rare wildlife, or simply unwind under the stars — we invite you to join us.',
       cta: { label: 'Meet the family', href: '/about' },
     },
 
@@ -114,10 +111,9 @@ export const siteContent = {
 
     cta: {
       heading: 'Come experience the sanctuary',
-      body: 'Discover ancient rock art, encounter rare wildlife, or simply unwind under the stars. We\'d love to have you.',
+      body: "Discover ancient rock art, encounter rare wildlife, or simply unwind under the stars. We'd love to have you.",
       button: { label: 'Get in touch', href: '/contact' },
     },
-
   },
 
   /**
@@ -142,7 +138,6 @@ export const siteContent = {
     ],
     legal: '© 2025 Haumanskloof Nature Reserve. All rights reserved.',
   },
-
 }
 
 export type SiteContent = typeof siteContent

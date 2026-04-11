@@ -11,7 +11,8 @@ import { siteContent } from '@/content/site.content'
 
 export const metadata: Metadata = {
   title: `Blog | ${siteContent.siteName}`,
-  description: 'Stories, updates, and insights from Haumanskloof Nature Reserve in the Breede Valley.',
+  description:
+    'Stories, updates, and insights from Haumanskloof Nature Reserve in the Breede Valley.',
 }
 
 function formatDate(dateString: string) {
@@ -32,14 +33,13 @@ export default async function BlogPage() {
         {/* Hero */}
         <section className="px-10 py-20 bg-bg-light border-b border-border">
           <div className="container-max text-center">
-            <span className="label-text block mb-3">
-              Stories from the reserve
-            </span>
+            <span className="label-text block mb-3">Stories from the reserve</span>
             <h1 className="font-heading text-[clamp(28px,5vw,48px)] font-normal text-text-dark mb-4">
               Blog
             </h1>
             <p className="text-[15px] text-text-mid max-w-[500px] mx-auto leading-relaxed">
-              Updates, wildlife sightings, conservation notes, and stories from Haumanskloof Nature Reserve.
+              Updates, wildlife sightings, conservation notes, and stories from Haumanskloof Nature
+              Reserve.
             </p>
           </div>
         </section>
@@ -97,7 +97,9 @@ export default async function BlogPage() {
                         {/* Excerpt */}
                         {post.excerpt && (
                           <p className="text-sm text-text-mid leading-relaxed mb-4">
-                            {post.excerpt.length > 120 ? `${post.excerpt.slice(0, 120)}...` : post.excerpt}
+                            {post.excerpt.length > 120
+                              ? `${post.excerpt.slice(0, 120)}...`
+                              : post.excerpt}
                           </p>
                         )}
 

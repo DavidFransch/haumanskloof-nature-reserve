@@ -1,20 +1,21 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  /* Fonts are set via next/font CSS variables in layout.tsx */
+  --font-heading: var(--font-heading), Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
 
-  --color-primary:        #8a7a52;
-  --color-primary-hover:  #7a6a42;
-  --color-primary-light:  #f5f0e8;
-  --color-bg-dark:        #2d3a25;
-  --color-bg-mid:         #3d4e30;
-  --color-bg-light:       #f8f6f1;
-  --color-text-dark:      #1a1a1a;
-  --color-text-mid:       #4a4a4a;
-  --color-text-light:     #f0ebe0;
-  --color-text-muted:     #888880;
-  --color-border:         #e2ddd6;
+  --color-primary: #8a7a52;
+  --color-primary-hover: #7a6a42;
+  --color-primary-light: #f5f0e8;
+  --color-bg-dark: #2d3a25;
+  --color-bg-mid: #3d4e30;
+  --color-bg-light: #f8f6f1;
+  --color-text-dark: #1a1a1a;
+  --color-text-mid: #4a4a4a;
+  --color-text-light: #f0ebe0;
+  --color-text-muted: #888880;
+  --color-border: #e2ddd6;
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -24,7 +25,7 @@
 }
 
 @layer base {
-  html[data-scroll-behavior="smooth"] {
+  html[data-scroll-behavior='smooth'] {
     scroll-behavior: smooth;
   }
   body {
@@ -33,7 +34,10 @@
     background: white;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-heading);
   }
 }

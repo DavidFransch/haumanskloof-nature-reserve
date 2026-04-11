@@ -23,9 +23,7 @@ export const portableTextComponents: PortableTextComponents = {
       </h4>
     ),
     normal: ({ children }) => (
-      <p className="text-base text-text-mid leading-loose mb-6">
-        {children}
-      </p>
+      <p className="text-base text-text-mid leading-loose mb-6">{children}</p>
     ),
     blockquote: ({ children }) => (
       <blockquote className="border-l-[3px] border-primary pl-6 my-8 italic text-[17px] text-text-mid leading-relaxed">
@@ -34,29 +32,15 @@ export const portableTextComponents: PortableTextComponents = {
     ),
   },
   list: {
-    bullet: ({ children }) => (
-      <ul className="pl-6 mb-6 leading-loose text-text-mid">
-        {children}
-      </ul>
-    ),
-    number: ({ children }) => (
-      <ol className="pl-6 mb-6 leading-loose text-text-mid">
-        {children}
-      </ol>
-    ),
+    bullet: ({ children }) => <ul className="pl-6 mb-6 leading-loose text-text-mid">{children}</ul>,
+    number: ({ children }) => <ol className="pl-6 mb-6 leading-loose text-text-mid">{children}</ol>,
   },
   listItem: {
-    bullet: ({ children }) => (
-      <li className="mb-2 text-base">{children}</li>
-    ),
-    number: ({ children }) => (
-      <li className="mb-2 text-base">{children}</li>
-    ),
+    bullet: ({ children }) => <li className="mb-2 text-base">{children}</li>,
+    number: ({ children }) => <li className="mb-2 text-base">{children}</li>,
   },
   marks: {
-    strong: ({ children }) => (
-      <strong className="font-semibold text-text-dark">{children}</strong>
-    ),
+    strong: ({ children }) => <strong className="font-semibold text-text-dark">{children}</strong>,
     em: ({ children }) => <em>{children}</em>,
     underline: ({ children }) => <u>{children}</u>,
     link: ({ children, value }) => {

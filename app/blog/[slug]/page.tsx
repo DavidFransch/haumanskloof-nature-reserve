@@ -157,9 +157,7 @@ export default async function PostPage({ params }: Props) {
             </p>
           )}
 
-          {post.body && (
-            <PortableText value={post.body} components={portableTextComponents} />
-          )}
+          {post.body && <PortableText value={post.body} components={portableTextComponents} />}
         </article>
 
         {/* Author bio */}
@@ -179,12 +177,8 @@ export default async function PostPage({ params }: Props) {
                 <p className="text-[11px] tracking-widest uppercase text-text-muted mb-1">
                   Written by
                 </p>
-                <p className="font-heading text-lg text-text-dark mb-2">
-                  {post.author.name}
-                </p>
-                <p className="text-sm text-text-mid leading-relaxed">
-                  {post.author.bio}
-                </p>
+                <p className="font-heading text-lg text-text-dark mb-2">{post.author.name}</p>
+                <p className="text-sm text-text-mid leading-relaxed">{post.author.bio}</p>
               </div>
             </div>
           </section>

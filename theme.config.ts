@@ -9,7 +9,6 @@
  */
 
 export const theme = {
-
   /**
    * COLOURS
    * Primary palette for the site.
@@ -17,24 +16,24 @@ export const theme = {
    */
   colors: {
     // Core brand colours
-    primary:       '#8a7a52',   // Warm gold — buttons, accents
-    primaryHover:  '#7a6a42',   // Darker gold — button hover state
-    primaryLight:  '#f5f0e8',   // Cream — text on dark buttons
+    primary: '#8a7a52', // Warm gold — buttons, accents
+    primaryHover: '#7a6a42', // Darker gold — button hover state
+    primaryLight: '#f5f0e8', // Cream — text on dark buttons
 
     // Background shades
-    bgDark:        '#2d3a25',   // Deep forest — hero, CTA band
-    bgMid:         '#3d4e30',   // Mid forest — image placeholders
-    bgLight:       '#f8f6f1',   // Warm off-white — light sections
+    bgDark: '#2d3a25', // Deep forest — hero, CTA band
+    bgMid: '#3d4e30', // Mid forest — image placeholders
+    bgLight: '#f8f6f1', // Warm off-white — light sections
 
     // Text
-    textDark:      '#1a1a1a',   // Near-black — headings
-    textMid:       '#4a4a4a',   // Dark grey — body copy
-    textLight:     '#f0ebe0',   // Cream — text on dark backgrounds
-    textMuted:     '#888880',   // Muted — labels, captions
+    textDark: '#1a1a1a', // Near-black — headings
+    textMid: '#4a4a4a', // Dark grey — body copy
+    textLight: '#f0ebe0', // Cream — text on dark backgrounds
+    textMuted: '#888880', // Muted — labels, captions
 
     // UI
-    border:        '#e2ddd6',   // Warm border
-    borderDark:    'rgba(240,235,224,0.3)', // Border on dark backgrounds
+    border: '#e2ddd6', // Warm border
+    borderDark: 'rgba(240,235,224,0.3)', // Border on dark backgrounds
   },
 
   /**
@@ -43,8 +42,8 @@ export const theme = {
    * Google Fonts import in app/layout.tsx to match.
    */
   fonts: {
-    heading: '"Cormorant Garamond", Georgia, serif',  // Elegant serif for headings
-    body:    '"Inter", system-ui, sans-serif',         // Clean sans for body text
+    heading: '"Cormorant Garamond", Georgia, serif', // Elegant serif for headings
+    body: '"Inter", system-ui, sans-serif', // Clean sans for body text
   },
 
   /**
@@ -52,13 +51,13 @@ export const theme = {
    * Responsive scale — adjust to taste.
    */
   fontSizes: {
-    hero:    'clamp(28px, 5vw, 48px)',
-    h1:      'clamp(24px, 4vw, 36px)',
-    h2:      'clamp(20px, 3vw, 28px)',
-    h3:      '18px',
-    body:    '15px',
-    small:   '13px',
-    label:   '11px',
+    hero: 'clamp(28px, 5vw, 48px)',
+    h1: 'clamp(24px, 4vw, 36px)',
+    h2: 'clamp(20px, 3vw, 28px)',
+    h3: '18px',
+    body: '15px',
+    small: '13px',
+    label: '11px',
   },
 
   /**
@@ -66,8 +65,8 @@ export const theme = {
    * Section padding — adjust for more/less breathing room.
    */
   spacing: {
-    sectionY:  '80px',   // Vertical padding for major sections
-    sectionX:  '40px',   // Horizontal padding / gutter
+    sectionY: '80px', // Vertical padding for major sections
+    sectionX: '40px', // Horizontal padding / gutter
     containerMax: '1100px', // Max page width
   },
 
@@ -75,11 +74,10 @@ export const theme = {
    * BORDER RADIUS
    */
   radius: {
-    sm:  '4px',
-    md:  '8px',
-    lg:  '12px',
+    sm: '4px',
+    md: '8px',
+    lg: '12px',
   },
-
 } as const
 
 export type Theme = typeof theme
