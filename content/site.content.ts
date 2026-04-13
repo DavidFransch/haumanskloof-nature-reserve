@@ -52,10 +52,12 @@ export const siteContent = {
   home: {
     hero: {
       eyebrow: 'Breede Valley · Western Cape',
-      headline: 'Hidden deep in the\nBreede Valley mountains',
-      subheadline:
-        'Where vibrant Renosterveld greens meet the arid beauty of the succulent Karoo. A family-run sanctuary, just two hours from Cape Town, where nature and community thrive.',
-      primaryCta: { label: 'Explore the reserve', href: '#about' }, // scrolls to about section
+      headline: 'Deep in the mountains of the\nBreede Valley, is a hidden sanctuary.',
+      intro:
+        'Haumanskloof is a land of contrast, where vibrant Renosterveld greens meet the arid beauty of the succulent Karoo.',
+      body: 'Just two hours from Cape Town, Haumanskloof is a family-run sanctuary where nature and community thrive. Explore and immerse yourself in a unique natural setting, discover ancient rock art, or simply unwind under the stars.',
+      cta: 'Come experience this special intersection of soaring peaks, pristine landscapes and rugged roads — we invite you to join us!',
+      primaryCta: { label: 'Explore the reserve', href: '#about' },
       secondaryCta: { label: 'View accommodation', href: '/accommodation' },
     },
 

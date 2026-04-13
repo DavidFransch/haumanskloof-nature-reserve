@@ -28,7 +28,7 @@ export default async function GalleryPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-16">
+      <main className="pt-20">
         {/* Hero */}
         <section className="px-10 py-20 bg-bg-light border-b border-border">
           <div className="container-max text-center">

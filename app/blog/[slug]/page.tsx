@@ -80,7 +80,7 @@ export default async function PostPage({ params }: Props) {
   return (
     <>
       <Navbar />
-      <main className="pt-16">
+      <main className="pt-20">
         {/* Header */}
         <header className="pt-15 pb-10 px-10 bg-bg-light border-b border-border">
           <div className="container-max max-w-[800px]">

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { siteContent } from '@/content/site.content'
@@ -11,13 +12,19 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
-      <div className="container-max flex items-center justify-between px-10 h-16">
+      <div className="container-max flex items-center justify-between px-10 h-20">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-xs font-medium tracking-widest uppercase text-text-dark no-underline"
-        >
-          {nav.logo}
+        <Link href="/" className="flex items-center gap-3 no-underline">
+          <Image
+            src="/images/logo-2.png"
+            alt="Haumanskloof"
+            width={72}
+            height={72}
+            className="w-16 h-16 object-contain"
+          />
+          <span className="text-xs font-medium tracking-widest uppercase text-text-dark hidden sm:block">
+            {nav.logo}
+          </span>
         </Link>
 
         {/* Desktop links */}
