@@ -72,12 +72,12 @@ export const siteContent = {
       {
         icon: 'wildlife',
         title: 'Wildlife & ecology',
-        body: 'Camera trap monitoring, rare Renosterveld flora, and guided walks through indigenous habitat.',
+        body: 'Camera trap monitoring, rare Renosterveld and succulent Karoo flora, and exploration through indigenous habitat.',
       },
       {
         icon: 'accommodation',
         title: 'Accommodation',
-        body: 'Comfortable bunkhouse units nestled in the reserve. Fall asleep to the sounds of the bush.',
+        body: 'Comfortable bunkhouse unit nestled in the reserve. Fall asleep to the sounds of the bush.',
       },
       {
         icon: 'rockart',
@@ -136,10 +136,11 @@ export const siteContent = {
   footer: {
     links: [
       { label: 'Contact', href: '/contact' },
-      { label: 'Instagram', href: 'https://instagram.com/haumanskloof' },
+      { label: 'Instagram', href: 'https://www.instagram.com/haumanskloof/' },
+      { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100092490755181&sk=about' },
       { label: 'Privacy', href: '/privacy' },
     ],
-    legal: '© 2025 Haumanskloof Nature Reserve. All rights reserved.',
+    legal: '© 2026 Haumanskloof Nature Reserve. All rights reserved.',
   },
 }
 
