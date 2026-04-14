@@ -28,7 +28,6 @@ export const siteContent = {
     cta: { label: 'Get in touch', href: '/contact' },
     links: [
       { label: 'Home', href: '/' },
-      { label: 'About', href: '/about' },
       {
         label: 'Gallery',
         href: '/gallery',
@@ -42,6 +41,7 @@ export const siteContent = {
       },
       { label: 'Activities', href: '/activities' },
       { label: 'Accommodation', href: '/accommodation' },
+      { label: 'About', href: '/about' },
       { label: 'Blog', href: '/blog' },
     ],
   },
@@ -123,11 +123,114 @@ export const siteContent = {
    * ABOUT PAGE
    */
   about: {
-    heading: 'Our story',
-    body: [
-      'Haumanskloof is a family-run nature reserve nestled deep in the mountains of the Breede Valley.',
-      'We are committed to conservation, ecology education, and sustainable ecotourism — inviting guests to experience the land as we do, with curiosity, respect, and wonder.',
+    hero: {
+      eyebrow: 'Our story',
+      heading: 'A family-run sanctuary\nin the Breede Valley',
+      intro:
+        'Haumanskloof is nestled deep in the mountains of the Breede Valley, where indigenous fynbos, towering peaks, and ancient rock art tell a story older than memory.',
+    },
+    story: [
+      'Haumanskloof is a family-run nature reserve set in the heart of the Breede Valley mountains. The land has been in the family for decades, and over time we have worked to restore, protect, and share its extraordinary natural heritage.',
+      'The reserve lies at a rare intersection of two globally significant biomes — Renosterveld and the succulent Karoo — each harbouring species found nowhere else on Earth. Our commitment is to this land: to understand it, protect it, and share it with others who care as deeply as we do.',
+      'We welcome guests to experience the reserve as we do — on foot, under open skies, with curiosity and respect. Whether you come for the wildlife, the rock art, the silence, or all of the above, Haumanskloof will leave its mark on you.',
     ],
+    values: [
+      {
+        icon: 'conservation',
+        title: 'Conservation',
+        body: 'Active habitat restoration, invasive species removal, and camera trap monitoring to protect the reserve\'s rare flora and fauna.',
+      },
+      {
+        icon: 'community',
+        title: 'Community',
+        body: 'Working with neighbouring farms and local communities to create wildlife corridors and promote responsible ecotourism.',
+      },
+      {
+        icon: 'education',
+        title: 'Education',
+        body: 'Opening the reserve to conservation volunteers, researchers, and curious visitors to deepen understanding of these fragile ecosystems.',
+      },
+    ],
+    cta: {
+      heading: 'Come experience the reserve',
+      body: 'Join us for a walk, a night under the stars, or a quiet moment in the mountains.',
+      button: { label: 'Get in touch', href: '/contact' },
+    },
+  },
+
+  /**
+   * ACTIVITIES PAGE
+   */
+  activities: {
+    hero: {
+      eyebrow: 'Explore the reserve',
+      heading: 'Things to do at\nHaumanskloof',
+      intro:
+        'From ancient rock art to rare wildlife encounters, Haumanskloof offers a range of outdoor experiences in one of South Africa\'s most unspoilt mountain landscapes.',
+    },
+    items: [
+      {
+        id: 'wildlife-walks',
+        icon: 'wildlife',
+        tag: 'Self-guided · Guided on request',
+        title: 'Wildlife Walks & Ecology',
+        body: 'Explore the reserve on foot through indigenous fynbos and succulent Karoo. The reserve is home to a remarkable diversity of species — from caracal and Cape mountain leopard to over 200 bird species and hundreds of endemic plants.',
+        highlights: [
+          'Camera trap monitoring stations',
+          'Caracal, porcupine & aardvark sightings',
+          '200+ bird species recorded',
+          'Rare Renosterveld & succulent Karoo flora',
+        ],
+        image: '/images/gallery-wildlife.jpg',
+      },
+      {
+        id: 'rock-art',
+        icon: 'rockart',
+        tag: 'Guided walks · By arrangement',
+        title: 'Ancient San Rock Art',
+        body: 'The mountains of Haumanskloof contain San rock art sites that have survived for thousands of years. Our guided walks bring these ancient sites to life, exploring the spiritual and cultural significance of the paintings.',
+        highlights: [
+          'Thousands of years of Khoisan history',
+          'Guided interpretation of symbolism',
+          'Scenic mountain context',
+          'Photography opportunities',
+        ],
+        image: '/images/gallery-rockart.jpg',
+      },
+      {
+        id: 'hiking',
+        icon: 'hiking',
+        tag: 'Self-guided · Various difficulty levels',
+        title: 'Hiking & Mountain Exploration',
+        body: 'Traverse rocky ridgelines, dry riverbeds, and open mountain plateaus on a network of informal trails. The terrain ranges from gentle river walks to steep summit scrambles — all rewarded with spectacular Breede Valley views.',
+        highlights: [
+          'Varied terrain for all fitness levels',
+          'Panoramic Breede Valley views',
+          'Natural rock pools',
+          'Night sky stargazing at altitude',
+        ],
+        image: '/images/gallery-scenery.jpg',
+      },
+      {
+        id: 'camera-trapping',
+        icon: 'camera',
+        tag: 'Citizen science · Hands-on',
+        title: 'Camera Trap Monitoring',
+        body: 'Join us in actively monitoring the wildlife of the reserve. Help check, deploy, and review camera trap footage as part of our ongoing conservation monitoring programme. A unique behind-the-scenes experience.',
+        highlights: [
+          'Hands-on conservation work',
+          'Real wildlife data collection',
+          'Review nocturnal wildlife footage',
+          'Contribute to long-term monitoring',
+        ],
+        image: '/images/gallery-wildlife.jpg',
+      },
+    ],
+    cta: {
+      heading: 'Ready to explore?',
+      body: "Get in touch to plan your visit. We'll help tailor an experience around what you'd like to see and do.",
+      button: { label: 'Enquire about activities', href: '/contact' },
+    },
   },
 
   /**

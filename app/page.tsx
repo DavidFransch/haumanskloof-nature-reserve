@@ -13,9 +13,9 @@ export default function Home() {
       <Navbar />
       <main className="pt-20">
         <HeroSection />
-        <AboutSection />
         <PillarsSection />
         <GallerySection />
+        <AboutSection />
         <AccommodationSection />
         <CtaSection />
       </main>

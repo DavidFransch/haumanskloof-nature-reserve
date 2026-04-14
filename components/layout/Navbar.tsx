@@ -30,56 +30,54 @@ export default function Navbar() {
         {/* Desktop links */}
         <div className="hidden lg:flex items-baseline gap-7">
           {nav.links.map((link) => (
-            <div key={link.label} className="relative">
-              {link.dropdown ? (
-                <div
-                  onMouseEnter={() => setDropdownOpen(link.label)}
-                  onMouseLeave={() => setDropdownOpen(null)}
-                  className="relative"
-                >
-                  <Link
-                    href={link.href}
-                    className="text-xs tracking-wide text-text-mid no-underline inline-flex items-center gap-1 group"
+            <div
+              key={link.label}
+              className="relative"
+              onMouseEnter={link.dropdown ? () => setDropdownOpen(link.label) : undefined}
+              onMouseLeave={link.dropdown ? () => setDropdownOpen(null) : undefined}
+            >
+              <Link
+                href={link.href}
+                className={`text-xs tracking-wide text-text-mid no-underline inline-flex items-center gap-1 group ${
+                  link.dropdown ? '' : ''
+                }`}
+              >
+                {link.label}
+                {link.dropdown && (
+                  <svg
+                    className="w-3 h-3 opacity-50 group-hover:opacity-70 transition-transform duration-200"
+                    style={{ transform: dropdownOpen === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
-                    {link.label}
-                    <svg
-                      className="w-3 h-3 opacity-50 group-hover:opacity-70 transition-transform duration-200"
-                      style={{ transform: dropdownOpen === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                )}
+              </Link>
+
+              {link.dropdown && dropdownOpen === link.label && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[100]">
+                  <div className="bg-white border border-border rounded-lg shadow-xl py-2 min-w-[180px] overflow-hidden">
+                    <Link
+                      href={link.href}
+                      className="block px-4 py-2.5 text-xs font-medium text-text-dark no-underline hover:bg-bg-light border-b border-border"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </Link>
-                  {dropdownOpen === link.label && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[100]">
-                      <div className="bg-white border border-border rounded-lg shadow-xl py-2 min-w-[180px] overflow-hidden">
+                      View All
+                    </Link>
+                    <div className="py-1">
+                      {link.dropdown.map((item) => (
                         <Link
-                          href={link.href}
-                          className="block px-4 py-2.5 text-xs font-medium text-text-dark no-underline hover:bg-bg-light border-b border-border"
+                          key={item.label}
+                          href={item.href}
+                          className="block px-4 py-2 text-xs text-text-mid no-underline hover:bg-bg-light hover:text-text-dark transition-colors"
                         >
-                          View All
+                          {item.label}
                         </Link>
-                        <div className="py-1">
-                          {link.dropdown.map((item) => (
-                            <Link
-                              key={item.label}
-                              href={item.href}
-                              className="block px-4 py-2 text-xs text-text-mid no-underline hover:bg-bg-light hover:text-text-dark transition-colors"
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
+                      ))}
                     </div>
-                  )}
+                  </div>
                 </div>
-              ) : (
-                <Link href={link.href} className="text-xs tracking-wide text-text-mid no-underline">
-                  {link.label}
-                </Link>
               )}
             </div>
           ))}
