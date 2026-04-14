@@ -108,7 +108,6 @@ export const galleryImagesQuery = groq`
     caption,
     altText,
     order,
-    featured,
     seriesId
   }
 `
@@ -123,21 +122,19 @@ export const galleryImagesByCategoryQuery = groq`
     caption,
     altText,
     order,
-    featured,
     seriesId
   }
 `
 
-// Get featured gallery images (for homepage)
-export const featuredGalleryImagesQuery = groq`
-  *[_type == "galleryImage" && featured == true] | order(order asc) {
+// Get homepage strip images by position
+export const homepageStripImagesQuery = groq`
+  *[_type == "galleryImage" && homepagePosition in ["strip-1", "strip-2", "strip-3"]] | order(homepagePosition asc) {
     _id,
     title,
     category,
     image,
-    caption,
     altText,
-    seriesId
+    homepagePosition
   }
 `
 
@@ -164,3 +161,4 @@ export const galleryCategoryCountsQuery = groq`
     "flora": count(*[_type == "galleryImage" && category == "flora"])
   }
 `
+

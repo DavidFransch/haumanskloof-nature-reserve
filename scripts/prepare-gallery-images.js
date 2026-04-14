@@ -147,6 +147,7 @@ async function processImage(imageInfo, outputBase) {
 
     // First pass: try with standard quality
     let outputBuffer = await sharp(fullPath)
+      .rotate()
       .resize(width, height, { fit: 'inside', withoutEnlargement: true })
       .webp({ quality: QUALITY })
       .toBuffer()
@@ -159,6 +160,7 @@ async function processImage(imageInfo, outputBase) {
       // Try progressively lower quality
       for (const q of [75, 70, 65, 60]) {
         const testBuffer = await sharp(fullPath)
+          .rotate()
           .resize(width, height, { fit: 'inside', withoutEnlargement: true })
           .webp({ quality: q })
           .toBuffer()

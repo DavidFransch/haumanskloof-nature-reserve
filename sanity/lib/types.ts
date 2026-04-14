@@ -51,6 +51,8 @@ export interface Post {
 
 export type GalleryCategory = 'camera-trap' | 'wildlife' | 'landscapes' | 'family' | 'flora'
 
+export type HomepagePosition = 'strip-1' | 'strip-2' | 'strip-3'
+
 export interface GalleryImage {
   _id: string
   title: string
@@ -59,7 +61,7 @@ export interface GalleryImage {
   caption?: string
   altText: string
   order?: number
-  featured?: boolean
+  homepagePosition?: HomepagePosition
   seriesId?: string
 }
 

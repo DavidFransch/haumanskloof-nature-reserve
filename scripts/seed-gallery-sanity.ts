@@ -181,7 +181,6 @@ async function uploadImage(
       },
       altText: title,
       order,
-      featured: false,
       ...(seriesId && { seriesId }),
     }
 

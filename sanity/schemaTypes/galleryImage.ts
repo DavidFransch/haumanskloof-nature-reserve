@@ -56,11 +56,18 @@ export const galleryImage = defineType({
       description: 'Lower numbers appear first',
     }),
     defineField({
-      name: 'featured',
-      title: 'Featured',
-      type: 'boolean',
-      description: 'Show on homepage gallery strip',
-      initialValue: false,
+      name: 'homepagePosition',
+      title: 'Homepage Strip Position',
+      type: 'string',
+      description: 'Select a position to feature this image on the homepage strip. Leave empty to not feature.',
+      options: {
+        list: [
+          { title: 'Position 1 (large, left)', value: 'strip-1' },
+          { title: 'Position 2 (small, centre)', value: 'strip-2' },
+          { title: 'Position 3 (small, right)', value: 'strip-3' },
+        ],
+        layout: 'radio',
+      },
     }),
     defineField({
       name: 'seriesId',
@@ -89,9 +96,9 @@ export const galleryImage = defineType({
       title: 'title',
       category: 'category',
       media: 'image',
-      featured: 'featured',
+      homepagePosition: 'homepagePosition',
     },
-    prepare({ title, category, media, featured }) {
+    prepare({ title, category, media, homepagePosition }) {
       const categoryLabels: Record<string, string> = {
         'camera-trap': 'Camera Trap',
         wildlife: 'Wildlife on Foot',
@@ -99,8 +106,14 @@ export const galleryImage = defineType({
         family: 'Haumanskloof Family',
         flora: 'Flora & Fynbos',
       }
+      const positionLabels: Record<string, string> = {
+        'strip-1': '① ',
+        'strip-2': '② ',
+        'strip-3': '③ ',
+      }
+      const prefix = homepagePosition ? positionLabels[homepagePosition] || '' : ''
       return {
-        title: featured ? `★ ${title}` : title,
+        title: `${prefix}${title}`,
         subtitle: categoryLabels[category] || category,
         media,
       }
