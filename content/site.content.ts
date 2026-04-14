@@ -234,6 +234,51 @@ export const siteContent = {
   },
 
   /**
+   * ACCOMMODATION PAGE
+   */
+  accommodation: {
+    hero: {
+      eyebrow: 'Where to stay',
+      heading: 'Eco-conscious comfort\nin the mountains',
+      intro:
+        'Wake up to birdsong and fall asleep under clear mountain skies. Our units are designed to keep you close to the land without sacrificing comfort.',
+    },
+    bunkhouse: {
+      id: 'bunkhouse',
+      title: 'The Bunkhouse',
+      capacity: 'Sleeps up to 8 guests',
+      intro:
+        'Nestled in a private valley, the Bunkhouse is our flagship unit. It combines rugged mountain charm with modern eco-amenities, offering the perfect base for families or groups of friends.',
+      details: [
+        '3 Bedrooms (Queen, Twin, and Bunk configurations)',
+        'Fully equipped kitchen with gas stove',
+        'Spacious deck with sunset views',
+        'Wood-fired hot tub overlooking the valley',
+        'Solar-powered lighting and charging points',
+      ],
+      gallery: [
+        { label: 'Inside: Living Area', image: '/images/bunkhouse-inside.jpg', category: 'interior' },
+        { label: 'Inside: The Kitchen', image: '/images/bunkhouse-kitchen.jpg', category: 'interior' },
+        { label: 'Outside: The Hot Tub', image: '/images/bunkhouse-hotub.jpg', category: 'exterior' },
+        { label: 'Outside: The Surroundings', image: '/images/bunkhouse.jpg', category: 'landscape' },
+      ],
+    },
+    amenities: [
+      { icon: 'mountain', title: 'Mountain Views', body: '360-degree views of the Breede Valley peaks from every window.' },
+      { icon: 'fire', title: 'Indoor Fireplace', body: 'Keep warm on cool mountain nights with our traditional wood stove.' },
+      { icon: 'solar', title: 'Solar Powered', body: 'Fully off-grid with reliable solar power for lights and devices.' },
+      { icon: 'kitchen', title: 'Full Kitchen', body: 'Gas appliances and everything you need for self-catering.' },
+      { icon: 'hottub', title: 'Wood-fired Tub', body: 'The ultimate way to unwind after a day of hiking or exploration.' },
+      { icon: 'privacy', title: 'Total Privacy', body: 'The Bunkhouse is set well away from other units for total seclusion.' },
+    ],
+    cta: {
+      heading: 'Book your mountain escape',
+      body: 'Check availability and enquire about seasonal rates for the Bunkhouse or our upcoming camping spots.',
+      button: { label: 'Enquire for rates', href: '/contact' },
+    },
+  },
+
+  /**
    * FOOTER
    */
   footer: {
