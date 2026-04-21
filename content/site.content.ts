@@ -269,6 +269,17 @@ export const siteContent = {
         'Wood-fired hot tub overlooking the valley',
         'Solar-powered lighting and charging points',
       ],
+      storyTitle: 'The story behind the build',
+      story: `The unit was constructed with the hope of having a minimal ecological footprint during its occupancy and construction. Recycled and up-cycled materials were therefore used where possible, however the sacrifice of comfort was non-negotiable. New materials thus had to be transported in for substructures, decking, internal walling and ceiling purposes.
+
+Due to the isolation of the house, the rocky terrain and the proximity to a stream – many variables had to be approached very cautiously. It is for this reason that we have opted for a compost toilet rather than a septic tank system. The sinking of a septic tank system – often requires water based flush and overflow mechanisms – which in this water scarce area and within this proximity to the stream was just not an option. The bunkhouse also boasts an unconventional electrical earth mat which was designed into the decking substructure to avoid unnecessary soil disturbance. 
+
+The bathroom is built out of fully up cycled and recycled materials (asides for some structural timber where required by legislation). Double wooden doors, originally installed in the main building, were replaced with glass sliding doors to maximize one’s opportunity for a view in the house. These double doors now clad the bathroom to allow for additional 360⁰ views of nature while showering. The bathrooms internal cladding – even the cabinetry - is made up of offcuts from the rest of the house. 
+This cabinetry rule further extends to the main house. All the furniture aside from a few select couches and bed frames were crafted from recycled timber on the farm. Bedframes were also manufactured on the farm however new timber was essential for these pieces to enable maximum comfort and peace of mind. 
+
+Paintings are all upcycled from our personal collections on the farm, and any additional works are intended to be sourced locally. Please reach out if you would like to find out more regarding this. 
+
+As I hope you can gather, the house was meticulously built and designed to be enjoyed in nature, without disturbing it – I hope that you experience and enjoy the fruits of these efforts!`,
       gallery: [
         { label: 'Inside: Living Area', image: '/images/bunkhouse-inside.jpg', category: 'interior' },
         { label: 'Inside: The Kitchen', image: '/images/bunkhouse-kitchen.jpg', category: 'interior' },

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import VimeoEmbed from '@/components/ui/VimeoEmbed'
+import Disclosure from '@/components/ui/Disclosure'
 import { siteContent } from '@/content/site.content'
 
 export const metadata: Metadata = {
@@ -118,6 +119,19 @@ export default function AccommodationPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Bunkhouse Story Section */}
+        <section className="border-b border-border">
+          <div className="container-max px-10 py-0">
+            <Disclosure title={accommodation.bunkhouse.storyTitle}>
+              <div className="space-y-6">
+                {accommodation.bunkhouse.story.split('\n\n').map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+            </Disclosure>
           </div>
         </section>
 
