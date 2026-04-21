@@ -125,30 +125,38 @@ export const siteContent = {
   about: {
     hero: {
       eyebrow: 'Our story',
-      heading: 'A family-run sanctuary\nin the Breede Valley',
+      heading: 'About Us',
       intro:
-        'Haumanskloof is nestled deep in the mountains of the Breede Valley, where indigenous fynbos, towering peaks, and ancient rock art tell a story older than memory.',
+        'Haumanskloof is more than just a destination – it’s a return. A return to family, to self-discovery and to deeper connection.',
     },
     story: [
-      'Haumanskloof is a family-run nature reserve set in the heart of the Breede Valley mountains. The land has been in the family for decades, and over time we have worked to restore, protect, and share its extraordinary natural heritage.',
-      'The reserve lies at a rare intersection of two globally significant biomes — Renosterveld and the succulent Karoo — each harbouring species found nowhere else on Earth. Our commitment is to this land: to understand it, protect it, and share it with others who care as deeply as we do.',
-      'We welcome guests to experience the reserve as we do — on foot, under open skies, with curiosity and respect. Whether you come for the wildlife, the rock art, the silence, or all of the above, Haumanskloof will leave its mark on you.',
+      'After years of living across three South African cities, the pace of high-energy city life was all too familiar to us, and a call to the wild was beckoning.',
+      'Being drawn to what had always grounded our family, our hearts kept returning to the wild landscapes that shaped and inspired us. The raw beauty of nature at its best, and us, an integral part of it this time.',
+      'In 2023, being guided by good faith and bold decisions, our family’s journey lead us all to Haumanskloof, and our vision was born. What began as a move towards quiet farm life and closer family, soon became about something far greater – the community of existence. A way of life centred on celebrating rediscovery, connection and conservation.',
+      'The name Haumanskloof carries a resonance to the legacy of its namesake that feels especially meaningful to us. The property was originally named after the Belgian botanist, teacher and advocate for environmental protection, Lucien Léon Hauman. The reserve reflects the values he stood for – of curiosity, learning and a deep respect for the natural world.',
+      'At Haumanskloof, we let nature set the pace. Every decision we make is guided by a belief that nature is not something separate from us, but something we belong to. Our daily work is rooted in ensuring that this unique landscape is protected and preserved for future generations, offering a safe haven for threatened ecosystems, the biodiversity they support and the functions they maintain. Through the work we do, we hope to cultivate a space of connection and coexistence through thoughtful and monitored conservation.',
+      'Whether you’re a hiker, a birder, a cyclist, a star gazer or simply enjoy a quiet braai – the reserve is the place for you.',
+      'Tucked away in this ancient valley is more than just a destination – it’s a way of existing.',
     ],
+    vision:
+      'A sustainable enterprise that preserves biodiversity, builds harmony, and instils ethical values – connecting people, planet and self.',
+    mission:
+      'To protect and restore the natural integrity of Haumanskloof through responsible stewardship, sustainable living, and meaningful experiences that inspire conservation, simplicity and connection.',
     values: [
       {
-        icon: 'conservation',
-        title: 'Conservation',
-        body: 'Active habitat restoration, invasive species removal, and camera trap monitoring to protect the reserve\'s rare flora and fauna.',
+        icon: 'integrity',
+        title: 'Integrity',
+        body: 'We lead with honesty, transparency and respect in everything we do.',
       },
       {
-        icon: 'community',
-        title: 'Community',
-        body: 'Working with neighbouring farms and local communities to create wildlife corridors and promote responsible ecotourism.',
+        icon: 'stewardship',
+        title: 'Stewardship',
+        body: 'We believe the land is not ours to own, but ours to care for and preserve.',
       },
       {
-        icon: 'education',
-        title: 'Education',
-        body: 'Opening the reserve to conservation volunteers, researchers, and curious visitors to deepen understanding of these fragile ecosystems.',
+        icon: 'passion',
+        title: 'Passion',
+        body: 'Our love for nature, community and meaningful living guides every decision we make.',
       },
     ],
     cta: {

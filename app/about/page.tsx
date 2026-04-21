@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 const valueIcons: Record<string, React.ReactNode> = {
-  conservation: (
+  integrity: (
     <svg
       width="24"
       height="24"
@@ -22,11 +22,12 @@ const valueIcons: Record<string, React.ReactNode> = {
       strokeWidth="1"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M12 2C12 2 4 6 4 13a8 8 0 0 0 16 0C20 6 12 2 12 2z" />
-      <path d="M12 7v10M9 10l3-3 3 3" opacity="0.5" />
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="M12 8v4" opacity="0.5" />
+      <circle cx="12" cy="15" r="0.5" fill="currentColor" />
     </svg>
   ),
-  community: (
+  stewardship: (
     <svg
       width="24"
       height="24"
@@ -36,13 +37,12 @@ const valueIcons: Record<string, React.ReactNode> = {
       strokeWidth="1"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="9" cy="8" r="3" />
-      <circle cx="17" cy="8" r="3" />
-      <path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6" />
-      <path d="M16 14c2.5 0 6 1.5 6 6" opacity="0.5" />
+      <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9z" />
+      <path d="M12 7v5l3 3" opacity="0.5" />
+      <circle cx="12" cy="12" r="1" opacity="0.3" />
     </svg>
   ),
-  education: (
+  passion: (
     <svg
       width="24"
       height="24"
@@ -52,9 +52,7 @@ const valueIcons: Record<string, React.ReactNode> = {
       strokeWidth="1"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M2 10L12 4l10 6-10 6L2 10z" />
-      <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" opacity="0.5" />
-      <line x1="22" y1="10" x2="22" y2="17" opacity="0.4" />
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
     </svg>
   ),
 }
@@ -114,6 +112,24 @@ export default function AboutPage() {
               <span className="absolute bottom-4 left-5 text-white/55 text-[10px] tracking-widest uppercase">
                 Breede Valley · Western Cape
               </span>
+            </div>
+          </div>
+        </section>
+
+        {/* Vision & Mission */}
+        <section className="section-padding border-b border-border bg-bg-light/40">
+          <div className="container-max grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+            <div>
+              <p className="label-text mb-4 text-text-muted">Our Vision</p>
+              <h2 className="font-heading text-[clamp(24px,3vw,32px)] font-light text-text-dark leading-tight italic">
+                &ldquo;{about.vision}&rdquo;
+              </h2>
+            </div>
+            <div>
+              <p className="label-text mb-4 text-text-muted">Our Mission</p>
+              <p className="text-text-dark/80 leading-relaxed text-[17px] font-light">
+                {about.mission}
+              </p>
             </div>
           </div>
         </section>
