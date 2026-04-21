@@ -251,6 +251,11 @@ export const siteContent = {
       intro:
         'Wake up to birdsong and fall asleep under clear mountain skies. Our units are designed to keep you close to the land without sacrificing comfort.',
     },
+    // Replace with Lloyd's Vimeo ID when account is ready
+    droneVideo: {
+      vimeoId: '1185190221',
+      title: 'Haumanskloof Nature Reserve — aerial view',
+    },
     bunkhouse: {
       id: 'bunkhouse',
       title: 'The Bunkhouse',

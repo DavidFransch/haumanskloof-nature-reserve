@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import VimeoEmbed from '@/components/ui/VimeoEmbed'
 import { siteContent } from '@/content/site.content'
 
 export const metadata: Metadata = {
@@ -121,28 +122,23 @@ export default function AccommodationPage() {
         </section>
 
         {/* Drone Video Section */}
-        <section className="bg-bg-dark py-24 md:py-32 overflow-hidden border-b border-border">
-          <div className="container-max px-10">
-            <div className="relative aspect-video w-full max-w-[900px] mx-auto rounded-lg overflow-hidden bg-bg-mid group cursor-pointer shadow-2xl">
-              {/* Poster Image Placeholder */}
-              <div className="absolute inset-0 bg-cover bg-center opacity-40 grayscale group-hover:scale-105 transition-transform duration-700" style={{ backgroundImage: 'url(/images/hero.jpg)' }} />
-              
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-6">
-                <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center bg-white/10 backdrop-blur-sm mb-6 group-hover:scale-110 transition-transform">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="label-text text-white/50 mb-2">Aerial View</p>
-                <h3 className="font-heading text-2xl text-white font-light tracking-wide">
+        {accommodation.droneVideo.vimeoId !== 'PLACEHOLDER' && (
+          <section className="bg-bg-dark py-24 md:py-32 overflow-hidden border-b border-border">
+            <div className="container-max px-10">
+              <div className="text-center mb-8">
+                <h3 className="font-heading text-[clamp(24px,3vw,36px)] text-white font-light tracking-wide">
                   Experience Haumanskloof From Above
                 </h3>
               </div>
-              
-              <div className="absolute inset-0 bg-black/30" />
+              <div className="w-full max-w-[900px] mx-auto">
+                <VimeoEmbed
+                  videoId={accommodation.droneVideo.vimeoId}
+                  title={accommodation.droneVideo.title}
+                />
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Gallery Section */}
         <section className="border-b border-border bg-white">
