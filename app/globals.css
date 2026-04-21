@@ -68,4 +68,23 @@
       padding: 5rem 2.5rem;
     }
   }
+
+  /* Custom thin scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
 }

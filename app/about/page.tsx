@@ -85,15 +85,16 @@ export default function AboutPage() {
         {/* Story */}
         <section className="section-padding border-b border-border">
           <div className="container-max grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
+            <div className="relative">
               <p className="label-text mb-4">Our history</p>
-              <div className="space-y-5">
+              <div className="space-y-5 max-h-[380px] lg:max-h-[460px] overflow-y-auto pr-6 custom-scrollbar pb-10">
                 {about.story.map((paragraph, i) => (
                   <p key={i} className="text-text-mid leading-relaxed text-[15px]">
                     {paragraph}
                   </p>
                 ))}
               </div>
+              <div className="absolute bottom-0 left-0 right-6 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none" />
             </div>
             <div className="relative h-[380px] lg:h-[460px] rounded-lg overflow-hidden bg-bg-mid">
               <Image

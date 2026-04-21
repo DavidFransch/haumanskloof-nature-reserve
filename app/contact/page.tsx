@@ -327,7 +327,7 @@ export default function ContactPage() {
                   <h3 className="font-heading text-xl text-text-dark mb-3">Find Us</h3>
                   <div className="h-64 rounded-lg overflow-hidden">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16033.738730671163!2d19.5513889!3d-33.8444439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcd89cca3992467%3A0xb7ce348c0f3b23a5!2sHaumanskloof!5e1!3m2!1sen!2sza!4v1775910062491!5m2!1sen!2sza"
+                      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4136.067704106463!2d19.52301217645887!3d-33.79264367325578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDQ3JzMzLjUiUyAxOcKwMzEnMzIuMSJF!5e1!3m2!1sen!2sza!4v1776780773101!5m2!1sen!2sza"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
