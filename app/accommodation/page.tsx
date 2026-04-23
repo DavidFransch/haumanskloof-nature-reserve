@@ -60,6 +60,22 @@ const amenityIcons: Record<string, React.ReactNode> = {
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   ),
+  toilet: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+      <path d="M7 3h10v8a5 5 0 0 1-10 0V3z" />
+      <path d="M5 21h14" />
+      <path d="M12 16v5" />
+    </svg>
+  ),
+  nowifi: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+      <line x1="2" y1="2" x2="22" y2="22" />
+      <path d="M8.5 16.5a5 5 0 0 1 7 0" opacity="0.4" />
+      <path d="M5 12.5a9 9 0 0 1 5.5-2.5" />
+      <path d="M14 10a9 9 0 0 1 5 2.5" />
+      <circle cx="12" cy="20" r="1" fill="currentColor" />
+    </svg>
+  ),
 }
 
 export default function AccommodationPage() {
@@ -161,7 +177,7 @@ export default function AccommodationPage() {
             <h2 className="font-heading text-[clamp(22px,3vw,34px)] font-light text-text-dark leading-tight mb-12">
               Inside, Outside, and Beyond
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {accommodation.bunkhouse.gallery.map((item, index) => (
                 <div key={index} className="space-y-3 group cursor-pointer">
@@ -173,9 +189,9 @@ export default function AccommodationPage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10">
-                       <span className="text-[10px] text-white tracking-widest uppercase border border-white/30 px-3 py-1.5 rounded-sm backdrop-blur-sm">
-                         Enlarge
-                       </span>
+                      <span className="text-[10px] text-white tracking-widest uppercase border border-white/30 px-3 py-1.5 rounded-sm backdrop-blur-sm">
+                        Enlarge
+                      </span>
                     </div>
                   </div>
                   <div>
@@ -197,7 +213,7 @@ export default function AccommodationPage() {
                 Thoughtfully equipped for an off-grid experience
               </h2>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-10">
               {accommodation.amenities.map((amenity, i) => (
                 <div key={i} className="flex gap-5">

@@ -136,26 +136,28 @@ export default function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="border-b border-border">
-          <div className="container-max section-padding pb-0">
-            <p className="label-text mb-3">What guides us</p>
-            <h2 className="font-heading text-[clamp(22px,3vw,34px)] font-light text-text-dark leading-tight mb-12 max-w-[480px]">
-              Our values
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
-            {about.values.map((value, i) => (
-              <div
-                key={value.title}
-                className={`py-10 px-8 ${i < about.values.length - 1 ? 'border-b md:border-b-0 md:border-r border-border' : ''}`}
-              >
-                <div className="text-text-muted mb-4">{valueIcons[value.icon]}</div>
-                <h3 className="font-heading text-lg font-medium text-text-dark mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-[13px] text-text-mid leading-relaxed">{value.body}</p>
-              </div>
-            ))}
+        <section className="bg-bg-light border-b border-border">
+          <div className="container-max section-padding">
+            <div className="text-center mb-16 max-w-[600px] mx-auto">
+              <p className="label-text mb-3">What guides us</p>
+              <h2 className="font-heading text-[clamp(24px,3vw,36px)] font-light text-text-dark leading-tight mb-4">
+                Our values
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-10">
+              {about.values.map((value, i) => (
+                <div key={value.title} className="flex gap-5">
+                  <div className="text-primary shrink-0 mt-1">{valueIcons[value.icon]}</div>
+                  <div>
+                    <h3 className="font-heading text-lg font-medium text-text-dark mb-2">
+                      {value.title}
+                    </h3>
+                    <p className="text-[13px] text-text-mid leading-relaxed">{value.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
