@@ -21,6 +21,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: siteContent.siteName,
   description: siteContent.siteTagline,
+  icons: {
+    icon: '/images/logo-2.png',
+  },
   openGraph: {
     title: siteContent.siteName,
     description: siteContent.siteTagline,
