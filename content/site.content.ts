@@ -200,7 +200,6 @@ export const siteContent = {
         highlights: [
           'Varied terrain for all fitness levels',
           'Panoramic Breede Valley views',
-          'Natural rock pools',
           'Night sky stargazing at altitude',
         ],
         image: '/images/gallery-scenery.jpg',
