@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
+import { Analytics } from "@vercel/analytics/next"
 import { siteContent } from '@/content/site.content'
 
 const cormorant = Cormorant_Garamond({
@@ -38,7 +39,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-scroll-behavior="smooth"
       className={`${cormorant.variable} ${inter.variable}`}
     >
-      <body className="font-body text-text-dark bg-white antialiased">{children}</body>
+      <body className="font-body text-text-dark bg-white antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
