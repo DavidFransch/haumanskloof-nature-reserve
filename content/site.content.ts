@@ -54,9 +54,9 @@ export const siteContent = {
       eyebrow: 'Breede Valley · Western Cape',
       headline: 'Deep in the mountains of the\nBreede Valley, is a hidden sanctuary.',
       intro:
-        'Haumanskloof is a land of contrast, where vibrant Renosterveld greens meet the arid beauty of the succulent Karoo.',
-      body: 'Just two hours from Cape Town, Haumanskloof is a family-run sanctuary where nature and community thrive. Explore and immerse yourself in a unique natural setting, discover ancient rock art, or simply unwind under the stars.',
-      cta: 'Come experience this special intersection of soaring peaks, pristine landscapes and rugged roads — we invite you to join us!',
+        'Haumanskloof is a land of contrast, where vibrant Renosterveld and Fynbos meet the arid beauty of the Succulent Karoo.',
+      body: 'Just two hours from Cape Town, Haumanskloof is a family-run sanctuary where nature and community thrive. Explore and immerse yourself in a unique natural setting, discover the riches of the land, or simply unwind under the stars.',
+      cta: 'Come experience this special intersection of rolling mountains, pristine landscapes and rugged roads — we invite you to join us!',
       primaryCta: { label: 'Explore the reserve', href: '#about' },
       secondaryCta: { label: 'View accommodation', href: '/accommodation' },
     },
@@ -64,7 +64,7 @@ export const siteContent = {
     about: {
       label: 'Our sanctuary',
       heading: 'A land of contrast and wonder',
-      body: 'Haumanskloof is a place where soaring peaks meet pristine landscapes and rugged roads. Discover ancient rock art, encounter rare wildlife, or simply unwind under the stars — we invite you to join us.',
+      body: 'Haumanskloof is a place where gently rolling mountains meet pristine landscapes and rugged roads. Discover ancient landscapes, encounter local wildlife, or simply unwind under the stars — we invite you to join us.',
       cta: { label: 'Meet the family', href: '/about' },
     },
 
@@ -72,7 +72,7 @@ export const siteContent = {
       {
         icon: 'wildlife',
         title: 'Wildlife & ecology',
-        body: 'Camera trap monitoring, rare Renosterveld and succulent Karoo flora, and exploration through indigenous habitat.',
+        body: 'Camera trap monitoring, diverse Renosterveld, Fynbos and Succulent Karoo flora, and exploration through indigenous habitat.',
       },
       {
         icon: 'accommodation',
@@ -81,8 +81,8 @@ export const siteContent = {
       },
       {
         icon: 'rockart',
-        title: 'Ancient rock art',
-        body: 'Explore San rock art sites and connect with thousands of years of human history in the valley.',
+        title: 'Ancient landscapes',
+        body: 'Explore a timeless landscape through scenic walks, stargazing, photography and quiet immersion in nature.',
       },
     ],
 
@@ -114,7 +114,7 @@ export const siteContent = {
 
     cta: {
       heading: 'Come experience the sanctuary',
-      body: "Discover ancient rock art, encounter rare wildlife, or simply unwind under the stars. We'd love to have you.",
+      body: "Discover ancient landscapes, encounter local wildlife, or simply unwind under the stars. We'd love to have you.",
       button: { label: 'Get in touch', href: '/contact' },
     },
   },
@@ -174,7 +174,7 @@ export const siteContent = {
       eyebrow: 'Explore the reserve',
       heading: 'Things to do at\nHaumanskloof',
       intro:
-        'From ancient rock art to rare wildlife encounters, Haumanskloof offers a range of outdoor experiences in one of South Africa\'s most unspoilt mountain landscapes.',
+        "From self-paced exploration to quiet relaxation, Haumanskloof offers a range of outdoor experiences in a uniquely South African landscape.",
     },
     items: [
       {
@@ -182,12 +182,12 @@ export const siteContent = {
         icon: 'wildlife',
         tag: 'Self-guided · Guided on request',
         title: 'Wildlife Walks & Ecology',
-        body: 'Explore the reserve on foot through indigenous fynbos and succulent Karoo. The reserve is home to a remarkable diversity of species — from caracal and Cape mountain leopard to over 200 bird species and hundreds of endemic plants.',
+        body: 'Explore the reserve on foot through indigenous veld. The reserve is home to a remarkable diversity of species — from caracal and Cape mountain leopard to over 200 bird species and hundreds of endemic plants.',
         highlights: [
           'Camera trap monitoring stations',
           'Caracal, porcupine & aardvark sightings',
           '200+ bird species recorded',
-          'Rare Renosterveld & succulent Karoo flora',
+          'Indigenous Renosterveld, Fynbos & Succulent Karoo flora',
         ],
         image: '/images/gallery-wildlife.jpg',
       },
@@ -217,20 +217,6 @@ export const siteContent = {
           'Combine with wildlife spotting on the move',
         ],
         image: '/images/gallery/landscapes/hkloof-landscape-4x4-track.webp',
-      },
-      {
-        id: 'outdoor-fitness',
-        icon: 'fitness',
-        tag: 'Self-guided · Wellness on request',
-        title: 'Outdoor Fitness & Wellness',
-        body: 'Start your morning with a workout in the open air, surrounded by mountain views and birdsong. The reserve offers outdoor exercise stations set within the landscape, designed to complement rather than compete with the natural environment. Private yoga and wellness sessions are available on request.',
-        highlights: [
-          'Outdoor exercise stations',
-          'Mountain air and open skies',
-          'Private yoga sessions on request',
-          'Ideal for groups and retreats',
-        ],
-        image: '/images/gallery/landscapes/dragonsback.webp',
       },
     ],
     cta: {
@@ -262,7 +248,7 @@ export const siteContent = {
       intro:
         'Nestled in a private valley, the Bunkhouse is our flagship unit. It combines rugged mountain charm with modern eco-amenities, offering the perfect base for families or groups of friends.',
       details: [
-        '3 bedrooms — Queen, Twin, and Bunk configurations',
+        '2 bedrooms — Queen, Twin, and Bunk configurations',
         'Fully equipped kitchen with gas stove',
         'Spacious deck with panoramic valley views',
         'Indoor and outdoor fireplace',
@@ -272,16 +258,15 @@ export const siteContent = {
         'No Wi-Fi — fully off the grid',
       ],
       storyTitle: 'The story behind the build',
-      story: `The unit was constructed with the hope of having a minimal ecological footprint during its occupancy and construction. Recycled and up-cycled materials were therefore used where possible, however the sacrifice of comfort was non-negotiable. New materials thus had to be transported in for substructures, decking, internal walling and ceiling purposes.
+      story: `The unit was constructed with the hope of having a minimal ecological footprint during its occupancy and construction. Recycled and up-cycled materials were therefore used where possible, however, the sacrifice of comfort was non-negotiable. New materials thus had to be transported in for substructures, decking, internal walling and ceiling purposes.
 
-Due to the isolation of the house, the rocky terrain and the proximity to a stream – many variables had to be approached very cautiously. It is for this reason that we have opted for a compost toilet rather than a septic tank system. The sinking of a septic tank system – often requires water based flush and overflow mechanisms – which in this water scarce area and within this proximity to the stream was just not an option. The bunkhouse also boasts an unconventional electrical earth mat which was designed into the decking substructure to avoid unnecessary soil disturbance. 
+Due to the isolation of the house, the rocky terrain and the proximity to a stream – many variables had to be approached very cautiously. It is for this reason that we opted for a compost toilet rather than a septic tank system. The sinking of a septic tank system often requires water based flush and overflow mechanisms – which in this water scarce area and within this proximity to the stream was just not an option. The bunkhouse also boasts an unconventional electrical earth mat which was designed into the decking substructure to avoid unnecessary soil disturbance.
 
-The bathroom is built out of fully up cycled and recycled materials (asides for some structural timber where required by legislation). Double wooden doors, originally installed in the main building, were replaced with glass sliding doors to maximize one’s opportunity for a view in the house. These double doors now clad the bathroom to allow for additional 360⁰ views of nature while showering. The bathrooms internal cladding – even the cabinetry - is made up of offcuts from the rest of the house. 
-This cabinetry rule further extends to the main house. All the furniture aside from a few select couches and bed frames were crafted from recycled timber on the farm. Bedframes were also manufactured on the farm however new timber was essential for these pieces to enable maximum comfort and peace of mind. 
+The bathroom is built out of fully up-cycled and recycled materials (aside for some structural timber where required by legislation). Double wooden doors, originally installed in the main building, were replaced with glass sliding doors to maximize one's opportunity for a view in the house. These double doors now clad the bathroom to allow for additional 360⁰ views of nature while showering. The bathroom's internal cladding – even the cabinetry – is made from offcuts from the rest of the house. This cabinetry rule further extends to the main house. All the furniture, aside from a few select couches and bed frames, were crafted from recycled timber on the farm. Bedframes were also manufactured on the farm, however, new timber was essential for these pieces to enable maximum comfort and peace of mind.
 
-Paintings are all upcycled from our personal collections on the farm, and any additional works are intended to be sourced locally. Please reach out if you would like to find out more regarding this. 
+Paintings are all up-cycled from our personal collections on the farm, and any additional works are intended to be sourced locally. Please reach out if you would like to find out more regarding this.
 
-As I hope you can gather, the house was meticulously built and designed to be enjoyed in nature, without disturbing it – I hope that you experience and enjoy the fruits of these efforts!`,
+The house was meticulously built and designed to be enjoyed in nature, without disturbing it – We hope that you experience and enjoy the fruits of these efforts!`,
       gallery: [
         { label: 'Inside: Living Area', image: '/images/bunkhouse-inside.jpg', category: 'interior' },
         { label: 'Inside: The Kitchen', image: '/images/bunkhouse-kitchen.jpg', category: 'interior' },
@@ -290,10 +275,10 @@ As I hope you can gather, the house was meticulously built and designed to be en
       ],
     },
     amenities: [
-      { icon: 'mountain', title: 'Mountain views', body: 'Panoramic 360-degree views of the Breede Valley peaks from every window and the outdoor deck.' },
+      { icon: 'mountain', title: 'Mountain views', body: 'Panoramic 360-degree views of the Breede Valley landscape from every window and the outdoor deck.' },
       { icon: 'fire', title: 'Indoor & outdoor fireplace', body: 'Two fireplaces — one inside for cosy evenings, one outside for gathering under the stars.' },
-      { icon: 'solar', title: 'Solar powered', body: 'Fully off-grid with reliable solar power for lighting and device charging.' },
-      { icon: 'kitchen', title: 'Full kitchen', body: 'Gas appliances and everything you need for a comfortable self-catering stay.' },
+      { icon: 'solar', title: 'Solar powered', body: 'Fully off-grid with solar power for lighting and device charging, designed for mindful use.' },
+      { icon: 'kitchen', title: 'Fully-equipped kitchen', body: 'Gas appliances, DeLonghi coffee machine and everything you need for a comfortable self-catering stay.' },
       { icon: 'hottub', title: 'Wood-fired hot tub', body: 'The ultimate way to unwind after a day on the mountain, overlooking the valley.' },
       { icon: 'privacy', title: 'Total privacy', body: 'The Bunkhouse is completely secluded — no neighbours, no noise, just nature.' },
       { icon: 'toilet', title: 'Compost toilet', body: 'An eco-conscious alternative to a septic system, designed to protect the nearby stream and surrounding habitat.' },
