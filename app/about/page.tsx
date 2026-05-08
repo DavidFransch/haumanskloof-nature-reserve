@@ -42,7 +42,7 @@ const valueIcons: Record<string, React.ReactNode> = {
       <circle cx="12" cy="12" r="1" opacity="0.3" />
     </svg>
   ),
-  passion: (
+  mountain: (
     <svg
       width="24"
       height="24"
@@ -50,9 +50,11 @@ const valueIcons: Record<string, React.ReactNode> = {
       fill="none"
       stroke="currentColor"
       strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      <path d="M2 20 L9 6 L13 14 L17 8 L22 20 H2 Z" />
     </svg>
   ),
 }

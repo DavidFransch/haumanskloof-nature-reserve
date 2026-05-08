@@ -30,7 +30,7 @@ const icons: Record<string, React.ReactNode> = {
       <rect x="9" y="14" width="6" height="7" />
     </svg>
   ),
-  rockart: (
+  mountain: (
     <svg
       width="24"
       height="24"
@@ -38,11 +38,11 @@ const icons: Record<string, React.ReactNode> = {
       fill="none"
       stroke="currentColor"
       strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M4 19 Q8 6 12 4 Q16 6 20 19" />
-      <path d="M7 13 Q12 10 17 13" />
-      <line x1="12" y1="4" x2="12" y2="1" />
+      <path d="M2 20 L9 6 L13 14 L17 8 L22 20 H2 Z" />
     </svg>
   ),
 }

@@ -27,7 +27,7 @@ const activityIcons: Record<string, React.ReactNode> = {
       <circle cx="12" cy="9" r="1.5" fill="currentColor" opacity="0.4" />
     </svg>
   ),
-  rockart: (
+  mountain: (
     <svg
       width="28"
       height="28"
@@ -35,11 +35,11 @@ const activityIcons: Record<string, React.ReactNode> = {
       fill="none"
       stroke="currentColor"
       strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M4 19 Q8 6 12 4 Q16 6 20 19" />
-      <path d="M7 13 Q12 10 17 13" />
-      <line x1="12" y1="4" x2="12" y2="1" />
+      <path d="M2 20 L9 6 L13 14 L17 8 L22 20 H2 Z" />
     </svg>
   ),
   hiking: (

@@ -16,9 +16,8 @@ export const metadata: Metadata = {
 
 const amenityIcons: Record<string, React.ReactNode> = {
   mountain: (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-      <path d="M4 20 L12 4 L20 20" />
-      <path d="M8 12 L10 10 L12 11 L14 9 L16 12" opacity="0.5" />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 20 L9 6 L13 14 L17 8 L22 20 H2 Z" />
     </svg>
   ),
   fire: (

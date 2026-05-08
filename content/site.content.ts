@@ -80,7 +80,7 @@ export const siteContent = {
         body: 'Comfortable bunkhouse unit nestled in the reserve. Fall asleep to the sounds of the bush.',
       },
       {
-        icon: 'rockart',
+        icon: 'mountain',
         title: 'Ancient landscapes',
         body: 'Explore a timeless landscape through scenic walks, stargazing, photography and quiet immersion in nature.',
       },
@@ -154,7 +154,7 @@ export const siteContent = {
         body: 'We believe the land is not ours to own, but ours to care for and preserve.',
       },
       {
-        icon: 'passion',
+        icon: 'mountain',
         title: 'Passion',
         body: 'Our love for nature, community and meaningful living guides every decision we make.',
       },
