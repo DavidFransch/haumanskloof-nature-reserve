@@ -16,7 +16,7 @@ export default function AccommodationSection() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {accommodation.units.map((unit) => (
+          {accommodation.units.map((unit, index) => (
             <Link
               key={unit.name}
               href={unit.href}
@@ -28,6 +28,7 @@ export default function AccommodationSection() {
                   alt={unit.name} 
                   fill 
                   sizes="(max-width: 640px) 100vw, 50vw"
+                  priority={index === 0}
                   className="object-cover" 
                 />
                 <div className="absolute inset-0 flex items-center justify-center">

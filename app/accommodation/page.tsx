@@ -112,6 +112,7 @@ export default function AccommodationPage() {
                 alt={accommodation.bunkhouse.title}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
