@@ -35,12 +35,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
     }
 
-    const businessEmail = process.env.HAUMANSKLOOF_EMAIL || 'info@haumanskloof.co.za'
+    const bookingsEmail = process.env.HAUMANSKLOOF_BOOKINGS_EMAIL || 'bookings@haumanskloof.co.za'
+    const infoEmail = process.env.HAUMANSKLOOF_INFO_EMAIL || 'info@haumanskloof.co.za'
+
+    // Route based on enquiry type
+    // - Accommodation -> bookings
+    // - All other known types -> info
+    // - Unrecognized/Fallback -> bookings
+    const knownInfoTypes = ['General Enquiry', 'Activities', 'Press & Media']
+    const targetEmail = enquiryType === 'Accommodation' 
+      ? bookingsEmail 
+      : knownInfoTypes.includes(enquiryType) 
+        ? infoEmail 
+        : bookingsEmail
 
     // Send notification email to business
     await resend.emails.send({
       from: 'Haumanskloof Website <noreply@haumanskloof.co.za>',
-      to: businessEmail,
+      to: targetEmail,
       replyTo: email,
       subject: `New ${enquiryType} from ${name}`,
       html: `
