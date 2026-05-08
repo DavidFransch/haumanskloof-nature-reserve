@@ -116,9 +116,10 @@ export default function ActivitiesPage() {
                       src={activity.image}
                       alt={activity.title}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover transition-transform duration-700 hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                     <span className="absolute bottom-4 left-5 text-white/50 text-[10px] tracking-widest uppercase">
                       {activity.tag}
                     </span>

@@ -23,7 +23,13 @@ export default function AccommodationSection() {
               className="border border-border rounded-lg overflow-hidden no-underline block"
             >
               <div className="relative h-[200px] bg-bg-mid">
-                <Image src={unit.image} alt={unit.name} fill className="object-cover" />
+                <Image 
+                  src={unit.image} 
+                  alt={unit.name} 
+                  fill 
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover" 
+                />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-white/20 text-[10px] tracking-widest uppercase">
                     Interior photo

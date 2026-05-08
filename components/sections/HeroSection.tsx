@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { siteContent } from '@/content/site.content'
 
@@ -6,9 +7,13 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center bg-bg-dark overflow-hidden">
       {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url(/images/gallery/home-hero/home-hero-1.webp)' }}
+      <Image
+        src="/images/gallery/home-hero/home-hero-1.webp"
+        alt="Haumanskloof Nature Reserve"
+        fill
+        sizes="100vw"
+        priority
+        className="object-cover object-center"
       />
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/50 to-black/70" />
