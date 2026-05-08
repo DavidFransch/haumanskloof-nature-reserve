@@ -82,7 +82,7 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
                 className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-3 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-sm font-medium text-left">{image.title}</p>
                 <p className="text-white/70 text-xs text-left">
                   {galleryCategoryLabels[image.category]}
@@ -169,7 +169,7 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
           </div>
 
           {/* Caption */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-black/80 to-transparent">
             <div className="max-w-3xl mx-auto text-center">
               <h3 className="text-white text-lg font-medium mb-1">{currentImage.title}</h3>
               {currentImage.caption && (
