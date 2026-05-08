@@ -25,6 +25,7 @@ export default function AboutSection() {
             src="/images/gallery/home-about/home-about-1.webp"
             alt="Haumanskloof Nature Reserve"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
           <div className="absolute inset-0 flex items-center justify-center">
