@@ -135,6 +135,23 @@ export default function AccommodationPage() {
                   </div>
                 ))}
               </div>
+              
+              <div className="mt-10">
+                <h3 className="font-heading text-xl text-text-dark mb-4">Rates</h3>
+                <div className="bg-bg-light/50 rounded-md p-6 border border-border/50">
+                  <p className="label-text text-[10px] mb-3">Seasonal Pricing</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <p className="text-text-dark font-medium text-lg">R2,800 <span className="text-sm font-normal text-text-mid">/ night</span></p>
+                      <p className="text-[12px] text-text-mid">Base rate for up to 2 people</p>
+                    </div>
+                    <div className="pt-4 sm:pt-0 sm:pl-6 sm:border-l border-border/30">
+                      <p className="text-text-dark font-medium text-lg">R600 <span className="text-sm font-normal text-text-mid">/ person</span></p>
+                      <p className="text-[12px] text-text-mid">Additional guest fee (up to 8)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

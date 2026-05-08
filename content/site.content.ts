@@ -105,7 +105,7 @@ export const siteContent = {
         {
           name: 'The Bunkhouse',
           desc: 'Sleeps up to 8 · Mountain views · Fully equipped kitchen',
-          tag: 'Enquire for rates',
+          tag: 'Enquire for bookings',
           image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
           href: '/accommodation#bunkhouse',
         },
@@ -271,9 +271,9 @@ The house was meticulously built and designed to be enjoyed in nature, without d
       gallery: [
         { label: 'Inside: Living Area', image: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-interior-1.webp', category: 'interior' },
         { label: 'Inside: The Kitchen', image: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-interior-2.webp', category: 'interior' },
-        { label: 'Outside: The Hot Tub', image: '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-1.webp', category: 'exterior' },
-        { label: 'Outside: Relaxation', image: '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-2.webp', category: 'exterior' },
         { label: 'Outside: The Bunkhouse', image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-1.webp', category: 'landscape' },
+        { label: 'Outside: The Hot Tub', image: '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-1.webp', category: 'exterior' },
+        { label: 'Facilities: Compost Toilet', image: '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-2.webp', category: 'exterior' },
         { label: 'Outside: Mountain Views', image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp', category: 'landscape' },
       ],
     },
@@ -290,7 +290,7 @@ The house was meticulously built and designed to be enjoyed in nature, without d
     cta: {
       heading: 'Book your mountain escape',
       body: 'Enquire about availability and rates for the Bunkhouse on Protea Lane. We\'ll get back to you within 24 hours.',
-      button: { label: 'Enquire for rates', href: '/contact' },
+      button: { label: 'Enquire for bookings', href: '/contact' },
     },
   },
 
