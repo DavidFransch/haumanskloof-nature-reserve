@@ -92,8 +92,8 @@ export const siteContent = {
       cta: { label: 'View full gallery', href: '/gallery' },
       items: [
         { label: 'Wildlife', image: '/images/gallery/home-gallery-strip/home-gallery-strip-1.webp', href: '/gallery/wildlife' },
-        { label: 'Scenery', image: '/images/gallery/home-gallery-strip/home-gallery-strip-2.webp', href: '/gallery/scenery' },
-        { label: 'Adventure', image: '/images/gallery/home-gallery-strip/home-gallery-strip-3.webp', href: '/gallery/activities' },
+        { label: 'Landscapes', image: '/images/gallery/home-gallery-strip/home-gallery-strip-2.webp', href: '/gallery/landscapes' },
+        { label: 'Discovery', image: '/images/gallery/home-gallery-strip/home-gallery-strip-3.webp', href: '/gallery/camera-trap' },
       ],
     },
 
