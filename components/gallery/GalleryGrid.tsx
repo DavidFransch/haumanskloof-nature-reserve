@@ -64,15 +64,15 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
 
   return (
     <>
-      {/* Masonry grid */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
+      {/* Gallery grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {images.map((image, index) => (
           <button
             key={image._id}
             onClick={() => openLightbox(index)}
-            className="block w-full mb-4 overflow-hidden rounded-lg cursor-pointer bg-transparent border-0 p-0 group"
+            className="block w-full overflow-hidden rounded-lg cursor-pointer bg-transparent border-0 p-0 group"
           >
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden aspect-square">
               <Image
                 src={urlForImage(image.image).width(600).height(600).fit('max').url()}
                 alt={image.altText}
