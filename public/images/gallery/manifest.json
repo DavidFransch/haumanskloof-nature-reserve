@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-05-08T00:17:30.254Z",
+  "totalImages": 15,
+  "categories": {
+    "about-story": [
+      {
+        "original": "about-story-1.JPG",
+        "filename": "about-story-1.webp",
+        "path": "/images/gallery/about-story/about-story-1.webp",
+        "width": 1516,
+        "height": 853
+      }
+    ],
+    "accommodation-bunkhouse-exterior": [
+      {
+        "original": "accommodation-bunkhouse-exterior-1.jpg",
+        "filename": "accommodation-bunkhouse-exterior-1.webp",
+        "path": "/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-1.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "original": "accommodation-bunkhouse-exterior-2.jpg",
+        "filename": "accommodation-bunkhouse-exterior-2.webp",
+        "path": "/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "accommodation-bunkhouse-facilities": [
+      {
+        "original": "accommodation-bunkhouse-facilities-1.JPG",
+        "filename": "accommodation-bunkhouse-facilities-1.webp",
+        "path": "/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-1.webp",
+        "width": 1920,
+        "height": 1340
+      },
+      {
+        "original": "accommodation-bunkhouse-facilities-2.JPG",
+        "filename": "accommodation-bunkhouse-facilities-2.webp",
+        "path": "/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-2.webp",
+        "width": 1919,
+        "height": 1561
+      }
+    ],
+    "accommodation-bunkhouse-interior": [
+      {
+        "original": "accommodation-bunkhouse-interior-1.jpg",
+        "filename": "accommodation-bunkhouse-interior-1.webp",
+        "path": "/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-interior-1.webp",
+        "width": 1920,
+        "height": 1280
+      },
+      {
+        "original": "accommodation-bunkhouse-interior-2.jpg",
+        "filename": "accommodation-bunkhouse-interior-2.webp",
+        "path": "/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-interior-2.webp",
+        "width": 1920,
+        "height": 1280
+      }
+    ],
+    "activities-cycling": [
+      {
+        "original": "activities-cycling-1.JPG",
+        "filename": "activities-cycling-1.webp",
+        "path": "/images/gallery/activities-cycling/activities-cycling-1.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ],
+    "activities-hiking": [
+      {
+        "original": "activities-hiking-1.JPG",
+        "filename": "activities-hiking-1.webp",
+        "path": "/images/gallery/activities-hiking/activities-hiking-1.webp",
+        "width": 960,
+        "height": 540
+      }
+    ],
+    "activities-wildlife": [
+      {
+        "original": "activities-wildlife-1.JPG",
+        "filename": "activities-wildlife-1.webp",
+        "path": "/images/gallery/activities-wildlife/activities-wildlife-1.webp",
+        "width": 1172,
+        "height": 878
+      }
+    ],
+    "home-about": [
+      {
+        "original": "home-about-1.JPG",
+        "filename": "home-about-1.webp",
+        "path": "/images/gallery/home-about/home-about-1.webp",
+        "width": 1920,
+        "height": 1280
+      }
+    ],
+    "home-gallery-strip": [
+      {
+        "original": "home-gallery-strip-1.jpg",
+        "filename": "home-gallery-strip-1.webp",
+        "path": "/images/gallery/home-gallery-strip/home-gallery-strip-1.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "original": "home-gallery-strip-2.JPG",
+        "filename": "home-gallery-strip-2.webp",
+        "path": "/images/gallery/home-gallery-strip/home-gallery-strip-2.webp",
+        "width": 1600,
+        "height": 621
+      },
+      {
+        "original": "home-gallery-strip-3.jpeg",
+        "filename": "home-gallery-strip-3.webp",
+        "path": "/images/gallery/home-gallery-strip/home-gallery-strip-3.webp",
+        "width": 1920,
+        "height": 1271
+      }
+    ],
+    "home-hero": [
+      {
+        "original": "home-hero-1.jpg",
+        "filename": "home-hero-1.webp",
+        "path": "/images/gallery/home-hero/home-hero-1.webp",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  }
+}

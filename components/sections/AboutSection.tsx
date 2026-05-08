@@ -22,7 +22,7 @@ export default function AboutSection() {
         </div>
         <div className="relative h-80 rounded-lg overflow-hidden bg-bg-mid">
           <Image
-            src="/images/about.jpg"
+            src="/images/gallery/home-about/home-about-1.webp"
             alt="Haumanskloof Nature Reserve"
             fill
             className="object-cover"

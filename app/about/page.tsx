@@ -94,11 +94,11 @@ export default function AboutPage() {
                   </p>
                 ))}
               </div>
-              <div className="absolute bottom-0 left-0 right-6 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-6 h-12 bg-linear-to-t from-white to-transparent pointer-events-none" />
             </div>
             <div className="relative h-[380px] lg:h-[460px] rounded-lg overflow-hidden bg-bg-mid">
               <Image
-                src="/images/about.jpg"
+                src="/images/gallery/about-story/about-story-1.webp"
                 alt="Haumanskloof Nature Reserve landscape"
                 fill
                 className="object-cover"
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 </span>
               </div>
               {/* Subtle caption overlay */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-black/40 to-transparent" />
               <span className="absolute bottom-4 left-5 text-white/55 text-[10px] tracking-widest uppercase">
                 Breede Valley · Western Cape
               </span>

@@ -8,10 +8,10 @@ export default function HeroSection() {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url(/images/hero.webp)' }}
+        style={{ backgroundImage: 'url(/images/gallery/home-hero/home-hero-1.webp)' }}
       />
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/50 to-black/70" />
 
       {/* Content */}
       <div className="container-max relative z-10 w-full px-10 py-24 lg:py-32">

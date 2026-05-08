@@ -108,12 +108,12 @@ export default function AccommodationPage() {
           <div className="container-max grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative h-[340px] md:h-[450px] rounded-lg overflow-hidden bg-bg-mid">
               <Image
-                src={accommodation.bunkhouse.gallery[3].image}
+                src={accommodation.bunkhouse.mainImage}
                 alt={accommodation.bunkhouse.title}
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
               <span className="absolute bottom-4 left-5 text-white/65 text-[10px] tracking-widest uppercase">
                 {accommodation.bunkhouse.capacity}
               </span>
@@ -181,7 +181,7 @@ export default function AccommodationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {accommodation.bunkhouse.gallery.map((item, index) => (
                 <div key={index} className="space-y-3 group cursor-pointer">
-                  <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-bg-mid border border-border/50">
+                  <div className="relative aspect-4/3 rounded-md overflow-hidden bg-bg-mid border border-border/50">
                     <Image
                       src={item.image}
                       alt={item.label}

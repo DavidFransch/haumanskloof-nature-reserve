@@ -35,30 +35,30 @@ export default async function GallerySection() {
 
       {/* Image strip */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-[3px] h-auto sm:h-[220px]">
-        {orderedImages.map(({ position, image }, i) => (
-          <Link
-            key={position}
-            href={image ? `/gallery/${image.category}` : '/gallery'}
-            className={`relative overflow-hidden bg-bg-mid block h-[180px] sm:h-full ${i === 0 ? 'sm:col-span-2' : ''}`}
-          >
-            {image ? (
+        {orderedImages.map(({ position, image }, i) => {
+          const fallback = gallery.items[i]
+
+          return (
+            <Link
+              key={position}
+              href={image ? `/gallery/${image.category}` : fallback.href}
+              className={`relative overflow-hidden bg-bg-mid block h-[180px] sm:h-full ${i === 0 ? 'sm:col-span-2' : ''}`}
+            >
               <Image
-                src={urlForImage(image.image).width(800).height(400).url()}
-                alt={image.altText || image.title}
+                src={image ? urlForImage(image.image).width(800).height(400).url() : fallback.image}
+                alt={image ? (image.altText || image.title) : fallback.label}
                 fill
                 sizes={i === 0 ? '(max-width: 640px) 100vw, 50vw' : '(max-width: 640px) 100vw, 25vw'}
                 priority={i === 0}
                 className="object-cover transition-transform duration-500 hover:scale-105"
               />
-            ) : (
-              <div className="absolute inset-0 bg-bg-mid" />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
-            <span className="absolute bottom-3.5 left-4 text-white/65 text-[10px] tracking-widest uppercase">
-              {image ? galleryCategoryLabels[image.category] : 'Gallery'}
-            </span>
-          </Link>
-        ))}
+              <div className="absolute inset-0 bg-linear-to-t from-black/55 to-transparent" />
+              <span className="absolute bottom-3.5 left-4 text-white/65 text-[10px] tracking-widest uppercase">
+                {image ? galleryCategoryLabels[image.category] : fallback.label}
+              </span>
+            </Link>
+          )
+        })}
       </div>
 
       <div className="container-max py-4 px-10">

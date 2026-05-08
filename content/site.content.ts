@@ -91,9 +91,9 @@ export const siteContent = {
       heading: 'Experience Haumanskloof Nature Reserve',
       cta: { label: 'View full gallery', href: '/gallery' },
       items: [
-        { label: 'Wildlife', image: '/images/gallery-wildlife.jpg', href: '/gallery/wildlife' },
-        { label: 'Scenery', image: '/images/gallery-scenery.jpg', href: '/gallery/scenery' },
-        { label: 'Rock art', image: '/images/gallery-rockart.jpg', href: '/gallery/activities' },
+        { label: 'Wildlife', image: '/images/gallery/home-gallery-strip/home-gallery-strip-1.webp', href: '/gallery/wildlife' },
+        { label: 'Scenery', image: '/images/gallery/home-gallery-strip/home-gallery-strip-2.webp', href: '/gallery/scenery' },
+        { label: 'Adventure', image: '/images/gallery/home-gallery-strip/home-gallery-strip-3.webp', href: '/gallery/activities' },
       ],
     },
 
@@ -106,7 +106,7 @@ export const siteContent = {
           name: 'The Bunkhouse',
           desc: 'Sleeps up to 8 · Mountain views · Fully equipped kitchen',
           tag: 'Enquire for rates',
-          image: '/images/bunkhouse.jpg',
+          image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
           href: '/accommodation#bunkhouse',
         },
       ],
@@ -189,7 +189,7 @@ export const siteContent = {
           '200+ bird species recorded',
           'Indigenous Renosterveld, Fynbos & Succulent Karoo flora',
         ],
-        image: '/images/gallery-wildlife.jpg',
+        image: '/images/gallery/activities-wildlife/activities-wildlife-1.webp',
       },
       {
         id: 'hiking',
@@ -202,7 +202,7 @@ export const siteContent = {
           'Panoramic Breede Valley views',
           'Night sky stargazing at altitude',
         ],
-        image: '/images/gallery-scenery.jpg',
+        image: '/images/gallery/activities-hiking/activities-hiking-1.webp',
       },
       {
         id: 'cycling',
@@ -216,7 +216,7 @@ export const siteContent = {
           'Scenic Breede Valley riding',
           'Combine with wildlife spotting on the move',
         ],
-        image: '/images/gallery/landscapes/hkloof-landscape-4x4-track.webp',
+        image: '/images/gallery/activities-cycling/activities-cycling-1.webp',
       },
     ],
     cta: {
@@ -244,6 +244,7 @@ export const siteContent = {
     bunkhouse: {
       id: 'bunkhouse',
       title: 'The Bunkhouse on Protea Lane',
+      mainImage: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
       capacity: 'Sleeps up to 8 guests',
       intro:
         'Nestled in a private valley, the Bunkhouse is our flagship unit. It combines rugged mountain charm with modern eco-amenities, offering the perfect base for families or groups of friends.',
@@ -268,10 +269,10 @@ Paintings are all up-cycled from our personal collections on the farm, and any a
 
 The house was meticulously built and designed to be enjoyed in nature, without disturbing it – We hope that you experience and enjoy the fruits of these efforts!`,
       gallery: [
-        { label: 'Inside: Living Area', image: '/images/bunkhouse-inside.jpg', category: 'interior' },
-        { label: 'Inside: The Kitchen', image: '/images/bunkhouse-kitchen.jpg', category: 'interior' },
-        { label: 'Outside: The Hot Tub', image: '/images/bunkhouse-hotub.jpg', category: 'exterior' },
-        { label: 'Outside: The Surroundings', image: '/images/bunkhouse.jpg', category: 'landscape' },
+        { label: 'Inside: Living Area', image: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-interior-1.webp', category: 'interior' },
+        { label: 'Inside: The Kitchen', image: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-interior-2.webp', category: 'interior' },
+        { label: 'Outside: The Hot Tub', image: '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-1.webp', category: 'exterior' },
+        { label: 'Outside: The Surroundings', image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-1.webp', category: 'landscape' },
       ],
     },
     amenities: [
