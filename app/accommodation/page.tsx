@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import VimeoEmbed from '@/components/ui/VimeoEmbed'
 import Disclosure from '@/components/ui/Disclosure'
 import { siteContent } from '@/content/site.content'
+import AccommodationGallery from '@/components/accommodation/AccommodationGallery'
 
 export const metadata: Metadata = {
   title: `Accommodation · ${siteContent.siteName}`,
@@ -170,6 +171,7 @@ export default function AccommodationPage() {
           </section>
         )}
 
+
         {/* Gallery Section */}
         <section className="border-b border-border bg-white">
           <div className="container-max section-padding">
@@ -178,29 +180,7 @@ export default function AccommodationPage() {
               Inside, Outside, and Beyond
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {accommodation.bunkhouse.gallery.map((item, index) => (
-                <div key={index} className="space-y-3 group cursor-pointer">
-                  <div className="relative aspect-4/3 rounded-md overflow-hidden bg-bg-mid border border-border/50">
-                    <Image
-                      src={item.image}
-                      alt={item.label}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10">
-                      <span className="text-[10px] text-white tracking-widest uppercase border border-white/30 px-3 py-1.5 rounded-sm backdrop-blur-sm">
-                        Enlarge
-                      </span>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="label-text text-[9px] text-text-muted mb-0.5">{item.category}</p>
-                    <p className="text-[13px] text-text-dark font-medium">{item.label}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <AccommodationGallery gallery={accommodation.bunkhouse.gallery} />
           </div>
         </section>
 
