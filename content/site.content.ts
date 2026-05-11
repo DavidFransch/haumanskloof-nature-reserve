@@ -269,8 +269,8 @@ Paintings are all up-cycled from our personal collections on the farm, and any a
 
 The house was meticulously built and designed to be enjoyed in nature, without disturbing it – We hope that you experience and enjoy the fruits of these efforts!`,
       gallery: [
-        { label: 'Inside: Living Area', image: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-interior-1.webp', category: 'interior' },
-        { label: 'Inside: The Kitchen', image: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-interior-2.webp', category: 'interior' },
+        { label: 'Inside: Living Area', image: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-living-room.webp', category: 'interior' },
+        { label: 'Inside: The Kitchen', image: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-kitchen.webp', category: 'interior' },
         { label: 'Outside: The Bunkhouse', image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-1.webp', category: 'landscape' },
         { label: 'Outside: The Hot Tub', image: '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-1.webp', category: 'exterior' },
         { label: 'Facilities: Compost Toilet', image: '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-2.webp', category: 'exterior' },
