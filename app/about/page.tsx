@@ -98,19 +98,14 @@ export default function AboutPage() {
               </div>
               <div className="absolute bottom-0 left-0 right-6 h-12 bg-linear-to-t from-white to-transparent pointer-events-none" />
             </div>
-            <div className="relative h-[380px] lg:h-[460px] rounded-lg overflow-hidden bg-bg-mid">
+            <div className="relative h-[380px] lg:h-[460px] rounded-lg overflow-hidden bg-bg-light border border-border/50">
               <Image
-                src="/images/gallery/about-story/about-story-1.webp"
-                alt="Haumanskloof Nature Reserve landscape"
+                src="/images/gallery/about-story/family-photo.webp"
+                alt="The family behind Haumanskloof Nature Reserve"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-contain p-4"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white/25 text-[11px] tracking-widest uppercase">
-                  Property photo
-                </span>
-              </div>
               {/* Subtle caption overlay */}
               <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-black/40 to-transparent" />
               <span className="absolute bottom-4 left-5 text-white/55 text-[10px] tracking-widest uppercase">
