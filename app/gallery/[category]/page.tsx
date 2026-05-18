@@ -10,6 +10,8 @@ import Footer from '@/components/layout/Footer'
 import { siteContent } from '@/content/site.content'
 import GalleryGrid from '@/components/gallery/GalleryGrid'
 
+export const revalidate = 30
+
 const validCategories: GalleryCategory[] = ['camera-trap', 'wildlife', 'landscapes', 'family', 'flora']
 const categoryOrder: GalleryCategory[] = ['camera-trap', 'wildlife', 'landscapes', 'flora', 'family']
 
@@ -101,11 +103,10 @@ export default async function GalleryCategoryPage({ params }: Props) {
                 <Link
                   key={cat}
                   href={`/gallery/${cat}`}
-                  className={`px-4 py-2 text-[13px] rounded-full no-underline transition-colors ${
-                    cat === typedCategory
+                  className={`px-4 py-2 text-[13px] rounded-full no-underline transition-colors ${cat === typedCategory
                       ? 'bg-primary text-white'
                       : 'border border-border text-text-mid hover:border-primary hover:text-primary'
-                  }`}
+                    }`}
                 >
                   {galleryCategoryLabels[cat]} ({counts[cat]})
                 </Link>
