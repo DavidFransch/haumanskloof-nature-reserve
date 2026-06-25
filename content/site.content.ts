@@ -300,8 +300,8 @@ The house was meticulously built and designed to be enjoyed in nature, without d
   footer: {
     links: [
       { label: 'Contact', href: '/contact' },
-      { label: 'Instagram', href: 'https://www.instagram.com/haumanskloof/' },
-      { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100092490755181&sk=about' },
+      { label: 'Instagram', href: 'https://www.instagram.com/haumanskloof/', external: true },
+      { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100092490755181&sk=about', external: true },
     ],
     legal: '© 2026 Haumanskloof Nature Reserve. All rights reserved.',
   },

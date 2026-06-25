@@ -13,6 +13,7 @@ export default function Footer() {
               key={link.label}
               href={link.href}
               className="text-[11px] text-text-muted no-underline"
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               {link.label}
             </Link>
