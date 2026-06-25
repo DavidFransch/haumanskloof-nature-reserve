@@ -4,7 +4,11 @@ import { useState } from 'react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
-const enquiryTypes = ['General Enquiry', 'Accommodation', 'Activities', 'Press & Media']
+const enquiryTypes = [
+  { label: 'Accommodation', value: 'accommodation' },
+  { label: 'General Enquiries', value: 'general' },
+  { label: 'Conservation', value: 'conservation' },
+]
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
@@ -14,21 +18,32 @@ type FormData = {
   phone: string
   enquiryType: string
   message: string
+  checkIn: string
+  checkOut: string
+  guests: string
 }
 
 type FormErrors = Partial<Record<keyof FormData, string>>
 
+const emptyForm: FormData = {
+  name: '',
+  email: '',
+  phone: '',
+  enquiryType: '',
+  message: '',
+  checkIn: '',
+  checkOut: '',
+  guests: '',
+}
+
 export default function ContactPage() {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    enquiryType: '',
-    message: '',
-  })
+  const [formData, setFormData] = useState<FormData>(emptyForm)
   const [errors, setErrors] = useState<FormErrors>({})
   const [formState, setFormState] = useState<FormState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+
+  const isAccommodation = formData.enquiryType === 'accommodation'
+  const today = new Date().toISOString().split('T')[0]
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
@@ -45,6 +60,20 @@ export default function ContactPage() {
 
     if (!formData.enquiryType) {
       newErrors.enquiryType = 'Please select an enquiry type'
+    }
+
+    if (isAccommodation) {
+      if (!formData.checkIn) {
+        newErrors.checkIn = 'Check-in date is required'
+      }
+      if (!formData.checkOut) {
+        newErrors.checkOut = 'Check-out date is required'
+      } else if (formData.checkIn && formData.checkOut <= formData.checkIn) {
+        newErrors.checkOut = 'Check-out must be after check-in'
+      }
+      if (!formData.guests) {
+        newErrors.guests = 'Number of guests is required'
+      }
     }
 
     if (!formData.message.trim()) {
@@ -76,7 +105,7 @@ export default function ContactPage() {
       }
 
       setFormState('success')
-      setFormData({ name: '', email: '', phone: '', enquiryType: '', message: '' })
+      setFormData(emptyForm)
     } catch (error) {
       setFormState('error')
       setErrorMessage(error instanceof Error ? error.message : 'Something went wrong')
@@ -87,12 +116,21 @@ export default function ContactPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target
+
+    if (name === 'enquiryType' && value !== 'accommodation') {
+      setFormData((prev) => ({ ...prev, enquiryType: value, checkIn: '', checkOut: '', guests: '' }))
+      setErrors((prev) => ({ ...prev, enquiryType: undefined, checkIn: undefined, checkOut: undefined, guests: undefined }))
+      return
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }))
-    // Clear error when user starts typing
     if (errors[name as keyof FormData]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }))
     }
   }
+
+  const inputClass = (field: keyof FormErrors) =>
+    `w-full px-4 py-3 border rounded-md text-[15px] text-text-dark bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${errors[field] ? 'border-red-400' : 'border-border'}`
 
   return (
     <>
@@ -168,8 +206,7 @@ export default function ContactPage() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border rounded-md text-[15px] text-text-dark bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${errors.name ? 'border-red-400' : 'border-border'
-                          }`}
+                        className={inputClass('name')}
                         placeholder="Your full name"
                       />
                       {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
@@ -189,8 +226,7 @@ export default function ContactPage() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border rounded-md text-[15px] text-text-dark bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${errors.email ? 'border-red-400' : 'border-border'
-                          }`}
+                        className={inputClass('email')}
                         placeholder="your@email.com"
                       />
                       {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
@@ -215,7 +251,7 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    {/* Enquiry Type */}
+                    {/* Enquiry Type + Accommodation fields */}
                     <div>
                       <label
                         htmlFor="enquiryType"
@@ -228,19 +264,95 @@ export default function ContactPage() {
                         name="enquiryType"
                         value={formData.enquiryType}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border rounded-md text-[15px] bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors appearance-none ${errors.enquiryType ? 'border-red-400' : 'border-border'
-                          } ${formData.enquiryType ? 'text-text-dark' : 'text-text-muted'}`}
+                        className={`w-full px-4 py-3 border rounded-md text-[15px] bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors appearance-none ${errors.enquiryType ? 'border-red-400' : 'border-border'} ${formData.enquiryType ? 'text-text-dark' : 'text-text-muted'}`}
                       >
                         <option value="">Select an option</option>
                         {enquiryTypes.map((type) => (
-                          <option key={type} value={type}>
-                            {type}
+                          <option key={type.value} value={type.value}>
+                            {type.label}
                           </option>
                         ))}
                       </select>
                       {errors.enquiryType && (
                         <p className="mt-1 text-xs text-red-500">{errors.enquiryType}</p>
                       )}
+
+                      {/* Accommodation extra fields */}
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                          isAccommodation ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+                        }`}
+                      >
+                        <div className="space-y-6 pt-6">
+                          {/* Preferred dates */}
+                          <div className="grid grid-cols-2 gap-4">
+                            <div>
+                              <label
+                                htmlFor="checkIn"
+                                className="block text-[13px] text-text-dark mb-2 font-medium"
+                              >
+                                Check-in <span className="text-red-500">*</span>
+                              </label>
+                              <input
+                                type="date"
+                                id="checkIn"
+                                name="checkIn"
+                                value={formData.checkIn}
+                                min={today}
+                                onChange={handleChange}
+                                className={inputClass('checkIn')}
+                              />
+                              {errors.checkIn && (
+                                <p className="mt-1 text-xs text-red-500">{errors.checkIn}</p>
+                              )}
+                            </div>
+                            <div>
+                              <label
+                                htmlFor="checkOut"
+                                className="block text-[13px] text-text-dark mb-2 font-medium"
+                              >
+                                Check-out <span className="text-red-500">*</span>
+                              </label>
+                              <input
+                                type="date"
+                                id="checkOut"
+                                name="checkOut"
+                                value={formData.checkOut}
+                                min={formData.checkIn || today}
+                                onChange={handleChange}
+                                className={inputClass('checkOut')}
+                              />
+                              {errors.checkOut && (
+                                <p className="mt-1 text-xs text-red-500">{errors.checkOut}</p>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Number of guests */}
+                          <div>
+                            <label
+                              htmlFor="guests"
+                              className="block text-[13px] text-text-dark mb-2 font-medium"
+                            >
+                              Number of guests <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              type="number"
+                              id="guests"
+                              name="guests"
+                              value={formData.guests}
+                              min={1}
+                              max={8}
+                              onChange={handleChange}
+                              className={inputClass('guests')}
+                              placeholder="1–8 guests"
+                            />
+                            {errors.guests && (
+                              <p className="mt-1 text-xs text-red-500">{errors.guests}</p>
+                            )}
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Message */}
@@ -257,8 +369,7 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={handleChange}
                         rows={5}
-                        className={`w-full px-4 py-3 border rounded-md text-[15px] text-text-dark bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none ${errors.message ? 'border-red-400' : 'border-border'
-                          }`}
+                        className={`w-full px-4 py-3 border rounded-md text-[15px] text-text-dark bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none ${errors.message ? 'border-red-400' : 'border-border'}`}
                         placeholder="Tell us about your enquiry..."
                       />
                       {errors.message && (
