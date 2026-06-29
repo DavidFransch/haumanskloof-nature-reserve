@@ -94,7 +94,14 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-max flex flex-wrap items-center justify-between gap-3 py-5">
           <p className="text-[12px] text-white/35">{footer.legal}</p>
-          <p className="text-[12px] text-white/35">Designed by Tugela</p>
+          <a
+            href="https://tugela.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[12px] text-white/35 no-underline hover:text-white/60 transition-colors"
+          >
+            Designed by Tugela
+          </a>
         </div>
       </div>
     </footer>
