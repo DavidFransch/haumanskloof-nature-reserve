@@ -73,6 +73,14 @@ export interface GalleryCategoryCounts {
   flora: number
 }
 
+export interface Faq {
+  _id: string
+  question: string
+  answer: string
+  order?: number
+  category?: string
+}
+
 export const galleryCategoryLabels: Record<GalleryCategory, string> = {
   'camera-trap': 'Camera Trap',
   wildlife: 'Wildlife on Foot',

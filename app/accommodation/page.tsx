@@ -259,6 +259,16 @@ export default function AccommodationPage() {
           </div>
         </section>
 
+        {/* FAQ nudge */}
+        <div className="py-6 px-10 text-center border-b border-border">
+          <p className="text-[13px] text-text-muted">
+            Have questions about your stay?{' '}
+            <Link href="/faq" className="underline underline-offset-2 hover:text-text-mid transition-colors">
+              Read our FAQs →
+            </Link>
+          </p>
+        </div>
+
         {/* CTA Section */}
         <section className="bg-bg-dark py-24 px-10 text-center">
           <div className="max-w-[500px] mx-auto text-white">

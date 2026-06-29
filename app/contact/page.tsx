@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { siteContent } from '@/content/site.content'
@@ -149,6 +150,12 @@ export default function ContactPage() {
             <p className="text-[15px] text-text-mid max-w-[500px] mx-auto leading-relaxed">
               Have a question about the reserve, our accommodation, or activities? We&apos;d love to
               hear from you.
+            </p>
+            <p className="mt-4 text-[13px] text-text-muted">
+              Before reaching out, you may find your answer in our{' '}
+              <Link href="/faq" className="underline underline-offset-2 hover:text-text-mid transition-colors">
+                FAQs →
+              </Link>
             </p>
           </div>
         </section>
