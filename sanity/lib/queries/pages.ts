@@ -1,5 +1,11 @@
 import { groq } from 'next-sanity'
-import { ACCOMMODATION_DOCUMENT_ID, HOMEPAGE_DOCUMENT_ID } from '../constants'
+import {
+  ABOUT_DOCUMENT_ID,
+  ACCOMMODATION_DOCUMENT_ID,
+  ACTIVITIES_DOCUMENT_ID,
+  CONTACT_DOCUMENT_ID,
+  HOMEPAGE_DOCUMENT_ID,
+} from '../constants'
 
 // Get homepage singleton content
 export const homePageQuery = groq`
@@ -37,6 +43,44 @@ export const accommodationPageQuery = groq`
     "compostToilet": compostToilet { eyebrow, heading, body, note, "image": image->image },
     "amenities": amenities[] { _key, icon, title, body },
     "cta": cta { heading, body }
+  }
+`
+
+// Get about page singleton content
+export const aboutPageQuery = groq`
+  *[_type == "aboutPage" && _id == "${ABOUT_DOCUMENT_ID}"][0] {
+    "hero": hero { eyebrow, heading, intro },
+    "story": story[] { _key, text },
+    "storyImage": storyImage { asset, hotspot, crop },
+    "storyImageAlt": storyImage.altText,
+    vision,
+    mission,
+    "values": values[] { _key, icon, title, body },
+    "cta": cta { heading, body }
+  }
+`
+
+// Get activities page singleton content
+export const activitiesPageQuery = groq`
+  *[_type == "activitiesPage" && _id == "${ACTIVITIES_DOCUMENT_ID}"][0] {
+    "hero": hero { eyebrow, heading, intro },
+    "items": items[] {
+      _key, id, icon, tag, title, body,
+      highlights,
+      "image": image { asset, hotspot, crop },
+      "imageAlt": image.altText
+    },
+    "cta": cta { heading, body }
+  }
+`
+
+// Get contact page singleton content
+export const contactPageQuery = groq`
+  *[_type == "contactPage" && _id == "${CONTACT_DOCUMENT_ID}"][0] {
+    heading,
+    intro,
+    "location": location { name, area, country },
+    responseTime
   }
 `
 

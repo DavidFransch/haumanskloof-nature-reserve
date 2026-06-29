@@ -75,6 +75,15 @@ export async function POST(req: NextRequest) {
   } else if (type === 'homePage') {
     revalidatePath('/', 'page')
     revalidated.push('/')
+  } else if (type === 'aboutPage') {
+    revalidatePath('/about', 'page')
+    revalidated.push('/about')
+  } else if (type === 'activitiesPage') {
+    revalidatePath('/activities', 'page')
+    revalidated.push('/activities')
+  } else if (type === 'contactPage') {
+    revalidatePath('/contact', 'page')
+    revalidated.push('/contact')
   } else if (type === 'pageContent') {
     revalidatePath('/', 'page')
     revalidated.push('/')

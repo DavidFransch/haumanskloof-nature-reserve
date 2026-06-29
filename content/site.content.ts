@@ -306,6 +306,21 @@ The house was meticulously built and designed to be enjoyed in nature, without d
   } satisfies SiteContentAccommodation,
 
   /**
+   * CONTACT PAGE
+   * Fallback values used when the Sanity contactPage document is not found.
+   */
+  contact: {
+    heading: 'Contact Us',
+    intro: "Have a question about the reserve, our accommodation, or activities? We'd love to hear from you.",
+    location: {
+      name: 'Haumanskloof Nature Reserve',
+      area: 'Breede Valley, Western Cape',
+      country: 'South Africa',
+    },
+    responseTime: 'We typically respond to all enquiries within 24 hours. For urgent matters, please indicate this in your message.',
+  },
+
+  /**
    * FOOTER
    */
   footer: {

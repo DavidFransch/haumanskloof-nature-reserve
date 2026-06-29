@@ -4,6 +4,10 @@ import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { siteContent } from '@/content/site.content'
+import { sanityFetch } from '@/sanity/lib/client'
+import { activitiesPageQuery } from '@/sanity/lib/queries'
+import { urlForImage } from '@/sanity/lib/image'
+import type { SanityActivitiesPage } from '@/sanity/lib/types'
 
 export const metadata: Metadata = {
   title: `Activities · ${siteContent.siteName}`,
@@ -72,8 +76,38 @@ const activityIcons: Record<string, React.ReactNode> = {
   ),
 }
 
-export default function ActivitiesPage() {
-  const { activities } = siteContent
+export default async function ActivitiesPage() {
+  const data = await sanityFetch<SanityActivitiesPage | null>({
+    query: activitiesPageQuery,
+    tags: ['activitiesPage'],
+  }).catch(() => null)
+
+  const sc = siteContent.activities
+
+  const hero = data?.hero ?? sc.hero
+  const cta = data?.cta ?? { heading: sc.cta.heading, body: sc.cta.body }
+
+  const items = data?.items?.map((item) => ({
+    id: item.id,
+    icon: item.icon,
+    tag: item.tag,
+    title: item.title,
+    body: item.body,
+    highlights: item.highlights,
+    image: item.image
+      ? urlForImage(item.image).width(800).height(600).url()
+      : '',
+    imageAlt: item.imageAlt ?? item.title,
+  })) ?? sc.items.map((item) => ({
+    id: item.id,
+    icon: item.icon,
+    tag: item.tag,
+    title: item.title,
+    body: item.body,
+    highlights: item.highlights,
+    image: item.image,
+    imageAlt: item.title,
+  }))
 
   return (
     <>
@@ -82,9 +116,9 @@ export default function ActivitiesPage() {
         {/* Hero */}
         <section className="px-10 py-20 md:py-28 bg-bg-light border-b border-border">
           <div className="container-max">
-            <p className="label-text mb-4">{activities.hero.eyebrow}</p>
+            <p className="label-text mb-4">{hero.eyebrow}</p>
             <h1 className="font-heading text-[clamp(32px,5vw,56px)] font-light text-text-dark leading-tight mb-6 max-w-[640px]">
-              {activities.hero.heading.split('\n').map((line, i, arr) => (
+              {hero.heading.split('\n').map((line, i, arr) => (
                 <span key={i}>
                   {line}
                   {i < arr.length - 1 && <br />}
@@ -92,14 +126,14 @@ export default function ActivitiesPage() {
               ))}
             </h1>
             <p className="text-[15px] text-text-mid leading-relaxed max-w-[560px]">
-              {activities.hero.intro}
+              {hero.intro}
             </p>
           </div>
         </section>
 
         {/* Activities list */}
         <section className="border-b border-border">
-          {activities.items.map((activity, i) => {
+          {items.map((activity, i) => {
             const isEven = i % 2 === 0
             return (
               <article
@@ -114,7 +148,7 @@ export default function ActivitiesPage() {
                   <div className="relative h-[280px] lg:h-[420px] bg-bg-mid overflow-hidden">
                     <Image
                       src={activity.image}
-                      alt={activity.title}
+                      alt={activity.imageAlt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover transition-transform duration-700 hover:scale-105"
@@ -163,16 +197,16 @@ export default function ActivitiesPage() {
         <section className="bg-bg-dark py-20 px-10 text-center">
           <div className="max-w-[500px] mx-auto">
             <h2 className="font-heading text-[clamp(24px,3vw,36px)] font-light text-text-light mb-4 leading-tight">
-              {activities.cta.heading}
+              {cta.heading}
             </h2>
             <p className="text-[rgba(240,235,224,0.65)] leading-relaxed mb-8 text-[15px]">
-              {activities.cta.body}
+              {cta.body}
             </p>
             <Link
-              href={activities.cta.button.href}
+              href="/contact"
               className="inline-block text-[11px] py-2.5 px-7 bg-primary text-primary-light rounded-sm no-underline tracking-wider hover:bg-primary-hover transition-colors"
             >
-              {activities.cta.button.label}
+              Enquire about activities
             </Link>
           </div>
         </section>

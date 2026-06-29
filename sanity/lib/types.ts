@@ -245,6 +245,54 @@ export interface SanityAccommodationPage {
   }
 }
 
+// ============================================================
+// About page singleton
+// ============================================================
+
+export interface SanityAboutPage {
+  hero: { eyebrow: string; heading: string; intro: string }
+  story: Array<{ _key: string; text: string }>
+  storyImage: SanityImage | null
+  storyImageAlt: string | null
+  vision: string
+  mission: string
+  values: Array<{ _key: string; icon: string; title: string; body: string }>
+  cta: { heading: string; body: string }
+}
+
+// ============================================================
+// Activities page singleton
+// ============================================================
+
+export interface SanityActivityItem {
+  _key: string
+  id: string
+  icon: string
+  tag: string
+  title: string
+  body: string
+  highlights: string[]
+  image: SanityImage | null
+  imageAlt: string | null
+}
+
+export interface SanityActivitiesPage {
+  hero: { eyebrow: string; heading: string; intro: string }
+  items: SanityActivityItem[]
+  cta: { heading: string; body: string }
+}
+
+// ============================================================
+// Contact page singleton
+// ============================================================
+
+export interface SanityContactPage {
+  heading: string
+  intro: string
+  location: { name: string; area: string; country: string }
+  responseTime: string
+}
+
 export const galleryCategoryLabels: Record<GalleryCategory, string> = {
   'camera-trap': 'Camera Trap',
   wildlife: 'Wildlife on Foot',

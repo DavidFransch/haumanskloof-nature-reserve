@@ -4,6 +4,10 @@ import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { siteContent } from '@/content/site.content'
+import { sanityFetch } from '@/sanity/lib/client'
+import { aboutPageQuery } from '@/sanity/lib/queries'
+import { urlForImage } from '@/sanity/lib/image'
+import type { SanityAboutPage } from '@/sanity/lib/types'
 
 export const metadata: Metadata = {
   title: `About · ${siteContent.siteName}`,
@@ -59,8 +63,26 @@ const valueIcons: Record<string, React.ReactNode> = {
   ),
 }
 
-export default function AboutPage() {
-  const { about } = siteContent
+export default async function AboutPage() {
+  const data = await sanityFetch<SanityAboutPage | null>({
+    query: aboutPageQuery,
+    tags: ['aboutPage'],
+  }).catch(() => null)
+
+  const sc = siteContent.about
+
+  const hero = data?.hero ?? sc.hero
+  const story: string[] = data
+    ? data.story.map((p) => p.text)
+    : sc.story
+  const storyImageSrc = data?.storyImage
+    ? urlForImage(data.storyImage).width(800).height(600).url()
+    : '/images/gallery/about-story/family-photo.webp'
+  const storyImageAlt = data?.storyImageAlt ?? 'The family behind Haumanskloof Nature Reserve'
+  const vision = data?.vision ?? sc.vision
+  const mission = data?.mission ?? sc.mission
+  const values = data?.values ?? sc.values
+  const cta = data?.cta ?? { heading: sc.cta.heading, body: sc.cta.body }
 
   return (
     <>
@@ -69,9 +91,9 @@ export default function AboutPage() {
         {/* Hero */}
         <section className="px-10 py-20 md:py-28 bg-bg-light border-b border-border">
           <div className="container-max">
-            <p className="label-text mb-4">{about.hero.eyebrow}</p>
+            <p className="label-text mb-4">{hero.eyebrow}</p>
             <h1 className="font-heading text-[clamp(32px,5vw,56px)] font-light text-text-dark leading-tight mb-6 max-w-[640px]">
-              {about.hero.heading.split('\n').map((line, i, arr) => (
+              {hero.heading.split('\n').map((line, i, arr) => (
                 <span key={i}>
                   {line}
                   {i < arr.length - 1 && <br />}
@@ -79,7 +101,7 @@ export default function AboutPage() {
               ))}
             </h1>
             <p className="text-[15px] text-text-mid leading-relaxed max-w-[560px]">
-              {about.hero.intro}
+              {hero.intro}
             </p>
           </div>
         </section>
@@ -90,7 +112,7 @@ export default function AboutPage() {
             <div className="relative">
               <p className="label-text mb-4">Our history</p>
               <div className="space-y-5 max-h-[380px] lg:max-h-[460px] overflow-y-auto pr-6 custom-scrollbar pb-10">
-                {about.story.map((paragraph, i) => (
+                {story.map((paragraph, i) => (
                   <p key={i} className="text-text-mid leading-relaxed text-[15px]">
                     {paragraph}
                   </p>
@@ -100,8 +122,8 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[380px] lg:h-[460px] rounded-lg overflow-hidden bg-bg-light border border-border/50">
               <Image
-                src="/images/gallery/about-story/family-photo.webp"
-                alt="The family behind Haumanskloof Nature Reserve"
+                src={storyImageSrc}
+                alt={storyImageAlt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain p-4"
@@ -121,13 +143,13 @@ export default function AboutPage() {
             <div>
               <p className="label-text mb-4 text-text-muted">Our Vision</p>
               <h2 className="font-heading text-[clamp(24px,3vw,32px)] font-light text-text-dark leading-tight italic">
-                &ldquo;{about.vision}&rdquo;
+                &ldquo;{vision}&rdquo;
               </h2>
             </div>
             <div>
               <p className="label-text mb-4 text-text-muted">Our Mission</p>
               <p className="text-text-dark/80 leading-relaxed text-[17px] font-light">
-                {about.mission}
+                {mission}
               </p>
             </div>
           </div>
@@ -144,7 +166,7 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-10">
-              {about.values.map((value, i) => (
+              {values.map((value, i) => (
                 <div key={value.title} className="flex gap-5">
                   <div className="text-primary shrink-0 mt-1">{valueIcons[value.icon]}</div>
                   <div>
@@ -163,16 +185,16 @@ export default function AboutPage() {
         <section className="bg-bg-dark py-20 px-10 text-center">
           <div className="max-w-[500px] mx-auto">
             <h2 className="font-heading text-[clamp(24px,3vw,36px)] font-light text-text-light mb-4 leading-tight">
-              {about.cta.heading}
+              {cta.heading}
             </h2>
             <p className="text-[rgba(240,235,224,0.65)] leading-relaxed mb-8 text-[15px]">
-              {about.cta.body}
+              {cta.body}
             </p>
             <Link
-              href={about.cta.button.href}
+              href="/contact"
               className="inline-block text-[11px] py-2.5 px-7 bg-primary text-primary-light rounded-sm no-underline tracking-wider hover:bg-primary-hover transition-colors"
             >
-              {about.cta.button.label}
+              Get in touch
             </Link>
           </div>
         </section>
