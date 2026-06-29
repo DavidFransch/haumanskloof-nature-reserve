@@ -10,8 +10,6 @@ import Footer from '@/components/layout/Footer'
 import { siteContent } from '@/content/site.content'
 import GalleryGrid from '@/components/gallery/GalleryGrid'
 
-export const revalidate = 30
-
 const validCategories: GalleryCategory[] = ['camera-trap', 'wildlife', 'landscapes', 'family', 'flora']
 const categoryOrder: GalleryCategory[] = ['camera-trap', 'wildlife', 'landscapes', 'flora', 'family']
 

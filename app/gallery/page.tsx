@@ -15,8 +15,6 @@ export const metadata: Metadata = {
     'Explore the wildlife, landscapes, and flora of Haumanskloof Nature Reserve through our photo gallery.',
 }
 
-export const revalidate = 30
-
 const categoryOrder: GalleryCategory[] = ['camera-trap', 'wildlife', 'landscapes', 'flora', 'family']
 
 export default async function GalleryPage() {
