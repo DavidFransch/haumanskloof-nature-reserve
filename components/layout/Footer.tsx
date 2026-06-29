@@ -1,25 +1,101 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { siteContent } from '@/content/site.content'
 
+const socialLinks = siteContent.footer.links.filter((l) => l.external)
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Accommodation', href: '/accommodation' },
+  { label: 'Activities', href: '/activities' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+]
+
 export default function Footer() {
-  const { footer, siteName } = siteContent
+  const { siteName, siteTagline, siteLocation, siteEmail, footer } = siteContent
   return (
-    <footer className="border-t border-border py-6 px-10">
-      <div className="container-max flex flex-wrap items-center justify-between gap-4">
-        <span className="text-[11px] tracking-widest uppercase text-text-muted">{siteName}</span>
-        <div className="flex gap-6">
-          {footer.links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-[11px] text-text-muted no-underline"
-              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-            >
-              {link.label}
-            </Link>
-          ))}
+    <footer className="bg-bg-dark">
+      {/* Main grid */}
+      <div className="container-max section-padding">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8 lg:gap-16">
+
+          {/* Left — Brand */}
+          <div className="space-y-4">
+            <Image
+              src="/images/logo-2.png"
+              alt={siteName}
+              width={48}
+              height={48}
+              className="h-12 w-auto"
+            />
+            <p className="font-heading text-[16px] text-text-light">
+              {siteName}
+            </p>
+            <p className="text-[14px] leading-relaxed text-white/55">
+              {siteTagline}
+            </p>
+            <p className="text-[13px] text-white/40">
+              {siteLocation}
+            </p>
+          </div>
+
+          {/* Centre — Explore */}
+          <div className="space-y-5">
+            <span className="label-text text-white/40">Explore</span>
+            <nav className="flex flex-col gap-3">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-[14px] text-white/55 no-underline transition-colors hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Right — Contact & Social */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <span className="label-text text-white/40">Get in touch</span>
+              <a
+                href={`mailto:${siteEmail}`}
+                className="block text-[14px] text-white/55 no-underline transition-colors hover:text-white"
+              >
+                {siteEmail}
+              </a>
+            </div>
+
+            <div className="space-y-4">
+              <span className="label-text text-white/40">Follow us</span>
+              <div className="flex flex-col gap-3">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] text-white/55 no-underline transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
         </div>
-        <p className="text-[11px] text-text-muted">{footer.legal}</p>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/10">
+        <div className="container-max flex flex-wrap items-center justify-between gap-3 py-5">
+          <p className="text-[12px] text-white/35">{footer.legal}</p>
+          <p className="text-[12px] text-white/35">Designed by Tugela</p>
+        </div>
       </div>
     </footer>
   )
