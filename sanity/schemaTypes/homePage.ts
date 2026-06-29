@@ -16,24 +16,6 @@ export default defineType({
         defineField({ name: 'intro', title: 'Introduction', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 4, validation: (Rule) => Rule.required() }),
         defineField({ name: 'cta', title: 'Closing invite text', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
-        defineField({
-          name: 'primaryCta',
-          title: 'Primary button',
-          type: 'object',
-          fields: [
-            { name: 'label', title: 'Label', type: 'string' },
-            { name: 'href', title: 'Link', type: 'string' },
-          ],
-        }),
-        defineField({
-          name: 'secondaryCta',
-          title: 'Secondary button',
-          type: 'object',
-          fields: [
-            { name: 'label', title: 'Label', type: 'string' },
-            { name: 'href', title: 'Link', type: 'string' },
-          ],
-        }),
       ],
     }),
 
@@ -45,15 +27,6 @@ export default defineType({
         defineField({ name: 'label', title: 'Label', type: 'string', validation: (Rule) => Rule.required() }),
         defineField({ name: 'heading', title: 'Heading', type: 'string', validation: (Rule) => Rule.required() }),
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 4, validation: (Rule) => Rule.required() }),
-        defineField({
-          name: 'cta',
-          title: 'Link',
-          type: 'object',
-          fields: [
-            { name: 'label', title: 'Label', type: 'string' },
-            { name: 'href', title: 'Link', type: 'string' },
-          ],
-        }),
       ],
     }),
 
@@ -61,7 +34,8 @@ export default defineType({
       name: 'pillars',
       title: 'Pillars',
       type: 'array',
-      description: 'The three feature pillars shown below the hero.',
+      description: 'The three feature pillars shown below the hero. Exactly 3 required.',
+      validation: (Rule) => Rule.length(3).error('Exactly 3 pillars are required — the layout does not support more or fewer.'),
       of: [
         {
           type: 'object',
@@ -93,20 +67,11 @@ export default defineType({
     defineField({
       name: 'gallery',
       title: 'Gallery Section',
-      description: 'Labels and link only. Gallery images are managed under Gallery Images.',
+      description: 'Labels only. Gallery images are managed under Gallery Images.',
       type: 'object',
       fields: [
         defineField({ name: 'label', title: 'Label', type: 'string', validation: (Rule) => Rule.required() }),
         defineField({ name: 'heading', title: 'Heading', type: 'string', validation: (Rule) => Rule.required() }),
-        defineField({
-          name: 'cta',
-          title: 'Link',
-          type: 'object',
-          fields: [
-            { name: 'label', title: 'Label', type: 'string' },
-            { name: 'href', title: 'Link', type: 'string' },
-          ],
-        }),
       ],
     }),
 
@@ -130,7 +95,6 @@ export default defineType({
                 { name: 'desc', title: 'Description', type: 'string' },
                 { name: 'tag', title: 'Tag', type: 'string' },
                 { name: 'image', title: 'Image path', type: 'string', description: 'Static image path under /images/' },
-                { name: 'href', title: 'Link', type: 'string' },
               ],
               preview: { select: { title: 'name', subtitle: 'desc' } },
             },
@@ -146,15 +110,6 @@ export default defineType({
       fields: [
         defineField({ name: 'heading', title: 'Heading', type: 'string', validation: (Rule) => Rule.required() }),
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
-        defineField({
-          name: 'button',
-          title: 'Button',
-          type: 'object',
-          fields: [
-            { name: 'label', title: 'Label', type: 'string' },
-            { name: 'href', title: 'Link', type: 'string' },
-          ],
-        }),
       ],
     }),
   ],

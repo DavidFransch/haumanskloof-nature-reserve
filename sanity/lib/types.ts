@@ -91,15 +91,12 @@ export interface HomeHero {
   intro: string
   body: string
   cta: string
-  primaryCta: { label: string; href: string }
-  secondaryCta: { label: string; href: string }
 }
 
 export interface HomeAbout {
   label: string
   heading: string
   body: string
-  cta: { label: string; href: string }
 }
 
 export interface HomePillar {
@@ -112,7 +109,6 @@ export interface HomePillar {
 export interface HomeGallery {
   label: string
   heading: string
-  cta: { label: string; href: string }
   // Static fallback items used only in siteContent — not a Sanity field
   items?: Array<{ label: string; image: string; href: string }>
 }
@@ -123,7 +119,6 @@ export interface HomeAccommodationUnit {
   desc: string
   tag: string
   image: string
-  href: string
 }
 
 export interface HomeAccommodation {
@@ -136,7 +131,6 @@ export interface HomeAccommodation {
 export interface HomeCta {
   heading: string
   body: string
-  button: { label: string; href: string }
 }
 
 export interface HomePage {

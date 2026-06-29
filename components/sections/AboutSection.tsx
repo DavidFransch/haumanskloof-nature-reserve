@@ -15,10 +15,10 @@ export default function AboutSection({ data }: { data?: HomeAbout | null }) {
           </h2>
           <p className="text-text-mid leading-relaxed mb-6 text-[15px]">{about.body}</p>
           <Link
-            href={about.cta.href}
+            href="/about"
             className="text-[13px] text-text-muted no-underline tracking-wide"
           >
-            {about.cta.label} →
+            Meet the family →
           </Link>
         </div>
         <div className="relative h-80 rounded-lg overflow-hidden bg-bg-mid">

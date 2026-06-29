@@ -21,7 +21,7 @@ export default function AccommodationSection({ data }: { data?: HomeAccommodatio
           {accommodation.units.map((unit, index) => (
             <Link
               key={unit._key ?? unit.name}
-              href={unit.href}
+              href="/accommodation"
               className="border border-border rounded-lg overflow-hidden no-underline block"
             >
               <div className="relative h-[200px] bg-bg-mid">

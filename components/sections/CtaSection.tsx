@@ -12,10 +12,10 @@ export default function CtaSection({ data }: { data?: HomeCta | null }) {
         </h2>
         <p className="text-[rgba(240,235,224,0.65)] leading-relaxed mb-8 text-[15px]">{cta.body}</p>
         <Link
-          href={cta.button.href}
+          href="/contact"
           className="inline-block text-[11px] py-2.5 px-7 bg-primary text-primary-light rounded-sm no-underline tracking-wider"
         >
-          {cta.button.label}
+          Get in touch
         </Link>
       </div>
     </section>

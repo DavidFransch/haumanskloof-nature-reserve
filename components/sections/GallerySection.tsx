@@ -63,10 +63,10 @@ export default async function GallerySection({ data }: { data?: HomeGallery | nu
 
       <div className="container-max py-4 px-10">
         <Link
-          href={gallery.cta.href}
+          href="/gallery"
           className="text-[13px] text-text-muted no-underline tracking-wide"
         >
-          {gallery.cta.label} →
+          View full gallery →
         </Link>
       </div>
     </section>

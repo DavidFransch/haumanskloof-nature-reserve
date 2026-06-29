@@ -69,15 +69,12 @@ const homepageDoc = {
       'Haumanskloof is a land of contrast, where vibrant Renosterveld and Fynbos meet the arid beauty of the Succulent Karoo.',
     body: 'Just two hours from Cape Town, Haumanskloof is a family-run sanctuary where nature and community thrive. Explore and immerse yourself in a unique natural setting, discover the riches of the land, or simply unwind under the stars.',
     cta: 'Come experience this special intersection of rolling mountains, pristine landscapes and rugged roads — we invite you to join us!',
-    primaryCta: { label: 'Explore the reserve', href: '#about' },
-    secondaryCta: { label: 'View accommodation', href: '/accommodation' },
   },
 
   about: {
     label: 'Our sanctuary',
     heading: 'A land of contrast and wonder',
     body: 'Haumanskloof is a place where gently rolling mountains meet pristine landscapes and rugged roads. Discover ancient landscapes, encounter local wildlife, or simply unwind under the stars — we invite you to join us.',
-    cta: { label: 'Meet the family', href: '/about' },
   },
 
   pillars: [
@@ -104,7 +101,6 @@ const homepageDoc = {
   gallery: {
     label: 'The reserve',
     heading: 'Experience Haumanskloof Nature Reserve',
-    cta: { label: 'View full gallery', href: '/gallery' },
   },
 
   accommodation: {
@@ -118,7 +114,6 @@ const homepageDoc = {
         desc: 'Sleeps up to 8 · Mountain views · Fully equipped kitchen',
         tag: 'Enquire for bookings',
         image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
-        href: '/accommodation#bunkhouse',
       },
     ],
   },
@@ -126,7 +121,6 @@ const homepageDoc = {
   cta: {
     heading: 'Come experience the sanctuary',
     body: "Discover ancient landscapes, encounter local wildlife, or simply unwind under the stars. We'd love to have you.",
-    button: { label: 'Get in touch', href: '/contact' },
   },
 }
 

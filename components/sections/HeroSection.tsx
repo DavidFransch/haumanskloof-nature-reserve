@@ -46,16 +46,16 @@ export default function HeroSection({ data }: { data?: HomeHero | null }) {
 
         <div className="flex flex-wrap gap-3">
           <Link
-            href={hero.primaryCta.href}
+            href="#about"
             className="text-[11px] py-2.5 px-6 bg-primary text-primary-light rounded-sm no-underline tracking-wider hover:bg-primary-hover transition-colors"
           >
-            {hero.primaryCta.label}
+            Explore the reserve
           </Link>
           <Link
-            href={hero.secondaryCta.href}
+            href="/accommodation"
             className="text-[11px] py-2.5 px-6 bg-transparent text-text-light border border-white/30 rounded-sm no-underline tracking-wider hover:bg-white/10 transition-colors"
           >
-            {hero.secondaryCta.label}
+            View accommodation
           </Link>
         </div>
       </div>
