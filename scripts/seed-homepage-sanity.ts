@@ -61,10 +61,17 @@ const client = createClient({
 const PUBLIC = path.join(process.cwd(), 'public')
 
 async function uploadImage(relativePath: string, filename: string) {
+  const existing = await client.fetch<{ _id: string } | null>(
+    `*[_type == "sanity.imageAsset" && source.id == $sourceId][0]{ _id }`,
+    { sourceId: filename }
+  )
+  if (existing) return existing._id
+
   const stream = fs.createReadStream(path.join(PUBLIC, relativePath))
   const asset = await client.assets.upload('image', stream, {
     filename,
     contentType: 'image/webp',
+    source: { id: filename, name: filename },
   })
   return asset._id
 }
