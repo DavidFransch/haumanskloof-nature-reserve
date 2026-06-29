@@ -5,30 +5,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { siteContent } from '@/content/site.content'
 
-function InstagramIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <circle cx="12" cy="12" r="5" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  )
-}
-
-function FacebookIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  )
-}
-
-const socialIcons: Record<string, React.FC> = {
-  Instagram: InstagramIcon,
-  Facebook: FacebookIcon,
-}
-
-const socialLinks = siteContent.footer.links.filter((l) => l.label in socialIcons)
+const socialLinks = siteContent.footer.links.filter((l) => l.external)
 
 const enquiryTypes = [
   { label: 'Accommodation', value: 'accommodation' },
@@ -483,23 +460,17 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-heading text-xl text-text-dark mb-3">Follow Us</h3>
                   <div className="flex flex-col gap-3">
-                    {socialLinks.map((link) => {
-                      const Icon = socialIcons[link.label]
-                      return (
-                        <a
-                          key={link.label}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-3 text-text-mid no-underline hover:text-text-dark transition-colors group"
-                        >
-                          <span className="text-text-muted group-hover:text-text-mid transition-colors">
-                            <Icon />
-                          </span>
-                          <span className="text-[14px]">{link.label}</span>
-                        </a>
-                      )
-                    })}
+                    {socialLinks.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[14px] text-text-mid no-underline hover:text-text-dark transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
