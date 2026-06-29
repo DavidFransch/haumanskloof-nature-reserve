@@ -31,8 +31,10 @@ export const galleryImage = defineType({
       name: 'image',
       title: 'Image',
       type: 'image',
+      description: 'WebP format only. Keep files under 500 KB for best performance — large images will slow the gallery for visitors.',
       options: {
         hotspot: true,
+        accept: 'image/webp',
       },
       validation: (Rule) => Rule.required(),
     }),
