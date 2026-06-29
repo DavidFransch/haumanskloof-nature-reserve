@@ -202,6 +202,33 @@ export default function AccommodationPage() {
           </div>
         </section>
 
+        {/* Compost Toilet Section */}
+        <section className="section-padding border-b border-border bg-white">
+          <div className="container-max grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
+              <Image
+                src="/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-2.webp"
+                alt={accommodation.compostToilet.heading}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="label-text mb-4">{accommodation.compostToilet.eyebrow}</p>
+              <h2 className="font-heading text-[clamp(28px,3.5vw,42px)] font-light text-text-dark leading-tight mb-6">
+                {accommodation.compostToilet.heading}
+              </h2>
+              <p className="text-text-mid leading-relaxed text-[15px] mb-4">
+                {accommodation.compostToilet.body}
+              </p>
+              <p className="text-[13px] text-text-muted">
+                {accommodation.compostToilet.note}
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Amenities Section */}
         <section className="bg-bg-light border-b border-border">
           <div className="container-max section-padding">
