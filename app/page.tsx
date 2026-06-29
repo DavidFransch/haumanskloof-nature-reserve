@@ -43,12 +43,14 @@ export default async function Home() {
     ? {
         ...homeData.accommodation,
         bunkhouse: {
+          ...siteContent.home.accommodation.bunkhouse,
           ...homeData.accommodation.bunkhouse,
           image: homeData.accommodation.bunkhouse?.image
             ? urlForImage(homeData.accommodation.bunkhouse.image).width(600).height(400).url()
             : siteContent.home.accommodation.bunkhouse.image,
         },
         nextUnit: {
+          ...siteContent.home.accommodation.nextUnit,
           ...homeData.accommodation.nextUnit,
           image: homeData.accommodation.nextUnit?.image
             ? urlForImage(homeData.accommodation.nextUnit.image).width(600).height(400).url()
