@@ -4,13 +4,14 @@ import { ACCOMMODATION_DOCUMENT_ID, HOMEPAGE_DOCUMENT_ID } from '../constants'
 // Get homepage singleton content
 export const homePageQuery = groq`
   *[_type == "homePage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {
-    "hero": hero { eyebrow, headline, intro, body, cta },
-    "about": about { label, heading, body },
+    "hero": hero { eyebrow, headline, intro, body, cta, "image": image { asset, hotspot, crop } },
+    "about": about { label, heading, body, "image": image { asset, hotspot, crop } },
     "pillars": pillars[] { _key, icon, title, body },
     "gallery": gallery { label, heading },
     "accommodation": accommodation {
       label, heading, body,
-      "units": units[] { _key, name, desc, tag, image }
+      "bunkhouse": bunkhouse { name, desc, tag, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
+      "nextUnit": nextUnit { name, desc, tag, "image": image { asset, hotspot, crop } }
     },
     "cta": cta { heading, body }
   }

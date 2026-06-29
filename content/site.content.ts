@@ -59,12 +59,14 @@ export const siteContent = {
         'Haumanskloof is a land of contrast, where vibrant Renosterveld and Fynbos meet the arid beauty of the Succulent Karoo.',
       body: 'Just two hours from Cape Town, Haumanskloof is a family-run sanctuary where nature and community thrive. Explore and immerse yourself in a unique natural setting, discover the riches of the land, or simply unwind under the stars.',
       cta: 'Come experience this special intersection of rolling mountains, pristine landscapes and rugged roads — we invite you to join us!',
+      image: null,
     },
 
     about: {
       label: 'Our sanctuary',
       heading: 'A land of contrast and wonder',
       body: 'Haumanskloof is a place where gently rolling mountains meet pristine landscapes and rugged roads. Discover ancient landscapes, encounter local wildlife, or simply unwind under the stars — we invite you to join us.',
+      image: null,
     },
 
     pillars: [
@@ -99,14 +101,18 @@ export const siteContent = {
       label: 'Where to stay',
       heading: 'Accommodation at Haumanskloof Nature Reserve',
       body: 'Wake up to birdsong, fall asleep under clear mountain skies. Our units are designed to keep you close to the land without sacrificing comfort.',
-      units: [
-        {
-          name: 'The Bunkhouse',
-          desc: 'Sleeps up to 8 · Mountain views · Fully equipped kitchen',
-          tag: 'Enquire for bookings',
-          image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
-        },
-      ],
+      bunkhouse: {
+        name: 'The Bunkhouse',
+        desc: 'Sleeps up to 8 · Mountain views · Fully equipped kitchen',
+        tag: 'Enquire for bookings',
+        image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
+      },
+      nextUnit: {
+        name: 'More coming soon',
+        desc: 'Additional accommodation will be added as the reserve grows.',
+        tag: null,
+        image: null,
+      },
     },
 
     cta: {

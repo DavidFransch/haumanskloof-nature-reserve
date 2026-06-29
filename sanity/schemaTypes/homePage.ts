@@ -1,11 +1,14 @@
 import { defineField, defineType } from 'sanity'
 
 // Singleton document — only one instance exists with _id: 'homepage'
+// Fields are ordered to match the visual top-to-bottom layout of the page.
 export default defineType({
   name: 'homePage',
   title: 'Homepage',
   type: 'document',
   fields: [
+
+    // ─── 1. Hero ────────────────────────────────────────────────────────────
     defineField({
       name: 'hero',
       title: 'Hero Section',
@@ -16,9 +19,20 @@ export default defineType({
         defineField({ name: 'intro', title: 'Introduction', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 4, validation: (Rule) => Rule.required() }),
         defineField({ name: 'cta', title: 'Closing invite text', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
+        defineField({
+          name: 'image',
+          title: 'Background image',
+          type: 'image',
+          description: 'Full-screen background image. Falls back to the default photo if not set.',
+          options: { hotspot: true },
+          fields: [
+            defineField({ name: 'altText', title: 'Alt text', type: 'string', validation: (Rule) => Rule.required() }),
+          ],
+        }),
       ],
     }),
 
+    // ─── 2. About ───────────────────────────────────────────────────────────
     defineField({
       name: 'about',
       title: 'About Section',
@@ -27,14 +41,25 @@ export default defineType({
         defineField({ name: 'label', title: 'Label', type: 'string', validation: (Rule) => Rule.required() }),
         defineField({ name: 'heading', title: 'Heading', type: 'string', validation: (Rule) => Rule.required() }),
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 4, validation: (Rule) => Rule.required() }),
+        defineField({
+          name: 'image',
+          title: 'Property photo',
+          type: 'image',
+          description: 'Image shown alongside the about text. Falls back to the default photo if not set.',
+          options: { hotspot: true },
+          fields: [
+            defineField({ name: 'altText', title: 'Alt text', type: 'string', validation: (Rule) => Rule.required() }),
+          ],
+        }),
       ],
     }),
 
+    // ─── 3. Pillars ─────────────────────────────────────────────────────────
     defineField({
       name: 'pillars',
       title: 'Pillars',
       type: 'array',
-      description: 'The three feature pillars shown below the hero. Exactly 3 required.',
+      description: 'The three feature pillars shown below the about section. Exactly 3 required.',
       validation: (Rule) => Rule.length(3).error('Exactly 3 pillars are required — the layout does not support more or fewer.'),
       of: [
         {
@@ -64,17 +89,19 @@ export default defineType({
       ],
     }),
 
+    // ─── 4. Gallery ─────────────────────────────────────────────────────────
     defineField({
       name: 'gallery',
       title: 'Gallery Section',
-      description: 'Labels only. Gallery images are managed under Gallery Images.',
       type: 'object',
+      description: 'Labels only. Strip images are managed under Gallery Images (set a Homepage Strip Position on each).',
       fields: [
         defineField({ name: 'label', title: 'Label', type: 'string', validation: (Rule) => Rule.required() }),
         defineField({ name: 'heading', title: 'Heading', type: 'string', validation: (Rule) => Rule.required() }),
       ],
     }),
 
+    // ─── 5. Accommodation ───────────────────────────────────────────────────
     defineField({
       name: 'accommodation',
       title: 'Accommodation Section',
@@ -83,26 +110,52 @@ export default defineType({
         defineField({ name: 'label', title: 'Label', type: 'string', validation: (Rule) => Rule.required() }),
         defineField({ name: 'heading', title: 'Heading', type: 'string', validation: (Rule) => Rule.required() }),
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
+
         defineField({
-          name: 'units',
-          title: 'Units',
-          type: 'array',
-          of: [
-            {
-              type: 'object',
+          name: 'bunkhouse',
+          title: 'The Bunkhouse',
+          type: 'object',
+          fields: [
+            defineField({ name: 'name', title: 'Name', type: 'string', validation: (Rule) => Rule.required() }),
+            defineField({ name: 'desc', title: 'Description', type: 'string', validation: (Rule) => Rule.required() }),
+            defineField({ name: 'tag', title: 'Tag', type: 'string', validation: (Rule) => Rule.required() }),
+            defineField({
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: { hotspot: true },
               fields: [
-                { name: 'name', title: 'Name', type: 'string' },
-                { name: 'desc', title: 'Description', type: 'string' },
-                { name: 'tag', title: 'Tag', type: 'string' },
-                { name: 'image', title: 'Image path', type: 'string', description: 'Static image path under /images/' },
+                defineField({ name: 'altText', title: 'Alt text', type: 'string', validation: (Rule) => Rule.required() }),
               ],
-              preview: { select: { title: 'name', subtitle: 'desc' } },
-            },
+            }),
+          ],
+        }),
+
+        defineField({
+          name: 'nextUnit',
+          title: 'Next unit (coming soon)',
+          type: 'object',
+          description: 'Shown as a "coming soon" placeholder until an image is added. Fill in all fields and upload an image to activate it as a real unit.',
+          fields: [
+            defineField({ name: 'name', title: 'Name', type: 'string', validation: (Rule) => Rule.required() }),
+            defineField({ name: 'desc', title: 'Description', type: 'string', validation: (Rule) => Rule.required() }),
+            defineField({ name: 'tag', title: 'Tag', type: 'string' }),
+            defineField({
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              description: 'Upload an image here to activate this as a live unit on the homepage.',
+              options: { hotspot: true },
+              fields: [
+                defineField({ name: 'altText', title: 'Alt text', type: 'string' }),
+              ],
+            }),
           ],
         }),
       ],
     }),
 
+    // ─── 6. CTA ─────────────────────────────────────────────────────────────
     defineField({
       name: 'cta',
       title: 'CTA Section',
@@ -112,6 +165,7 @@ export default defineType({
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
       ],
     }),
+
   ],
 
   preview: {

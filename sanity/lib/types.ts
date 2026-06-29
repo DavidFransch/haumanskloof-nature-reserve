@@ -91,12 +91,14 @@ export interface HomeHero {
   intro: string
   body: string
   cta: string
+  image?: string | null
 }
 
 export interface HomeAbout {
   label: string
   heading: string
   body: string
+  image?: string | null
 }
 
 export interface HomePillar {
@@ -113,19 +115,26 @@ export interface HomeGallery {
   items?: Array<{ label: string; image: string; href: string }>
 }
 
-export interface HomeAccommodationUnit {
-  _key?: string
+export interface HomeAccommodationBunkhouse {
   name: string
   desc: string
   tag: string
   image: string
 }
 
+export interface HomeAccommodationNextUnit {
+  name: string
+  desc: string
+  tag?: string | null
+  image?: string | null
+}
+
 export interface HomeAccommodation {
   label: string
   heading: string
   body: string
-  units: HomeAccommodationUnit[]
+  bunkhouse: HomeAccommodationBunkhouse
+  nextUnit: HomeAccommodationNextUnit
 }
 
 export interface HomeCta {
@@ -140,6 +149,17 @@ export interface HomePage {
   gallery: HomeGallery
   accommodation: HomeAccommodation
   cta: HomeCta
+}
+
+// Raw Sanity response for the homepage — images come as SanityImage references.
+// Normalized to URL strings before passing to components (see app/page.tsx).
+export interface SanityHomePage extends Omit<HomePage, 'hero' | 'about' | 'accommodation'> {
+  hero: Omit<HomeHero, 'image'> & { image: SanityImage | null }
+  about: Omit<HomeAbout, 'image'> & { image: SanityImage | null }
+  accommodation: Omit<HomeAccommodation, 'bunkhouse' | 'nextUnit'> & {
+    bunkhouse: Omit<HomeAccommodationBunkhouse, 'image'> & { image: SanityImage | null; imageAlt: string | null }
+    nextUnit: Omit<HomeAccommodationNextUnit, 'image'> & { image: SanityImage | null }
+  }
 }
 
 // ============================================================

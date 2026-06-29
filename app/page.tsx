@@ -8,25 +8,64 @@ import AccommodationSection from '@/components/sections/AccommodationSection'
 import CtaSection from '@/components/sections/CtaSection'
 import { sanityFetch } from '@/sanity/lib/client'
 import { homePageQuery } from '@/sanity/lib/queries'
-import type { HomePage } from '@/sanity/lib/types'
+import { urlForImage } from '@/sanity/lib/image'
+import { siteContent } from '@/content/site.content'
+import type { SanityHomePage } from '@/sanity/lib/types'
 
 export const revalidate = 60
 
 export default async function Home() {
-  const homeData = await sanityFetch<HomePage | null>({
+  const homeData = await sanityFetch<SanityHomePage | null>({
     query: homePageQuery,
     tags: ['homePage'],
   }).catch(() => null)
+
+  // Normalize images from SanityImage references to URL strings before passing to components
+  const hero = homeData?.hero
+    ? {
+        ...homeData.hero,
+        image: homeData.hero.image
+          ? urlForImage(homeData.hero.image).width(1920).height(1080).url()
+          : null,
+      }
+    : null
+
+  const about = homeData?.about
+    ? {
+        ...homeData.about,
+        image: homeData.about.image
+          ? urlForImage(homeData.about.image).width(800).height(600).url()
+          : null,
+      }
+    : null
+
+  const accommodation = homeData?.accommodation
+    ? {
+        ...homeData.accommodation,
+        bunkhouse: {
+          ...homeData.accommodation.bunkhouse,
+          image: homeData.accommodation.bunkhouse?.image
+            ? urlForImage(homeData.accommodation.bunkhouse.image).width(600).height(400).url()
+            : siteContent.home.accommodation.bunkhouse.image,
+        },
+        nextUnit: {
+          ...homeData.accommodation.nextUnit,
+          image: homeData.accommodation.nextUnit?.image
+            ? urlForImage(homeData.accommodation.nextUnit.image).width(600).height(400).url()
+            : null,
+        },
+      }
+    : null
 
   return (
     <>
       <Navbar />
       <main className="pt-20">
-        <HeroSection data={homeData?.hero} />
+        <HeroSection data={hero} />
+        <AboutSection data={about} />
         <PillarsSection data={homeData?.pillars} />
         <GallerySection data={homeData?.gallery} />
-        <AboutSection data={homeData?.about} />
-        <AccommodationSection data={homeData?.accommodation} />
+        <AccommodationSection data={accommodation} />
         <CtaSection data={homeData?.cta} />
       </main>
       <Footer />

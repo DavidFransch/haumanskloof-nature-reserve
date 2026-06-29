@@ -9,7 +9,7 @@ export default function HeroSection({ data }: { data?: HomeHero | null }) {
     <section className="relative min-h-screen flex items-center bg-bg-dark overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/gallery/home-hero/home-hero-1.webp"
+        src={hero.image ?? '/images/gallery/home-hero/home-hero-1.webp'}
         alt="Haumanskloof Nature Reserve"
         fill
         sizes="100vw"
