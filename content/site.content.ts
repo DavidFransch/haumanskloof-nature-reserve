@@ -7,7 +7,7 @@
  * ============================================================
  */
 
-import type { HomePage } from '@/sanity/lib/types'
+import type { HomePage, SiteContentAccommodation } from '@/sanity/lib/types'
 
 export const siteContent = {
   /**
@@ -59,15 +59,12 @@ export const siteContent = {
         'Haumanskloof is a land of contrast, where vibrant Renosterveld and Fynbos meet the arid beauty of the Succulent Karoo.',
       body: 'Just two hours from Cape Town, Haumanskloof is a family-run sanctuary where nature and community thrive. Explore and immerse yourself in a unique natural setting, discover the riches of the land, or simply unwind under the stars.',
       cta: 'Come experience this special intersection of rolling mountains, pristine landscapes and rugged roads — we invite you to join us!',
-      primaryCta: { label: 'Explore the reserve', href: '#about' },
-      secondaryCta: { label: 'View accommodation', href: '/accommodation' },
     },
 
     about: {
       label: 'Our sanctuary',
       heading: 'A land of contrast and wonder',
       body: 'Haumanskloof is a place where gently rolling mountains meet pristine landscapes and rugged roads. Discover ancient landscapes, encounter local wildlife, or simply unwind under the stars — we invite you to join us.',
-      cta: { label: 'Meet the family', href: '/about' },
     },
 
     pillars: [
@@ -91,7 +88,6 @@ export const siteContent = {
     gallery: {
       label: 'The reserve',
       heading: 'Experience Haumanskloof Nature Reserve',
-      cta: { label: 'View full gallery', href: '/gallery' },
       items: [
         { label: 'Wildlife', image: '/images/gallery/home-gallery-strip/home-gallery-strip-1.webp', href: '/gallery/wildlife' },
         { label: 'Landscapes', image: '/images/gallery/home-gallery-strip/home-gallery-strip-2.webp', href: '/gallery/landscapes' },
@@ -109,7 +105,6 @@ export const siteContent = {
           desc: 'Sleeps up to 8 · Mountain views · Fully equipped kitchen',
           tag: 'Enquire for bookings',
           image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
-          href: '/accommodation#bunkhouse',
         },
       ],
     },
@@ -117,7 +112,6 @@ export const siteContent = {
     cta: {
       heading: 'Come experience the sanctuary',
       body: "Discover ancient landscapes, encounter local wildlife, or simply unwind under the stars. We'd love to have you.",
-      button: { label: 'Get in touch', href: '/contact' },
     },
   } satisfies HomePage,
 
@@ -244,7 +238,6 @@ export const siteContent = {
       title: 'Haumanskloof Nature Reserve — aerial view',
     },
     bunkhouse: {
-      id: 'bunkhouse',
       title: 'The Bunkhouse on Protea Lane',
       mainImage: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
       capacity: 'Sleeps up to 8 guests',
@@ -260,6 +253,12 @@ export const siteContent = {
         'Compost toilet — low impact, high comfort',
         'No Wi-Fi — fully off the grid',
       ],
+      rates: {
+        baseRate: 2800,
+        baseRateCaption: 'Base rate for up to 2 people',
+        additionalRate: 600,
+        additionalRateCaption: 'Additional guest fee (up to 8)',
+      },
       storyTitle: 'The story behind the build',
       story: `The unit was constructed with the hope of having a minimal ecological footprint during its occupancy and construction. Recycled and up-cycled materials were therefore used where possible, however, the sacrifice of comfort was non-negotiable. New materials thus had to be transported in for substructures, decking, internal walling and ceiling purposes.
 
@@ -297,9 +296,8 @@ The house was meticulously built and designed to be enjoyed in nature, without d
     cta: {
       heading: 'Book your mountain escape',
       body: 'Enquire about availability and rates for the Bunkhouse on Protea Lane. We\'ll get back to you within 24 hours.',
-      button: { label: 'Enquire for bookings', href: '/contact' },
     },
-  },
+  } satisfies SiteContentAccommodation,
 
   /**
    * FOOTER

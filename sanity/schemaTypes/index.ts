@@ -1,3 +1,4 @@
+import accommodationPage from './accommodationPage'
 import author from './author'
 import blockContent from './blockContent'
 import category from './category'
@@ -6,4 +7,4 @@ import { galleryImage } from './galleryImage'
 import homePage from './homePage'
 import post from './post'
 
-export const schemaTypes = [author, blockContent, category, faq, galleryImage, homePage, post]
+export const schemaTypes = [accommodationPage, author, blockContent, category, faq, galleryImage, homePage, post]

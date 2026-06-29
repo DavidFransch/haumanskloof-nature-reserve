@@ -142,6 +142,89 @@ export interface HomePage {
   cta: HomeCta
 }
 
+// ============================================================
+// Accommodation page singleton
+// ============================================================
+
+// Shape of siteContent.accommodation — the static fallback for the Sanity singleton.
+export interface SiteContentAccommodation {
+  hero: { eyebrow: string; heading: string; intro: string }
+  droneVideo: { vimeoId: string; title: string }
+  bunkhouse: {
+    title: string
+    capacity: string
+    mainImage: string
+    intro: string
+    details: string[]
+    rates: {
+      baseRate: number
+      baseRateCaption: string
+      additionalRate: number
+      additionalRateCaption: string
+    }
+    storyTitle: string
+    story: string
+    gallery: Array<{ label: string; image: string; category: string }>
+  }
+  compostToilet: { eyebrow: string; heading: string; body: string; note: string }
+  amenities: Array<{ icon: string; title: string; body: string }>
+  cta: { heading: string; body: string }
+}
+
+export interface SanityAccommodationGalleryItem {
+  _key?: string
+  image: SanityImage
+  altText: string
+  label: string
+  category?: string
+}
+
+export interface SanityAccommodationPage {
+  hero: {
+    eyebrow: string
+    heading: string
+    intro: string
+  }
+  droneVideo: {
+    vimeoId: string
+    title: string
+  }
+  bunkhouse: {
+    title: string
+    capacity: string
+    intro: string
+    details: string[]
+    rates: {
+      baseRate: number
+      baseRateCaption: string
+      additionalRate: number
+      additionalRateCaption: string
+    }
+    storyTitle: string
+    story: Array<{ _key: string; text: string }>
+    mainImage: SanityImage | null
+    mainImageAlt: string | null
+    gallery: SanityAccommodationGalleryItem[]
+  }
+  compostToilet: {
+    eyebrow: string
+    heading: string
+    body: string
+    note: string
+    image: SanityImage | null
+  }
+  amenities: Array<{
+    _key?: string
+    icon: string
+    title: string
+    body: string
+  }>
+  cta: {
+    heading: string
+    body: string
+  }
+}
+
 export const galleryCategoryLabels: Record<GalleryCategory, string> = {
   'camera-trap': 'Camera Trap',
   wildlife: 'Wildlife on Foot',

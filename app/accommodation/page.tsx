@@ -7,6 +7,10 @@ import VimeoEmbed from '@/components/ui/VimeoEmbed'
 import Disclosure from '@/components/ui/Disclosure'
 import { siteContent } from '@/content/site.content'
 import AccommodationGallery from '@/components/accommodation/AccommodationGallery'
+import { sanityFetch } from '@/sanity/lib/client'
+import { accommodationPageQuery } from '@/sanity/lib/queries'
+import { urlForImage } from '@/sanity/lib/image'
+import type { SanityAccommodationPage } from '@/sanity/lib/types'
 
 export const metadata: Metadata = {
   title: `Accommodation · ${siteContent.siteName}`,
@@ -78,8 +82,48 @@ const amenityIcons: Record<string, React.ReactNode> = {
   ),
 }
 
-export default function AccommodationPage() {
-  const { accommodation } = siteContent
+export default async function AccommodationPage() {
+  const data = await sanityFetch<SanityAccommodationPage>({
+    query: accommodationPageQuery,
+    tags: ['accommodationPage'],
+  })
+
+  const sc = siteContent.accommodation
+
+  // Normalized fields — Sanity takes precedence, siteContent is the fallback
+  const hero = data?.hero ?? sc.hero
+  const droneVideo = data?.droneVideo ?? sc.droneVideo
+  const compostToilet = {
+    ...(data?.compostToilet ?? sc.compostToilet),
+    image: data?.compostToilet?.image
+      ? urlForImage(data.compostToilet.image).width(800).height(600).url()
+      : '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-2.webp',
+  }
+  const amenities = data?.amenities ?? sc.amenities
+  const cta = data?.cta ?? sc.cta
+
+  const bunkhouse = {
+    title: data?.bunkhouse.title ?? sc.bunkhouse.title,
+    capacity: data?.bunkhouse.capacity ?? sc.bunkhouse.capacity,
+    intro: data?.bunkhouse.intro ?? sc.bunkhouse.intro,
+    details: data?.bunkhouse.details ?? sc.bunkhouse.details,
+    rates: data?.bunkhouse.rates ?? sc.bunkhouse.rates,
+    storyTitle: data?.bunkhouse.storyTitle ?? sc.bunkhouse.storyTitle,
+    story: data
+      ? data.bunkhouse.story.map((p) => p.text)
+      : sc.bunkhouse.story.split('\n\n').filter(Boolean),
+    mainImage: data?.bunkhouse.mainImage
+      ? urlForImage(data.bunkhouse.mainImage).width(900).height(600).url()
+      : sc.bunkhouse.mainImage,
+    mainImageAlt: data?.bunkhouse.mainImageAlt ?? (data?.bunkhouse.title ?? sc.bunkhouse.title),
+    gallery: data?.bunkhouse.gallery?.length
+      ? data.bunkhouse.gallery.map((item) => ({
+          label: item.label,
+          image: urlForImage(item.image).width(800).height(600).url(),
+          category: item.category ?? '',
+        }))
+      : sc.bunkhouse.gallery,
+  }
 
   return (
     <>
@@ -88,9 +132,9 @@ export default function AccommodationPage() {
         {/* Hero */}
         <section className="px-10 py-20 md:py-28 bg-bg-light border-b border-border">
           <div className="container-max">
-            <p className="label-text mb-4">{accommodation.hero.eyebrow}</p>
+            <p className="label-text mb-4">{hero.eyebrow}</p>
             <h1 className="font-heading text-[clamp(32px,5vw,56px)] font-light text-text-dark leading-tight mb-6 max-w-[640px]">
-              {accommodation.hero.heading.split('\n').map((line, i, arr) => (
+              {hero.heading.split('\n').map((line, i, arr) => (
                 <span key={i}>
                   {line}
                   {i < arr.length - 1 && <br />}
@@ -98,7 +142,7 @@ export default function AccommodationPage() {
               ))}
             </h1>
             <p className="text-[15px] text-text-mid leading-relaxed max-w-[560px]">
-              {accommodation.hero.intro}
+              {hero.intro}
             </p>
           </div>
         </section>
@@ -108,8 +152,8 @@ export default function AccommodationPage() {
           <div className="container-max grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative h-[340px] md:h-[450px] rounded-lg overflow-hidden bg-bg-mid">
               <Image
-                src={accommodation.bunkhouse.mainImage}
-                alt={accommodation.bunkhouse.title}
+                src={bunkhouse.mainImage}
+                alt={bunkhouse.mainImageAlt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
@@ -117,38 +161,44 @@ export default function AccommodationPage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
               <span className="absolute bottom-4 left-5 text-white/65 text-[10px] tracking-widest uppercase">
-                {accommodation.bunkhouse.capacity}
+                {bunkhouse.capacity}
               </span>
             </div>
             <div>
               <p className="label-text mb-4">The Flagship Unit</p>
               <h2 className="font-heading text-[clamp(28px,3.5vw,42px)] font-light text-text-dark leading-tight mb-6">
-                {accommodation.bunkhouse.title}
+                {bunkhouse.title}
               </h2>
               <p className="text-text-mid leading-relaxed mb-8 text-[15px]">
-                {accommodation.bunkhouse.intro}
+                {bunkhouse.intro}
               </p>
               <div className="space-y-4">
-                {accommodation.bunkhouse.details.map((detail, index) => (
+                {bunkhouse.details.map((detail, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <span className="mt-1.5 block w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                     <span className="text-[14px] text-text-mid">{detail}</span>
                   </div>
                 ))}
               </div>
-              
+
               <div className="mt-10">
                 <h3 className="font-heading text-xl text-text-dark mb-4">Rates</h3>
                 <div className="bg-bg-light/50 rounded-md p-6 border border-border/50">
                   <p className="label-text text-[10px] mb-3">Seasonal Pricing</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <p className="text-text-dark font-medium text-lg">R2,800 <span className="text-sm font-normal text-text-mid">/ night</span></p>
-                      <p className="text-[12px] text-text-mid">Base rate for up to 2 people</p>
+                      <p className="text-text-dark font-medium text-lg">
+                        R{bunkhouse.rates.baseRate.toLocaleString()}{' '}
+                        <span className="text-sm font-normal text-text-mid">/ night</span>
+                      </p>
+                      <p className="text-[12px] text-text-mid">{bunkhouse.rates.baseRateCaption}</p>
                     </div>
                     <div className="pt-4 sm:pt-0 sm:pl-6 sm:border-l border-border/30">
-                      <p className="text-text-dark font-medium text-lg">R600 <span className="text-sm font-normal text-text-mid">/ person</span></p>
-                      <p className="text-[12px] text-text-mid">Additional guest fee (up to 8)</p>
+                      <p className="text-text-dark font-medium text-lg">
+                        R{bunkhouse.rates.additionalRate.toLocaleString()}{' '}
+                        <span className="text-sm font-normal text-text-mid">/ person</span>
+                      </p>
+                      <p className="text-[12px] text-text-mid">{bunkhouse.rates.additionalRateCaption}</p>
                     </div>
                   </div>
                 </div>
@@ -160,9 +210,9 @@ export default function AccommodationPage() {
         {/* Bunkhouse Story Section */}
         <section className="border-b border-border">
           <div className="container-max px-10 py-0">
-            <Disclosure title={accommodation.bunkhouse.storyTitle}>
+            <Disclosure title={bunkhouse.storyTitle}>
               <div className="space-y-6">
-                {accommodation.bunkhouse.story.split('\n\n').map((paragraph, index) => (
+                {bunkhouse.story.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
@@ -171,7 +221,7 @@ export default function AccommodationPage() {
         </section>
 
         {/* Drone Video Section */}
-        {accommodation.droneVideo.vimeoId !== 'PLACEHOLDER' && (
+        {droneVideo.vimeoId !== 'PLACEHOLDER' && (
           <section className="bg-bg-dark py-24 md:py-32 overflow-hidden border-b border-border">
             <div className="container-max px-10">
               <div className="text-center mb-8">
@@ -181,14 +231,13 @@ export default function AccommodationPage() {
               </div>
               <div className="w-full max-w-[900px] mx-auto">
                 <VimeoEmbed
-                  videoId={accommodation.droneVideo.vimeoId}
-                  title={accommodation.droneVideo.title}
+                  videoId={droneVideo.vimeoId}
+                  title={droneVideo.title}
                 />
               </div>
             </div>
           </section>
         )}
-
 
         {/* Gallery Section */}
         <section className="border-b border-border bg-white">
@@ -198,7 +247,7 @@ export default function AccommodationPage() {
               Inside, Outside, and Beyond
             </h2>
 
-            <AccommodationGallery gallery={accommodation.bunkhouse.gallery} />
+            <AccommodationGallery gallery={bunkhouse.gallery} />
           </div>
         </section>
 
@@ -207,23 +256,23 @@ export default function AccommodationPage() {
           <div className="container-max grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-2.webp"
-                alt={accommodation.compostToilet.heading}
+                src={compostToilet.image}
+                alt={compostToilet.heading}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
             <div>
-              <p className="label-text mb-4">{accommodation.compostToilet.eyebrow}</p>
+              <p className="label-text mb-4">{compostToilet.eyebrow}</p>
               <h2 className="font-heading text-[clamp(28px,3.5vw,42px)] font-light text-text-dark leading-tight mb-6">
-                {accommodation.compostToilet.heading}
+                {compostToilet.heading}
               </h2>
               <p className="text-text-mid leading-relaxed text-[15px] mb-4">
-                {accommodation.compostToilet.body}
+                {compostToilet.body}
               </p>
               <p className="text-[13px] text-text-muted">
-                {accommodation.compostToilet.note}
+                {compostToilet.note}
               </p>
             </div>
           </div>
@@ -240,7 +289,7 @@ export default function AccommodationPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-10">
-              {accommodation.amenities.map((amenity, i) => (
+              {amenities.map((amenity, i) => (
                 <div key={i} className="flex gap-5">
                   <div className="text-primary shrink-0 mt-1">
                     {amenityIcons[amenity.icon]}
@@ -273,16 +322,16 @@ export default function AccommodationPage() {
         <section className="bg-bg-dark py-24 px-10 text-center">
           <div className="max-w-[500px] mx-auto text-white">
             <h2 className="font-heading text-[clamp(26px,3.5vw,40px)] font-light mb-4 leading-tight">
-              {accommodation.cta.heading}
+              {cta.heading}
             </h2>
             <p className="text-white/60 leading-relaxed mb-10 text-[15px]">
-              {accommodation.cta.body}
+              {cta.body}
             </p>
             <Link
-              href={accommodation.cta.button.href}
+              href="/contact"
               className="inline-block text-[11px] py-3 px-8 bg-primary text-primary-light rounded-sm no-underline tracking-widest hover:bg-primary-hover transition-all"
             >
-              {accommodation.cta.button.label}
+              Enquire for bookings
             </Link>
           </div>
         </section>

@@ -5,7 +5,7 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { presentationTool } from 'sanity/presentation'
 import { schemaTypes } from './sanity/schemaTypes'
-import { HOMEPAGE_DOCUMENT_ID } from './sanity/lib/constants'
+import { ACCOMMODATION_DOCUMENT_ID, HOMEPAGE_DOCUMENT_ID, SINGLETON_SCHEMA_TYPES } from './sanity/lib/constants'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!
@@ -25,7 +25,7 @@ export default defineConfig({
         S.list()
           .title('Content')
           .items([
-            // Singleton — opens directly without a list view
+            // Singletons — each opens directly without a list view
             S.listItem()
               .title('Homepage')
               .id('homePage')
@@ -34,10 +34,18 @@ export default defineConfig({
                   .schemaType('homePage')
                   .documentId(HOMEPAGE_DOCUMENT_ID)
               ),
+            S.listItem()
+              .title('Accommodation')
+              .id('accommodationPage')
+              .child(
+                S.document()
+                  .schemaType('accommodationPage')
+                  .documentId(ACCOMMODATION_DOCUMENT_ID)
+              ),
             S.divider(),
-            // All other document types, excluding the singleton
+            // All other document types, excluding singletons
             ...S.documentTypeListItems().filter(
-              (item) => item.getId() !== 'homePage'
+              (item) => !(SINGLETON_SCHEMA_TYPES as readonly string[]).includes(item.getId() ?? '')
             ),
           ]),
     }),
