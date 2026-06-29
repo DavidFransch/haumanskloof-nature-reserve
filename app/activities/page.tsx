@@ -87,27 +87,29 @@ export default async function ActivitiesPage() {
   const hero = data?.hero ?? sc.hero
   const cta = data?.cta ?? { heading: sc.cta.heading, body: sc.cta.body }
 
-  const items = data?.items?.map((item) => ({
-    id: item.id,
-    icon: item.icon,
-    tag: item.tag,
-    title: item.title,
-    body: item.body,
-    highlights: item.highlights,
-    image: item.image
-      ? urlForImage(item.image).width(800).height(600).url()
-      : '',
-    imageAlt: item.imageAlt ?? item.title,
-  })) ?? sc.items.map((item) => ({
-    id: item.id,
-    icon: item.icon,
-    tag: item.tag,
-    title: item.title,
-    body: item.body,
-    highlights: item.highlights,
-    image: item.image,
-    imageAlt: item.title,
-  }))
+  const items = data?.items?.length
+    ? data.items.map((item) => ({
+        id: item.id,
+        icon: item.icon,
+        tag: item.tag,
+        title: item.title,
+        body: item.body,
+        highlights: item.highlights,
+        image: item.image
+          ? urlForImage(item.image).width(800).height(600).url()
+          : '',
+        imageAlt: item.imageAlt ?? item.title,
+      }))
+    : sc.items.map((item) => ({
+        id: item.id,
+        icon: item.icon,
+        tag: item.tag,
+        title: item.title,
+        body: item.body,
+        highlights: item.highlights,
+        image: item.image,
+        imageAlt: item.title,
+      }))
 
   return (
     <>

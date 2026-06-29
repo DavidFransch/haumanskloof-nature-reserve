@@ -50,7 +50,7 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function PillarsSection({ data }: { data?: HomePillar[] | null }) {
   const fallback: HomePillar[] = siteContent.home.pillars
-  const pillars = data ?? fallback
+  const pillars = data?.length ? data : fallback
   return (
     <section className="grid grid-cols-1 md:grid-cols-3 border-b border-border">
       {pillars.map((pillar, i) => (

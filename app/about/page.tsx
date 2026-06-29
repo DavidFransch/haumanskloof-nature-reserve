@@ -72,7 +72,7 @@ export default async function AboutPage() {
   const sc = siteContent.about
 
   const hero = data?.hero ?? sc.hero
-  const story: string[] = data
+  const story: string[] = data?.story?.length
     ? data.story.map((p) => p.text)
     : sc.story
   const storyImageSrc = data?.storyImage
@@ -81,7 +81,7 @@ export default async function AboutPage() {
   const storyImageAlt = data?.storyImageAlt ?? 'The family behind Haumanskloof Nature Reserve'
   const vision = data?.vision ?? sc.vision
   const mission = data?.mission ?? sc.mission
-  const values = data?.values ?? sc.values
+  const values = data?.values?.length ? data.values : sc.values
   const cta = data?.cta ?? { heading: sc.cta.heading, body: sc.cta.body }
 
   return (
