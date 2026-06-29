@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { siteContent } from '@/content/site.content'
+import type { HomeCta } from '@/sanity/lib/types'
 
-export default function CtaSection() {
-  const { cta } = siteContent.home
+export default function CtaSection({ data }: { data?: HomeCta | null }) {
+  const cta = data ?? siteContent.home.cta
   return (
     <section className="bg-bg-dark py-20 px-10 text-center">
       <div className="max-w-[500px] mx-auto">

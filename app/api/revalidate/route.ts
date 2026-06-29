@@ -69,6 +69,9 @@ export async function POST(req: NextRequest) {
       revalidatePath(`/blog/${slug}`, 'page')
       revalidated.push(`/blog/${slug}`)
     }
+  } else if (type === 'homePage') {
+    revalidatePath('/', 'page')
+    revalidated.push('/')
   } else if (type === 'pageContent') {
     revalidatePath('/', 'page')
     revalidated.push('/')

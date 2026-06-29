@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { siteContent } from '@/content/site.content'
+import type { HomeHero } from '@/sanity/lib/types'
 
-export default function HeroSection() {
-  const { hero } = siteContent.home
+export default function HeroSection({ data }: { data?: HomeHero | null }) {
+  const hero = data ?? siteContent.home.hero
   return (
     <section className="relative min-h-screen flex items-center bg-bg-dark overflow-hidden">
       {/* Background image */}

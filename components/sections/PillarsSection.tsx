@@ -1,4 +1,5 @@
 import { siteContent } from '@/content/site.content'
+import type { HomePillar } from '@/sanity/lib/types'
 
 const icons: Record<string, React.ReactNode> = {
   wildlife: (
@@ -47,13 +48,14 @@ const icons: Record<string, React.ReactNode> = {
   ),
 }
 
-export default function PillarsSection() {
-  const { pillars } = siteContent.home
+export default function PillarsSection({ data }: { data?: HomePillar[] | null }) {
+  const fallback: HomePillar[] = siteContent.home.pillars
+  const pillars = data ?? fallback
   return (
     <section className="grid grid-cols-1 md:grid-cols-3 border-b border-border">
       {pillars.map((pillar, i) => (
         <div
-          key={pillar.title}
+          key={pillar._key ?? pillar.title}
           className={`py-10 px-8 ${i < pillars.length - 1 ? 'border-b md:border-b-0 md:border-r border-border' : ''}`}
         >
           <div className="text-text-muted mb-4">{icons[pillar.icon]}</div>

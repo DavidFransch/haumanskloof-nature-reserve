@@ -7,6 +7,8 @@
  * ============================================================
  */
 
+import type { HomePage } from '@/sanity/lib/types'
+
 export const siteContent = {
   /**
    * GLOBAL
@@ -117,7 +119,7 @@ export const siteContent = {
       body: "Discover ancient landscapes, encounter local wildlife, or simply unwind under the stars. We'd love to have you.",
       button: { label: 'Get in touch', href: '/contact' },
     },
-  },
+  } satisfies HomePage,
 
   /**
    * ABOUT PAGE

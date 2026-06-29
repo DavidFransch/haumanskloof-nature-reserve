@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { siteContent } from '@/content/site.content'
+import type { HomeAbout } from '@/sanity/lib/types'
 
-export default function AboutSection() {
-  const { about } = siteContent.home
+export default function AboutSection({ data }: { data?: HomeAbout | null }) {
+  const about = data ?? siteContent.home.about
   return (
     <section id="about" className="section-padding border-b border-border">
       <div className="container-max grid grid-cols-1 md:grid-cols-2 gap-16 items-center">

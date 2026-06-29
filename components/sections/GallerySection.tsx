@@ -4,13 +4,13 @@ import { siteContent } from '@/content/site.content'
 import { sanityFetch } from '@/sanity/lib/client'
 import { homepageStripImagesQuery } from '@/sanity/lib/queries'
 import { urlForImage } from '@/sanity/lib/image'
-import type { GalleryImage, HomepagePosition } from '@/sanity/lib/types'
+import type { GalleryImage, HomepagePosition, HomeGallery } from '@/sanity/lib/types'
 import { galleryCategoryLabels } from '@/sanity/lib/types'
 
 const positionOrder: HomepagePosition[] = ['strip-1', 'strip-2', 'strip-3']
 
-export default async function GallerySection() {
-  const { gallery } = siteContent.home
+export default async function GallerySection({ data }: { data?: HomeGallery | null }) {
+  const gallery = data ?? siteContent.home.gallery
 
   // Fetch images from Sanity by homepage position
   const images = await sanityFetch<GalleryImage[]>({
@@ -36,7 +36,7 @@ export default async function GallerySection() {
       {/* Image strip */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-[3px] h-auto sm:h-[220px]">
         {orderedImages.map(({ position, image }, i) => {
-          const fallback = gallery.items[i]
+          const fallback = siteContent.home.gallery.items[i]
 
           return (
             <Link

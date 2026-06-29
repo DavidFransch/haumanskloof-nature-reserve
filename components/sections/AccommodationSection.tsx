@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { siteContent } from '@/content/site.content'
+import type { HomeAccommodation } from '@/sanity/lib/types'
 
-export default function AccommodationSection() {
-  const { accommodation } = siteContent.home
+export default function AccommodationSection({ data }: { data?: HomeAccommodation | null }) {
+  const fallback: HomeAccommodation = siteContent.home.accommodation
+  const accommodation = data ?? fallback
   return (
     <section className="section-padding border-b border-border">
       <div className="container-max">
@@ -18,18 +20,18 @@ export default function AccommodationSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {accommodation.units.map((unit, index) => (
             <Link
-              key={unit.name}
+              key={unit._key ?? unit.name}
               href={unit.href}
               className="border border-border rounded-lg overflow-hidden no-underline block"
             >
               <div className="relative h-[200px] bg-bg-mid">
-                <Image 
-                  src={unit.image} 
-                  alt={unit.name} 
-                  fill 
+                <Image
+                  src={unit.image}
+                  alt={unit.name}
+                  fill
                   sizes="(max-width: 640px) 100vw, 50vw"
                   priority={index === 0}
-                  className="object-cover" 
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-white/20 text-[10px] tracking-widest uppercase">

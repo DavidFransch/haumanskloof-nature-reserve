@@ -81,6 +81,73 @@ export interface Faq {
   category?: string
 }
 
+// ============================================================
+// Homepage singleton
+// ============================================================
+
+export interface HomeHero {
+  eyebrow: string
+  headline: string
+  intro: string
+  body: string
+  cta: string
+  primaryCta: { label: string; href: string }
+  secondaryCta: { label: string; href: string }
+}
+
+export interface HomeAbout {
+  label: string
+  heading: string
+  body: string
+  cta: { label: string; href: string }
+}
+
+export interface HomePillar {
+  _key?: string
+  icon: string
+  title: string
+  body: string
+}
+
+export interface HomeGallery {
+  label: string
+  heading: string
+  cta: { label: string; href: string }
+  // Static fallback items used only in siteContent — not a Sanity field
+  items?: Array<{ label: string; image: string; href: string }>
+}
+
+export interface HomeAccommodationUnit {
+  _key?: string
+  name: string
+  desc: string
+  tag: string
+  image: string
+  href: string
+}
+
+export interface HomeAccommodation {
+  label: string
+  heading: string
+  body: string
+  units: HomeAccommodationUnit[]
+}
+
+export interface HomeCta {
+  heading: string
+  body: string
+  button: { label: string; href: string }
+}
+
+export interface HomePage {
+  hero: HomeHero
+  about: HomeAbout
+  pillars: HomePillar[]
+  gallery: HomeGallery
+  accommodation: HomeAccommodation
+  cta: HomeCta
+}
+
 export const galleryCategoryLabels: Record<GalleryCategory, string> = {
   'camera-trap': 'Camera Trap',
   wildlife: 'Wildlife on Foot',
