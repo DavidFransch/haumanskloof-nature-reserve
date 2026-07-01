@@ -103,20 +103,20 @@ export default async function AccommodationPage() {
   const cta = data?.cta ?? sc.cta
 
   const bunkhouse = {
-    title: data?.bunkhouse.title ?? sc.bunkhouse.title,
-    capacity: data?.bunkhouse.capacity ?? sc.bunkhouse.capacity,
-    intro: data?.bunkhouse.intro ?? sc.bunkhouse.intro,
-    details: data?.bunkhouse.details?.length ? data.bunkhouse.details : sc.bunkhouse.details,
-    rates: data?.bunkhouse.rates ?? sc.bunkhouse.rates,
-    storyTitle: data?.bunkhouse.storyTitle ?? sc.bunkhouse.storyTitle,
-    story: data?.bunkhouse.story?.length
+    title: data?.bunkhouse?.title ?? sc.bunkhouse.title,
+    capacity: data?.bunkhouse?.capacity ?? sc.bunkhouse.capacity,
+    intro: data?.bunkhouse?.intro ?? sc.bunkhouse.intro,
+    details: data?.bunkhouse?.details?.length ? data.bunkhouse.details : sc.bunkhouse.details,
+    rates: data?.bunkhouse?.rates ?? sc.bunkhouse.rates,
+    storyTitle: data?.bunkhouse?.storyTitle ?? sc.bunkhouse.storyTitle,
+    story: data?.bunkhouse?.story?.length
       ? data.bunkhouse.story.map((p) => p.text)
       : sc.bunkhouse.story.split('\n\n').filter(Boolean),
-    mainImage: data?.bunkhouse.mainImage
+    mainImage: data?.bunkhouse?.mainImage
       ? urlForImage(data.bunkhouse.mainImage).width(900).height(600).url()
       : sc.bunkhouse.mainImage,
-    mainImageAlt: data?.bunkhouse.mainImageAlt ?? (data?.bunkhouse.title ?? sc.bunkhouse.title),
-    gallery: data?.bunkhouse.gallery?.length
+    mainImageAlt: data?.bunkhouse?.mainImageAlt ?? (data?.bunkhouse?.title ?? sc.bunkhouse.title),
+    gallery: data?.bunkhouse?.gallery?.length
       ? data.bunkhouse.gallery.map((item) => ({
           label: item.label,
           image: urlForImage(item.image).width(800).height(600).url(),

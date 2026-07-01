@@ -271,7 +271,7 @@ export interface SanityActivityItem {
   tag: string
   title: string
   body: string
-  highlights: string[]
+  highlights: string[] | null
   image: SanityImage | null
   imageAlt: string | null
 }

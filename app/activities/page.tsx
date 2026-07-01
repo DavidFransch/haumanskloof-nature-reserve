@@ -113,7 +113,7 @@ export default async function ActivitiesPage() {
         tag: item.tag,
         title: item.title,
         body: item.body,
-        highlights: item.highlights,
+        highlights: item.highlights ?? [],
         image: item.image
           ? urlForImage(item.image).width(800).height(600).url()
           : '',
