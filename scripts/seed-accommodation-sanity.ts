@@ -90,6 +90,12 @@ async function seed() {
   )
   console.log('  ✓ Main image')
 
+  const compostToiletImageId = await uploadImage(
+    '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-2.webp',
+    'accommodation-bunkhouse-facilities-2.webp'
+  )
+  console.log('  ✓ Compost toilet image')
+
   const galleryDefs = [
     {
       file: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-living-room.webp',
@@ -222,6 +228,7 @@ async function seed() {
       heading: 'Our compost toilet',
       body: 'At Haumanskloof, we believe thoughtful design and comfort can coexist with environmental responsibility. Our compost toilet is a considered alternative to a conventional septic system — protecting the nearby stream and the surrounding habitat, without compromising your experience.',
       note: 'Guests are always briefed on use before their stay.',
+      image: imageRef(compostToiletImageId, 'The compost toilet facility at Haumanskloof'),
     },
 
     amenities: [

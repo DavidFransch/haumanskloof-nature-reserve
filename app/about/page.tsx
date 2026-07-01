@@ -72,9 +72,10 @@ export default async function AboutPage() {
   const sc = siteContent.about
 
   const hero = data?.hero ?? sc.hero
-  const story: string[] = data?.story?.length
-    ? data.story.map((p) => p.text)
-    : sc.story
+  const story: string[] = (data?.story ?? sc.story)
+    .split('\n\n')
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean)
   const storyImageSrc = data?.storyImage
     ? urlForImage(data.storyImage).width(800).height(600).url()
     : '/images/gallery/about-story/family-photo.webp'

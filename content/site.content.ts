@@ -131,15 +131,19 @@ export const siteContent = {
       intro:
         'Haumanskloof is more than just a destination – it’s a return. A return to family, to self-discovery and to deeper connection.',
     },
-    story: [
-      'After years of living across three South African cities, the pace of high-energy city life was all too familiar to us, and a call to the wild was beckoning.',
-      'Being drawn to what had always grounded our family, our hearts kept returning to the wild landscapes that shaped and inspired us. The raw beauty of nature at its best, and us, an integral part of it this time.',
-      'In 2023, being guided by good faith and bold decisions, our family’s journey lead us all to Haumanskloof, and our vision was born. What began as a move towards quiet farm life and closer family, soon became about something far greater – the community of existence. A way of life centred on celebrating rediscovery, connection and conservation.',
-      'The name Haumanskloof carries a resonance to the legacy of its namesake that feels especially meaningful to us. The property was originally named after the Belgian botanist, teacher and advocate for environmental protection, Lucien Léon Hauman. The reserve reflects the values he stood for – of curiosity, learning and a deep respect for the natural world.',
-      'At Haumanskloof, we let nature set the pace. Every decision we make is guided by a belief that nature is not something separate from us, but something we belong to. Our daily work is rooted in ensuring that this unique landscape is protected and preserved for future generations, offering a safe haven for threatened ecosystems, the biodiversity they support and the functions they maintain. Through the work we do, we hope to cultivate a space of connection and coexistence through thoughtful and monitored conservation.',
-      'Whether you’re a hiker, a birder, a cyclist, a star gazer or simply enjoy a quiet braai – the reserve is the place for you.',
-      'Tucked away in this ancient valley is more than just a destination – it’s a way of existing.',
-    ],
+    story: `After years of living across three South African cities, the pace of high-energy city life was all too familiar to us, and a call to the wild was beckoning.
+
+Being drawn to what had always grounded our family, our hearts kept returning to the wild landscapes that shaped and inspired us. The raw beauty of nature at its best, and us, an integral part of it this time.
+
+In 2023, being guided by good faith and bold decisions, our family’s journey lead us all to Haumanskloof, and our vision was born. What began as a move towards quiet farm life and closer family, soon became about something far greater – the community of existence. A way of life centred on celebrating rediscovery, connection and conservation.
+
+The name Haumanskloof carries a resonance to the legacy of its namesake that feels especially meaningful to us. The property was originally named after the Belgian botanist, teacher and advocate for environmental protection, Lucien Léon Hauman. The reserve reflects the values he stood for – of curiosity, learning and a deep respect for the natural world.
+
+At Haumanskloof, we let nature set the pace. Every decision we make is guided by a belief that nature is not something separate from us, but something we belong to. Our daily work is rooted in ensuring that this unique landscape is protected and preserved for future generations, offering a safe haven for threatened ecosystems, the biodiversity they support and the functions they maintain. Through the work we do, we hope to cultivate a space of connection and coexistence through thoughtful and monitored conservation.
+
+Whether you’re a hiker, a birder, a cyclist, a star gazer or simply enjoy a quiet braai – the reserve is the place for you.
+
+Tucked away in this ancient valley is more than just a destination – it’s a way of existing.`,
     vision:
       'A sustainable enterprise that preserves biodiversity, builds harmony, and instils ethical values – connecting people, planet and self.',
     mission:

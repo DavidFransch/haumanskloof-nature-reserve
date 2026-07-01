@@ -14,9 +14,9 @@ export default defineType({
       title: 'Hero Section',
       type: 'object',
       fields: [
-        defineField({ name: 'eyebrow', title: 'Eyebrow', type: 'string', validation: (Rule) => Rule.required() }),
-        defineField({ name: 'heading', title: 'Heading', type: 'string', validation: (Rule) => Rule.required() }),
-        defineField({ name: 'intro', title: 'Introduction', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
+        defineField({ name: 'eyebrow', title: 'Eyebrow', type: 'string', description: 'The small line of text shown above the main heading. e.g. "Our story"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'heading', title: 'Heading', type: 'string', description: 'The big heading at the top of the About page. e.g. "About Us"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'intro', title: 'Introduction', type: 'text', rows: 3, description: 'A short welcome paragraph under the heading. e.g. "Haumanskloof is more than just a destination – it\'s a return..."', validation: (Rule) => Rule.required() }),
       ],
     }),
 
@@ -24,17 +24,10 @@ export default defineType({
     defineField({
       name: 'story',
       title: 'Our Story',
-      type: 'array',
-      description: 'Each item is one paragraph of the reserve story.',
-      of: [{
-        type: 'object',
-        name: 'paragraph',
-        title: 'Paragraph',
-        fields: [
-          defineField({ name: 'text', title: 'Text', type: 'text', rows: 4, validation: (Rule) => Rule.required() }),
-        ],
-        preview: { select: { title: 'text' } },
-      }],
+      type: 'text',
+      rows: 20,
+      description: 'The full story text. Press Enter twice between paragraphs to create paragraph breaks.',
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -44,19 +37,20 @@ export default defineType({
       description: 'Photo shown alongside the story text.',
       options: { hotspot: true },
       fields: [
-        defineField({ name: 'altText', title: 'Alt text', type: 'string', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'altText', title: 'Alt text', type: 'string', description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "Sunset over the Breede Valley mountains" or "The bunkhouse exterior with mountain views"', validation: (Rule) => Rule.required() }),
       ],
     }),
 
     // ─── 3. Vision & Mission ────────────────────────────────────────────────
-    defineField({ name: 'vision', title: 'Vision', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
-    defineField({ name: 'mission', title: 'Mission', type: 'text', rows: 4, validation: (Rule) => Rule.required() }),
+    defineField({ name: 'vision', title: 'Vision', type: 'text', rows: 3, description: 'A short statement of what the reserve aspires to be, shown as a quote. e.g. "A sustainable enterprise that preserves biodiversity, builds harmony, and instils ethical values..."', validation: (Rule) => Rule.required() }),
+    defineField({ name: 'mission', title: 'Mission', type: 'text', rows: 4, description: 'A short statement of what the reserve does day to day. e.g. "To protect and restore the natural integrity of Haumanskloof through responsible stewardship..."', validation: (Rule) => Rule.required() }),
 
     // ─── 4. Values ──────────────────────────────────────────────────────────
     defineField({
       name: 'values',
       title: 'Values',
       type: 'array',
+      description: 'The core values shown in the values grid. Add one entry for each value.',
       of: [{
         type: 'object',
         fields: [
@@ -64,6 +58,7 @@ export default defineType({
             name: 'icon',
             title: 'Icon',
             type: 'string',
+            description: 'The icon shown next to this value.',
             validation: (Rule) => Rule.required(),
             options: {
               list: [
@@ -74,8 +69,8 @@ export default defineType({
               layout: 'dropdown',
             },
           }),
-          defineField({ name: 'title', title: 'Title', type: 'string', validation: (Rule) => Rule.required() }),
-          defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
+          defineField({ name: 'title', title: 'Title', type: 'string', description: 'The name of this value. e.g. "Stewardship"', validation: (Rule) => Rule.required() }),
+          defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short description of this value. e.g. "We believe the land is not ours to own, but ours to care for and preserve."', validation: (Rule) => Rule.required() }),
         ],
         preview: { select: { title: 'title', subtitle: 'icon' } },
       }],
@@ -87,8 +82,8 @@ export default defineType({
       title: 'CTA Section',
       type: 'object',
       fields: [
-        defineField({ name: 'heading', title: 'Heading', type: 'string', validation: (Rule) => Rule.required() }),
-        defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, validation: (Rule) => Rule.required() }),
+        defineField({ name: 'heading', title: 'Heading', type: 'string', description: 'The heading for the call-to-action box at the bottom of the page. e.g. "Come experience the reserve"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short paragraph inviting visitors to get in touch. e.g. "Join us for a walk, a night under the stars, or a quiet moment in the mountains."', validation: (Rule) => Rule.required() }),
       ],
     }),
 

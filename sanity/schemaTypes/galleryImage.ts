@@ -9,12 +9,14 @@ export const galleryImage = defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      description: 'A short name for this image, used in the Studio and as a caption. e.g. "Leopard at the waterhole"',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'category',
       title: 'Category',
       type: 'string',
+      description: 'Which gallery this image belongs to. Pick the one that best fits.',
       options: {
         list: [
           { title: 'Camera Trap', value: 'camera-trap' },
@@ -43,12 +45,13 @@ export const galleryImage = defineType({
       title: 'Caption',
       type: 'text',
       rows: 2,
+      description: 'An optional caption shown beneath the image. e.g. "Captured on a camera trap at dawn, June 2025"',
     }),
     defineField({
       name: 'altText',
       title: 'Alt Text',
       type: 'string',
-      description: 'Describe the image for accessibility',
+      description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "Sunset over the Breede Valley mountains" or "The bunkhouse exterior with mountain views"',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

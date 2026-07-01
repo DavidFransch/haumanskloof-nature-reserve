@@ -9,6 +9,7 @@ export default defineType({
       name: 'question',
       title: 'Question',
       type: 'string',
+      description: 'The question a visitor might ask, written the way they would ask it. e.g. "Is there Wi-Fi at the bunkhouse?"',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -16,6 +17,7 @@ export default defineType({
       title: 'Answer',
       type: 'text',
       rows: 5,
+      description: 'A clear, friendly answer to the question. e.g. "No — the bunkhouse is deliberately off-grid so you can fully disconnect."',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

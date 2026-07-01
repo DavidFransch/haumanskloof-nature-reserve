@@ -251,7 +251,7 @@ export interface SanityAccommodationPage {
 
 export interface SanityAboutPage {
   hero: { eyebrow: string; heading: string; intro: string }
-  story: Array<{ _key: string; text: string }>
+  story: string
   storyImage: SanityImage | null
   storyImageAlt: string | null
   vision: string

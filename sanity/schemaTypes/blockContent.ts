@@ -59,7 +59,7 @@ export default defineType({
           name: 'alt',
           type: 'string',
           title: 'Alternative Text',
-          description: 'Important for SEO and accessibility',
+          description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "Sunset over the Breede Valley mountains" or "The bunkhouse exterior with mountain views"',
         },
         {
           name: 'caption',

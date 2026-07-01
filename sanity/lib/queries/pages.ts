@@ -40,7 +40,7 @@ export const accommodationPageQuery = groq`
       "mainImageAlt": mainImage.altText,
       "gallery": gallery[] | order(order asc) { _key, "image": image { asset, hotspot, crop }, altText, label, category, order }
     },
-    "compostToilet": compostToilet { eyebrow, heading, body, note, "image": image->image },
+    "compostToilet": compostToilet { eyebrow, heading, body, note, "image": image { asset, hotspot, crop } },
     "amenities": amenities[] { _key, icon, title, body },
     "cta": cta { heading, body }
   }
@@ -50,7 +50,7 @@ export const accommodationPageQuery = groq`
 export const aboutPageQuery = groq`
   *[_type == "aboutPage" && _id == "${ABOUT_DOCUMENT_ID}"][0] {
     "hero": hero { eyebrow, heading, intro },
-    "story": story[] { _key, text },
+    story,
     "storyImage": storyImage { asset, hotspot, crop },
     "storyImageAlt": storyImage.altText,
     vision,
