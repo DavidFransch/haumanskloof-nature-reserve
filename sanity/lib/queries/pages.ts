@@ -16,8 +16,13 @@ export const homePageQuery = groq`
     "gallery": gallery { label, heading },
     "accommodation": accommodation {
       label, heading, body,
-      "bunkhouse": bunkhouse { name, desc, tag, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
-      "nextUnit": nextUnit { name, desc, tag, "image": image { asset, hotspot, crop }, "imageAlt": image.altText }
+      "units": units[] {
+        name,
+        desc,
+        tag,
+        "image": image { asset, hotspot, crop },
+        "imageAlt": image.altText
+      }
     },
     "cta": cta { heading, body }
   }

@@ -117,18 +117,12 @@ export interface HomeGallery {
   items?: Array<{ label: string; image: string; href: string }>
 }
 
-export interface HomeAccommodationBunkhouse {
-  name: string
-  desc: string
-  tag: string
-  image: string
-  imageAlt?: string | null
-}
-
-export interface HomeAccommodationNextUnit {
+export interface HomeAccommodationUnit {
   name: string
   desc: string
   tag?: string | null
+  // Static string path in siteContent; resolved to a URL in the component when
+  // it comes from Sanity as an image object.
   image?: string | null
   imageAlt?: string | null
 }
@@ -137,8 +131,7 @@ export interface HomeAccommodation {
   label: string
   heading: string
   body: string
-  bunkhouse: HomeAccommodationBunkhouse
-  nextUnit: HomeAccommodationNextUnit
+  units: HomeAccommodationUnit[]
 }
 
 export interface HomeCta {
@@ -160,11 +153,20 @@ export interface HomePage {
 export interface SanityHomePage extends Omit<HomePage, 'hero' | 'about' | 'accommodation'> {
   hero: Omit<HomeHero, 'image'> & { image: SanityImage | null }
   about: Omit<HomeAbout, 'image'> & { image: SanityImage | null }
-  accommodation: Omit<HomeAccommodation, 'bunkhouse' | 'nextUnit'> & {
-    bunkhouse: Omit<HomeAccommodationBunkhouse, 'image'> & { image: SanityImage | null; imageAlt: string | null }
-    nextUnit: Omit<HomeAccommodationNextUnit, 'image'> & { image: SanityImage | null }
+  accommodation: Omit<HomeAccommodation, 'units'> & {
+    units: Array<{
+      name: string
+      desc: string
+      tag: string | null
+      image: SanityImage | null
+      imageAlt: string | null
+    }> | null
   }
 }
+
+// The raw Sanity shape of the accommodation section — units carry SanityImage
+// references (resolved to URLs in the component). Used as the component prop type.
+export type SanityHomeAccommodation = SanityHomePage['accommodation']
 
 // ============================================================
 // Accommodation page singleton

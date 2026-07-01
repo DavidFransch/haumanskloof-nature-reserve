@@ -116,48 +116,30 @@ export default defineType({
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short paragraph about the accommodation. e.g. "Wake up to birdsong, fall asleep under clear mountain skies..."', validation: (Rule) => Rule.required() }),
 
         defineField({
-          name: 'bunkhouse',
-          title: 'The Bunkhouse',
-          type: 'object',
-          fields: [
-            defineField({ name: 'name', title: 'Name', type: 'string', description: 'The name of this unit as shown on the card. e.g. "The Bunkhouse"', validation: (Rule) => Rule.required() }),
-            defineField({ name: 'desc', title: 'Description', type: 'string', description: 'A one-line summary shown under the name. e.g. "Sleeps up to 8 · Mountain views · Fully equipped kitchen"', validation: (Rule) => Rule.required() }),
-            defineField({ name: 'tag', title: 'Tag', type: 'string', description: 'A short label shown on the card, usually a call to action. e.g. "Enquire for bookings"', validation: (Rule) => Rule.required() }),
-            defineField({
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              description: 'The photo of the bunkhouse shown on the card.',
-              options: { hotspot: true },
-              validation: (Rule) => imageSizeWarning(Rule),
-              fields: [
-                defineField({ name: 'altText', title: 'Alt text', type: 'string', description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "Sunset over the Breede Valley mountains" or "The bunkhouse exterior with mountain views"', validation: (Rule) => Rule.required() }),
-              ],
-            }),
-          ],
-        }),
-
-        defineField({
-          name: 'nextUnit',
-          title: 'Next unit (coming soon)',
-          type: 'object',
-          description: 'Shown as a "coming soon" placeholder until an image is added. Fill in all fields and upload an image to activate it as a real unit.',
-          fields: [
-            defineField({ name: 'name', title: 'Name', type: 'string', description: 'The name of the upcoming unit. e.g. "More coming soon"', validation: (Rule) => Rule.required() }),
-            defineField({ name: 'desc', title: 'Description', type: 'string', description: 'A one-line summary of the upcoming unit. e.g. "Additional accommodation will be added as the reserve grows."', validation: (Rule) => Rule.required() }),
-            defineField({ name: 'tag', title: 'Tag', type: 'string', description: 'An optional short label shown on the card. e.g. "Coming soon"' }),
-            defineField({
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              description: 'Upload an image here to activate this as a live unit on the homepage.',
-              options: { hotspot: true },
-              validation: (Rule) => imageSizeWarning(Rule),
-              fields: [
-                defineField({ name: 'altText', title: 'Alt text', type: 'string', description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "Sunset over the Breede Valley mountains" or "The bunkhouse exterior with mountain views"' }),
-              ],
-            }),
-          ],
+          name: 'units',
+          title: 'Accommodation Units',
+          type: 'array',
+          description: 'Add each accommodation unit here. The bunkhouse should always be first.',
+          of: [{
+            type: 'object',
+            fields: [
+              defineField({ name: 'name', title: 'Name', type: 'string', description: 'e.g. "The Bunkhouse"', validation: (Rule) => Rule.required() }),
+              defineField({ name: 'desc', title: 'Description', type: 'string', description: 'e.g. "Sleeps up to 8 · Mountain views · Fully equipped kitchen"', validation: (Rule) => Rule.required() }),
+              defineField({ name: 'tag', title: 'Tag', type: 'string', description: 'Short label shown on the card. e.g. "Enquire for bookings"' }),
+              defineField({
+                name: 'image',
+                title: 'Image',
+                type: 'image',
+                options: { hotspot: true },
+                description: 'Upload a compressed WebP image under 500 KB. Leave empty to show a "coming soon" placeholder.',
+                validation: (Rule) => imageSizeWarning(Rule),
+                fields: [
+                  defineField({ name: 'altText', title: 'Alt text', type: 'string', description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "The bunkhouse exterior with mountain views"' }),
+                ],
+              }),
+            ],
+            preview: { select: { title: 'name', subtitle: 'desc' } },
+          }],
         }),
       ],
     }),

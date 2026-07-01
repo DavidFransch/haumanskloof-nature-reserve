@@ -9,7 +9,6 @@ import CtaSection from '@/components/sections/CtaSection'
 import { sanityFetch } from '@/sanity/lib/client'
 import { homePageQuery } from '@/sanity/lib/queries'
 import { urlForImage } from '@/sanity/lib/image'
-import { siteContent } from '@/content/site.content'
 import type { SanityHomePage } from '@/sanity/lib/types'
 
 export const revalidate = 60
@@ -39,26 +38,6 @@ export default async function Home() {
       }
     : null
 
-  const accommodation = homeData?.accommodation
-    ? {
-        ...homeData.accommodation,
-        bunkhouse: {
-          ...siteContent.home.accommodation.bunkhouse,
-          ...homeData.accommodation.bunkhouse,
-          image: homeData.accommodation.bunkhouse?.image
-            ? urlForImage(homeData.accommodation.bunkhouse.image).width(600).height(400).url()
-            : siteContent.home.accommodation.bunkhouse.image,
-        },
-        nextUnit: {
-          ...siteContent.home.accommodation.nextUnit,
-          ...homeData.accommodation.nextUnit,
-          image: homeData.accommodation.nextUnit?.image
-            ? urlForImage(homeData.accommodation.nextUnit.image).width(600).height(400).url()
-            : null,
-        },
-      }
-    : null
-
   return (
     <>
       <Navbar />
@@ -67,7 +46,7 @@ export default async function Home() {
         <AboutSection data={about} />
         <PillarsSection data={homeData?.pillars} />
         <GallerySection data={homeData?.gallery} />
-        <AccommodationSection data={accommodation} />
+        <AccommodationSection data={homeData?.accommodation} />
         <CtaSection data={homeData?.cta} />
       </main>
       <Footer />
