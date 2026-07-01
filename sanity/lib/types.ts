@@ -51,8 +51,6 @@ export interface Post {
 
 export type GalleryCategory = 'camera-trap' | 'wildlife' | 'landscapes' | 'family' | 'flora'
 
-export type HomepagePosition = 'strip-1' | 'strip-2' | 'strip-3'
-
 export interface GalleryImage {
   _id: string
   title: string
@@ -61,7 +59,6 @@ export interface GalleryImage {
   caption?: string
   altText: string
   order?: number
-  homepagePosition?: HomepagePosition
   seriesId?: string
 }
 
@@ -117,6 +114,21 @@ export interface HomeGallery {
   items?: Array<{ label: string; image: string; href: string }>
 }
 
+// Raw Sanity shape of a homepage gallery strip item (image is a reference).
+export interface SanityHomeGalleryStripItem {
+  image: SanityImage | null
+  imageAlt: string | null
+  category: GalleryCategory | null
+  label: string | null
+}
+
+// Raw Sanity shape of the gallery section — carries the managed strip images.
+export interface SanityHomeGallery {
+  label: string
+  heading: string
+  strip: SanityHomeGalleryStripItem[] | null
+}
+
 export interface HomeAccommodationUnit {
   name: string
   desc: string
@@ -150,9 +162,10 @@ export interface HomePage {
 
 // Raw Sanity response for the homepage — images come as SanityImage references.
 // Normalized to URL strings before passing to components (see app/page.tsx).
-export interface SanityHomePage extends Omit<HomePage, 'hero' | 'about' | 'accommodation'> {
+export interface SanityHomePage extends Omit<HomePage, 'hero' | 'about' | 'gallery' | 'accommodation'> {
   hero: Omit<HomeHero, 'image'> & { image: SanityImage | null }
   about: Omit<HomeAbout, 'image'> & { image: SanityImage | null }
+  gallery: SanityHomeGallery
   accommodation: Omit<HomeAccommodation, 'units'> & {
     units: Array<{
       name: string

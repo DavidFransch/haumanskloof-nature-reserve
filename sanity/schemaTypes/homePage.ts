@@ -98,10 +98,69 @@ export default defineType({
       name: 'gallery',
       title: 'Gallery Section',
       type: 'object',
-      description: 'Labels only. Strip images are managed under Gallery Images (set a Homepage Strip Position on each).',
+      description: 'The gallery teaser strip on the homepage.',
       fields: [
         defineField({ name: 'label', title: 'Label', type: 'string', description: 'The small label above the gallery heading. e.g. "The reserve"', validation: (Rule) => Rule.required() }),
         defineField({ name: 'heading', title: 'Heading', type: 'string', description: 'The heading for the gallery section. e.g. "Experience Haumanskloof Nature Reserve"', validation: (Rule) => Rule.required() }),
+        defineField({
+          name: 'strip',
+          title: 'Gallery Strip Images',
+          type: 'array',
+          description: 'Up to 3 images shown in the homepage gallery strip. The first image is shown large on the left. Each tile links to its chosen gallery.',
+          validation: (Rule) => Rule.max(3).warning('The strip shows a maximum of 3 images — any extra items are ignored.'),
+          of: [{
+            type: 'object',
+            fields: [
+              defineField({
+                name: 'image',
+                title: 'Image',
+                type: 'image',
+                options: { hotspot: true },
+                description: 'Upload a compressed WebP image under 500 KB.',
+                validation: (Rule) => imageSizeWarning(Rule),
+                fields: [
+                  defineField({ name: 'altText', title: 'Alt text', type: 'string', description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "A leopard captured on a camera trap at dawn"', validation: (Rule) => Rule.required() }),
+                ],
+              }),
+              defineField({
+                name: 'category',
+                title: 'Links to gallery',
+                type: 'string',
+                description: 'Which gallery this tile links to. The gallery name is also shown as the label over the image.',
+                options: {
+                  list: [
+                    { title: 'Camera Trap', value: 'camera-trap' },
+                    { title: 'Wildlife on Foot', value: 'wildlife' },
+                    { title: 'Landscapes', value: 'landscapes' },
+                    { title: 'Haumanskloof Family', value: 'family' },
+                    { title: 'Flora & Fynbos', value: 'flora' },
+                  ],
+                  layout: 'dropdown',
+                },
+                validation: (Rule) => Rule.required(),
+              }),
+              defineField({
+                name: 'label',
+                title: 'Overlay label',
+                type: 'string',
+                description: 'The text shown over the image on the homepage. Leave blank to use the category name automatically. e.g. "Discovery" instead of "Camera Trap"',
+              }),
+            ],
+            preview: {
+              select: { category: 'category', media: 'image' },
+              prepare({ category, media }) {
+                const labels: Record<string, string> = {
+                  'camera-trap': 'Camera Trap',
+                  wildlife: 'Wildlife on Foot',
+                  landscapes: 'Landscapes',
+                  family: 'Haumanskloof Family',
+                  flora: 'Flora & Fynbos',
+                }
+                return { title: labels[category] || category || 'Strip image', media }
+              },
+            },
+          }],
+        }),
       ],
     }),
 

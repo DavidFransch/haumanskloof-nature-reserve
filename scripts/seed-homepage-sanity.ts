@@ -5,7 +5,7 @@
  *
  * Uploads all homepage images and creates:
  *   - The homepage singleton document (hero, about, pillars, gallery, accommodation, cta)
- *   - Three galleryImage documents for the homepage strip (strip-1, strip-2, strip-3)
+ *     including the three managed gallery strip images embedded in gallery.strip
  *
  * Safe to re-run — uses createIfNotExists for every document.
  * To replace an existing document, delete it in Studio first.
@@ -118,48 +118,6 @@ async function seed() {
   console.log('  ✓ Gallery strip image 3 (Camera Trap)')
   console.log('  ✓ Bunkhouse unit image')
 
-  // ── Homepage strip galleryImage documents ────────────────────────────────
-  console.log('\nCreating gallery strip documents...')
-
-  const stripDocs = [
-    {
-      _id: 'homepage-strip-1',
-      _type: 'galleryImage',
-      title: 'Wildlife at Haumanskloof',
-      category: 'wildlife',
-      image: { _type: 'image', asset: ref(strip1Id) },
-      altText: 'Wildlife at Haumanskloof Nature Reserve',
-      homepagePosition: 'strip-1',
-      order: 1,
-    },
-    {
-      _id: 'homepage-strip-2',
-      _type: 'galleryImage',
-      title: 'Landscapes of the Breede Valley',
-      category: 'landscapes',
-      image: { _type: 'image', asset: ref(strip2Id) },
-      altText: 'Mountain landscapes of Haumanskloof',
-      homepagePosition: 'strip-2',
-      order: 2,
-    },
-    {
-      _id: 'homepage-strip-3',
-      _type: 'galleryImage',
-      title: 'Camera Trap Discovery',
-      category: 'camera-trap',
-      image: { _type: 'image', asset: ref(strip3Id) },
-      altText: 'Wildlife captured by camera trap at Haumanskloof',
-      homepagePosition: 'strip-3',
-      order: 3,
-    },
-  ]
-
-  for (const doc of stripDocs) {
-    const result = await client.createIfNotExists(doc)
-    const created = result._createdAt === result._updatedAt
-    console.log(`  ${created ? '✓' : '—'} ${doc.title} ${created ? 'created' : '(already exists)'}`)
-  }
-
   // ── Homepage singleton ───────────────────────────────────────────────────
   console.log('\nCreating homepage document...')
 
@@ -215,6 +173,23 @@ async function seed() {
     gallery: {
       label: 'The reserve',
       heading: 'Experience Haumanskloof Nature Reserve',
+      strip: [
+        {
+          _key: 'strip-1',
+          image: { _type: 'image', asset: ref(strip1Id), altText: 'Wildlife at Haumanskloof Nature Reserve' },
+          category: 'wildlife',
+        },
+        {
+          _key: 'strip-2',
+          image: { _type: 'image', asset: ref(strip2Id), altText: 'Mountain landscapes of Haumanskloof' },
+          category: 'landscapes',
+        },
+        {
+          _key: 'strip-3',
+          image: { _type: 'image', asset: ref(strip3Id), altText: 'Wildlife captured by camera trap at Haumanskloof' },
+          category: 'camera-trap',
+        },
+      ],
     },
 
     accommodation: {

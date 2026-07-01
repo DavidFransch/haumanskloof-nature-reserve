@@ -13,7 +13,16 @@ export const homePageQuery = groq`
     "hero": hero { eyebrow, headline, intro, body, cta, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
     "about": about { label, heading, body, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
     "pillars": pillars[] { _key, icon, title, body },
-    "gallery": gallery { label, heading },
+    "gallery": gallery {
+      label,
+      heading,
+      "strip": strip[] {
+        "image": image { asset, hotspot, crop },
+        "imageAlt": image.altText,
+        category,
+        label
+      }
+    },
     "accommodation": accommodation {
       label, heading, body,
       "units": units[] {
@@ -86,17 +95,5 @@ export const contactPageQuery = groq`
     intro,
     "location": location { name, area, country },
     responseTime
-  }
-`
-
-// Get homepage strip images by position
-export const homepageStripImagesQuery = groq`
-  *[_type == "galleryImage" && homepagePosition in ["strip-1", "strip-2", "strip-3"]] | order(homepagePosition asc) {
-    _id,
-    title,
-    category,
-    image,
-    altText,
-    homepagePosition
   }
 `
