@@ -11,7 +11,7 @@
  */
 
 import { timingSafeEqual } from 'crypto'
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import { type NextRequest, NextResponse } from 'next/server'
 import { galleryCategorySlugs } from '@/sanity/lib/types'
 
@@ -49,10 +49,12 @@ export async function POST(req: NextRequest) {
   const revalidated: string[] = []
 
   if (type === 'faq') {
+    revalidateTag('faq')
     revalidatePath('/faq', 'page')
     revalidatePath('/contact', 'page')
     revalidated.push('/faq', '/contact')
   } else if (type === 'galleryImage') {
+    revalidateTag('galleryImage')
     revalidatePath('/gallery', 'page')
     revalidatePath('/', 'page')
     revalidated.push('/gallery', '/')
@@ -61,6 +63,7 @@ export async function POST(req: NextRequest) {
       revalidated.push(`/gallery/${slug}`)
     }
   } else if (type === 'post') {
+    revalidateTag('post')
     revalidatePath('/blog', 'page')
     revalidated.push('/blog')
     const slug =
@@ -70,18 +73,23 @@ export async function POST(req: NextRequest) {
       revalidated.push(`/blog/${slug}`)
     }
   } else if (type === 'accommodationPage') {
+    revalidateTag('accommodationPage')
     revalidatePath('/accommodation', 'page')
     revalidated.push('/accommodation')
   } else if (type === 'homePage') {
+    revalidateTag('homePage')
     revalidatePath('/', 'page')
     revalidated.push('/')
   } else if (type === 'aboutPage') {
+    revalidateTag('aboutPage')
     revalidatePath('/about', 'page')
     revalidated.push('/about')
   } else if (type === 'activitiesPage') {
+    revalidateTag('activitiesPage')
     revalidatePath('/activities', 'page')
     revalidated.push('/activities')
   } else if (type === 'contactPage') {
+    revalidateTag('contactPage')
     revalidatePath('/contact', 'page')
     revalidated.push('/contact')
   } else if (type === 'pageContent') {
