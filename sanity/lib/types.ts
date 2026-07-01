@@ -170,6 +170,14 @@ export interface SanityHomePage extends Omit<HomePage, 'hero' | 'about' | 'accom
 // Accommodation page singleton
 // ============================================================
 
+// Optional sale/discount shown over the seasonal pricing block.
+export interface RateSale {
+  onSale: boolean
+  label?: string | null
+  salePrice?: number | null
+  caption?: string | null
+}
+
 // Shape of siteContent.accommodation — the static fallback for the Sanity singleton.
 export interface SiteContentAccommodation {
   hero: { eyebrow: string; heading: string; intro: string }
@@ -185,6 +193,7 @@ export interface SiteContentAccommodation {
       baseRateCaption: string
       additionalRate: number
       additionalRateCaption: string
+      sale?: RateSale
     }
     storyTitle: string
     story: string
@@ -223,6 +232,7 @@ export interface SanityAccommodationPage {
       baseRateCaption: string
       additionalRate: number
       additionalRateCaption: string
+      sale?: RateSale | null
     }
     storyTitle: string
     story: Array<{ _key: string; text: string }>

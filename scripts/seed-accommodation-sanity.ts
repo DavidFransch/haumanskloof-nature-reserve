@@ -196,6 +196,7 @@ async function seed() {
         baseRateCaption: 'Base rate for up to 2 people',
         additionalRate: 600,
         additionalRateCaption: 'Additional guest fee (up to 8)',
+        sale: { onSale: false },
       },
       storyTitle: 'The story behind the build',
       story: [

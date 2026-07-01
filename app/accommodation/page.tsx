@@ -126,6 +126,14 @@ export default async function AccommodationPage() {
       : sc.bunkhouse.gallery,
   }
 
+  // Sale over the base nightly rate — only shown when toggled on and the sale
+  // price is a real saving. Falls back to normal pricing otherwise.
+  const rates = bunkhouse.rates
+  const sale = rates.sale
+  const salePrice = sale?.salePrice ?? 0
+  const saleActive = Boolean(sale?.onSale) && salePrice > 0 && salePrice < rates.baseRate
+  const savingsPct = saleActive ? Math.round((1 - salePrice / rates.baseRate) * 100) : 0
+
   return (
     <>
       <Navbar />
@@ -185,14 +193,47 @@ export default async function AccommodationPage() {
               <div className="mt-10">
                 <h3 className="font-heading text-xl text-text-dark mb-4">Rates</h3>
                 <div className="bg-bg-light/50 rounded-md p-6 border border-border/50">
-                  <p className="label-text text-[10px] mb-3">Seasonal Pricing</p>
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <p className="label-text text-[10px]">Seasonal Pricing</p>
+                    {saleActive && (
+                      <span className="inline-flex items-center gap-1.5 text-[10px] tracking-wider uppercase text-primary">
+                        <span aria-hidden="true">✦</span>
+                        {sale?.label || 'Special Offer'}
+                      </span>
+                    )}
+                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <p className="text-text-dark font-medium text-lg">
-                        R{bunkhouse.rates.baseRate.toLocaleString()}{' '}
-                        <span className="text-sm font-normal text-text-mid">/ night</span>
-                      </p>
-                      <p className="text-[12px] text-text-mid">{bunkhouse.rates.baseRateCaption}</p>
+                      {saleActive ? (
+                        <>
+                          <p className="text-lg font-medium text-text-dark">
+                            <span className="text-base font-normal text-text-muted line-through mr-1.5">
+                              R{rates.baseRate.toLocaleString()}
+                            </span>
+                            <span className="text-primary">R{salePrice.toLocaleString()}</span>{' '}
+                            <span className="text-sm font-normal text-text-mid">/ night</span>
+                          </p>
+                          <p className="text-[12px] text-text-mid flex items-center flex-wrap gap-x-2 gap-y-1">
+                            {rates.baseRateCaption}
+                            {savingsPct > 0 && (
+                              <span className="inline-block text-[10px] tracking-wide text-primary bg-primary-light px-1.5 py-0.5 rounded-sm">
+                                Save {savingsPct}%
+                              </span>
+                            )}
+                          </p>
+                          {sale?.caption && (
+                            <p className="text-[11px] text-primary/80 mt-1">{sale.caption}</p>
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          <p className="text-text-dark font-medium text-lg">
+                            R{rates.baseRate.toLocaleString()}{' '}
+                            <span className="text-sm font-normal text-text-mid">/ night</span>
+                          </p>
+                          <p className="text-[12px] text-text-mid">{rates.baseRateCaption}</p>
+                        </>
+                      )}
                     </div>
                     <div className="pt-4 sm:pt-0 sm:pl-6 sm:border-l border-border/30">
                       <p className="text-text-dark font-medium text-lg">

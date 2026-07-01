@@ -56,6 +56,63 @@ export default defineType({
             defineField({ name: 'baseRateCaption', title: 'Base rate caption', type: 'string', description: 'A short note explaining what the base rate covers. e.g. "Base rate for up to 2 people"', validation: (Rule) => Rule.required() }),
             defineField({ name: 'additionalRate', title: 'Additional guest rate (ZAR)', type: 'number', description: 'The extra price in Rand per additional guest, as a plain number. e.g. 600', validation: (Rule) => Rule.required().positive() }),
             defineField({ name: 'additionalRateCaption', title: 'Additional guest caption', type: 'string', description: 'A short note explaining the additional guest fee. e.g. "Additional guest fee (up to 8)"', validation: (Rule) => Rule.required() }),
+            defineField({
+              name: 'sale',
+              title: 'Sale / Discount',
+              type: 'object',
+              description: 'Optional. Show a discounted nightly rate over the seasonal pricing. Turn the toggle off for normal pricing.',
+              options: { collapsible: true, collapsed: true },
+              fields: [
+                defineField({
+                  name: 'onSale',
+                  title: 'Show sale price?',
+                  type: 'boolean',
+                  description: 'Turn this on to show a discounted nightly rate on the accommodation page. Leave it off for normal pricing.',
+                  initialValue: false,
+                }),
+                defineField({
+                  name: 'label',
+                  title: 'Sale label',
+                  type: 'string',
+                  description: 'A short badge shown next to the price. e.g. "Winter Special" or "Limited Offer"',
+                  hidden: ({ parent }) => !(parent as { onSale?: boolean })?.onSale,
+                  validation: (Rule) =>
+                    Rule.custom((value, context) => {
+                      const parent = context.parent as { onSale?: boolean } | undefined
+                      if (parent?.onSale && !value) return 'Add a label for the sale, e.g. "Winter Special".'
+                      return true
+                    }).warning(),
+                }),
+                defineField({
+                  name: 'salePrice',
+                  title: 'Sale nightly rate (ZAR)',
+                  type: 'number',
+                  description: 'The discounted price per night, as a plain number. e.g. 2380. Should be lower than the base rate above.',
+                  hidden: ({ parent }) => !(parent as { onSale?: boolean })?.onSale,
+                  validation: (Rule) =>
+                    Rule.custom((value, context) => {
+                      const parent = context.parent as { onSale?: boolean } | undefined
+                      if (!parent?.onSale) return true
+                      if (typeof value !== 'number' || value <= 0) {
+                        return 'Add the discounted nightly rate to show the sale.'
+                      }
+                      const baseRate = (context.document as { bunkhouse?: { rates?: { baseRate?: number } } } | undefined)
+                        ?.bunkhouse?.rates?.baseRate
+                      if (typeof baseRate === 'number' && value >= baseRate) {
+                        return 'The sale rate is not lower than the base rate — guests won’t see a saving.'
+                      }
+                      return true
+                    }).warning(),
+                }),
+                defineField({
+                  name: 'caption',
+                  title: 'Sale note (optional)',
+                  type: 'string',
+                  description: 'Optional small print shown under the sale price. e.g. "For stays booked in June & July."',
+                  hidden: ({ parent }) => !(parent as { onSale?: boolean })?.onSale,
+                }),
+              ],
+            }),
           ],
         }),
         defineField({ name: 'storyTitle', title: 'Story disclosure title', type: 'string', description: 'The clickable title of the collapsible story section. e.g. "The story behind the build"', validation: (Rule) => Rule.required() }),

@@ -33,7 +33,7 @@ export const accommodationPageQuery = groq`
       capacity,
       intro,
       details,
-      "rates": rates { baseRate, baseRateCaption, additionalRate, additionalRateCaption },
+      "rates": rates { baseRate, baseRateCaption, additionalRate, additionalRateCaption, "sale": sale { onSale, label, salePrice, caption } },
       storyTitle,
       "story": story[] { _key, text },
       "mainImage": mainImage { asset, hotspot, crop },

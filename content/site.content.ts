@@ -268,6 +268,7 @@ Tucked away in this ancient valley is more than just a destination – it’s a 
         baseRateCaption: 'Base rate for up to 2 people',
         additionalRate: 600,
         additionalRateCaption: 'Additional guest fee (up to 8)',
+        sale: { onSale: false },
       },
       storyTitle: 'The story behind the build',
       story: `The unit was constructed with the hope of having a minimal ecological footprint during its occupancy and construction. Recycled and up-cycled materials were therefore used where possible, however, the sacrifice of comfort was non-negotiable. New materials thus had to be transported in for substructures, decking, internal walling and ceiling purposes.
