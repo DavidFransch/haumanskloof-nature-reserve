@@ -5,7 +5,14 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: process.env.NODE_ENV === 'production',
+  // Must be false: on-demand (webhook) revalidation re-fetches immediately
+  // after publish, and Sanity's edge CDN (apicdn.sanity.io) lags behind the
+  // live API by a few seconds. Because our fetches use `revalidate: false`
+  // (cache indefinitely, bust by tag), a stale CDN read gets locked into
+  // Next.js's cache until the *next* publish. Reading from the uncached API
+  // (api.sanity.io) guarantees fresh data the moment the webhook fires.
+  // Next.js's own cache still shields us from per-request API traffic.
+  useCdn: false,
 })
 
 // Preview client with token for draft content
