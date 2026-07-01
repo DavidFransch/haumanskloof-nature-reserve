@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { siteContent } from '@/content/site.content'
 
 const socialLinks = siteContent.footer.links.filter((l) => l.external)
@@ -24,13 +23,6 @@ export default function Footer() {
 
           {/* Left — Brand */}
           <div className="space-y-4">
-            <Image
-              src="/images/logo-2.png"
-              alt={siteName}
-              width={48}
-              height={48}
-              className="h-12 w-auto"
-            />
             <p className="font-heading text-[16px] text-text-light">
               {siteName}
             </p>
