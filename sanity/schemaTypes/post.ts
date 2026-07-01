@@ -28,13 +28,6 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: [{ type: 'author' }],
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
@@ -59,12 +52,6 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
-    }),
-    defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
@@ -73,12 +60,11 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
       media: 'mainImage',
       date: 'publishedAt',
     },
     prepare(selection) {
-      const { author, date } = selection
+      const { date } = selection
       const formattedDate = date
         ? new Date(date).toLocaleDateString('en-ZA', {
             year: 'numeric',
@@ -88,7 +74,7 @@ export default defineType({
         : 'No date'
       return {
         ...selection,
-        subtitle: `${author ? `by ${author}` : 'No author'} | ${formattedDate}`,
+        subtitle: formattedDate,
       }
     },
   },
