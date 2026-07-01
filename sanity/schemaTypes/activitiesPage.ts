@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { imageSizeWarning } from './imageSizeValidation'
 
 // Singleton document — only one instance exists with _id: 'activitiesPage'
 // Fields are ordered to match the visual top-to-bottom layout of the page.
@@ -69,6 +70,7 @@ export default defineType({
             type: 'image',
             description: 'The photo shown for this activity.',
             options: { hotspot: true },
+            validation: (Rule) => imageSizeWarning(Rule),
             fields: [
               defineField({ name: 'altText', title: 'Alt text', type: 'string', description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "Sunset over the Breede Valley mountains" or "The bunkhouse exterior with mountain views"', validation: (Rule) => Rule.required() }),
             ],

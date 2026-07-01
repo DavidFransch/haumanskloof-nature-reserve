@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { imageSizeWarning } from './imageSizeValidation'
 
 // Singleton document — only one instance exists with _id: 'accommodationPage'
 // Fields are ordered to match the visual top-to-bottom layout of the page.
@@ -41,6 +42,7 @@ export default defineType({
           type: 'image',
           description: 'Main hero image for the bunkhouse section.',
           options: { hotspot: true },
+          validation: (Rule) => imageSizeWarning(Rule),
           fields: [
             defineField({ name: 'altText', title: 'Alt text', type: 'string', description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "Sunset over the Breede Valley mountains" or "The bunkhouse exterior with mountain views"', validation: (Rule) => Rule.required() }),
           ],
@@ -88,7 +90,7 @@ export default defineType({
                 type: 'image',
                 description: 'A photo of the bunkhouse to show in the gallery.',
                 options: { hotspot: true },
-                validation: (Rule) => Rule.required(),
+                validation: (Rule) => [Rule.required(), imageSizeWarning(Rule)],
               }),
               defineField({ name: 'altText', title: 'Alt text', type: 'string', description: 'A short description of what is shown in the image. Used by screen readers and search engines. e.g. "Sunset over the Breede Valley mountains" or "The bunkhouse exterior with mountain views"', validation: (Rule) => Rule.required() }),
               defineField({ name: 'label', title: 'Label', type: 'string', description: 'A short caption shown on the photo. e.g. "Inside: Living Area"', validation: (Rule) => Rule.required() }),
@@ -129,6 +131,7 @@ export default defineType({
           type: 'image',
           options: { hotspot: true },
           description: 'A photo of the compost toilet facility.',
+          validation: (Rule) => imageSizeWarning(Rule),
           fields: [
             defineField({
               name: 'altText',

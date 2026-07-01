@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { imageSizeWarning } from './imageSizeValidation'
 
 export default defineType({
   name: 'author',
@@ -28,6 +29,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      validation: (Rule) => imageSizeWarning(Rule),
     }),
     defineField({
       name: 'bio',

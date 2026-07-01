@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { imageSizeWarning } from './imageSizeValidation'
 
 export const galleryImage = defineType({
   name: 'galleryImage',
@@ -38,7 +39,7 @@ export const galleryImage = defineType({
         hotspot: true,
         accept: 'image/webp',
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => [Rule.required(), imageSizeWarning(Rule)],
     }),
     defineField({
       name: 'caption',

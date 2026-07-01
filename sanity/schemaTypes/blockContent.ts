@@ -1,4 +1,5 @@
 import { defineType, defineArrayMember } from 'sanity'
+import { imageSizeWarning } from './imageSizeValidation'
 
 export default defineType({
   title: 'Block Content',
@@ -54,6 +55,7 @@ export default defineType({
     defineArrayMember({
       type: 'image',
       options: { hotspot: true },
+      validation: (Rule) => imageSizeWarning(Rule),
       fields: [
         {
           name: 'alt',
