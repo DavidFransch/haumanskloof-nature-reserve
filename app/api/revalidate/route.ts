@@ -49,12 +49,12 @@ export async function POST(req: NextRequest) {
   const revalidated: string[] = []
 
   if (type === 'faq') {
-    revalidateTag('faq')
+    revalidateTag('faq', { expire: 0 })
     revalidatePath('/faq', 'page')
     revalidatePath('/contact', 'page')
     revalidated.push('/faq', '/contact')
   } else if (type === 'galleryImage') {
-    revalidateTag('galleryImage')
+    revalidateTag('galleryImage', { expire: 0 })
     revalidatePath('/gallery', 'page')
     revalidatePath('/', 'page')
     revalidated.push('/gallery', '/')
@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
       revalidated.push(`/gallery/${slug}`)
     }
   } else if (type === 'post') {
-    revalidateTag('post')
+    revalidateTag('post', { expire: 0 })
     revalidatePath('/blog', 'page')
     revalidated.push('/blog')
     const slug =
@@ -73,23 +73,23 @@ export async function POST(req: NextRequest) {
       revalidated.push(`/blog/${slug}`)
     }
   } else if (type === 'accommodationPage') {
-    revalidateTag('accommodationPage')
+    revalidateTag('accommodationPage', { expire: 0 })
     revalidatePath('/accommodation', 'page')
     revalidated.push('/accommodation')
   } else if (type === 'homePage') {
-    revalidateTag('homePage')
+    revalidateTag('homePage', { expire: 0 })
     revalidatePath('/', 'page')
     revalidated.push('/')
   } else if (type === 'aboutPage') {
-    revalidateTag('aboutPage')
+    revalidateTag('aboutPage', { expire: 0 })
     revalidatePath('/about', 'page')
     revalidated.push('/about')
   } else if (type === 'activitiesPage') {
-    revalidateTag('activitiesPage')
+    revalidateTag('activitiesPage', { expire: 0 })
     revalidatePath('/activities', 'page')
     revalidated.push('/activities')
   } else if (type === 'contactPage') {
-    revalidateTag('contactPage')
+    revalidateTag('contactPage', { expire: 0 })
     revalidatePath('/contact', 'page')
     revalidated.push('/contact')
   } else if (type === 'pageContent') {
