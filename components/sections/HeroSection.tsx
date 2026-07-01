@@ -32,17 +32,25 @@ export default function HeroSection({ data }: { data?: HomeHero | null }) {
           ))}
         </h1>
 
-        <div className="max-w-[520px] space-y-4 mb-8">
-          <p className="text-[rgba(240,235,224,0.9)] leading-relaxed text-[15px] lg:text-base">
-            {hero.intro}
-          </p>
-          <p className="text-[rgba(240,235,224,0.75)] leading-relaxed text-[14px] lg:text-[15px]">
-            {hero.body}
-          </p>
-          <p className="text-[rgba(240,235,224,0.85)] leading-relaxed text-[14px] lg:text-[15px] italic">
-            {hero.cta}
-          </p>
-        </div>
+        {(hero.intro || hero.body || hero.cta) && (
+          <div className="max-w-[520px] space-y-4 mb-8">
+            {hero.intro && (
+              <p className="text-[rgba(240,235,224,0.9)] leading-relaxed text-[15px] lg:text-base">
+                {hero.intro}
+              </p>
+            )}
+            {hero.body && (
+              <p className="text-[rgba(240,235,224,0.75)] leading-relaxed text-[14px] lg:text-[15px]">
+                {hero.body}
+              </p>
+            )}
+            {hero.cta && (
+              <p className="text-[rgba(240,235,224,0.85)] leading-relaxed text-[14px] lg:text-[15px] italic">
+                {hero.cta}
+              </p>
+            )}
+          </div>
+        )}
 
         <div className="flex flex-wrap gap-3">
           <Link

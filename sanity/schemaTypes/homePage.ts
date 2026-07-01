@@ -17,9 +17,9 @@ export default defineType({
       fields: [
         defineField({ name: 'eyebrow', title: 'Eyebrow', type: 'string', description: 'The small line of text shown above the main headline. e.g. "Breede Valley · Western Cape"', validation: (Rule) => Rule.required() }),
         defineField({ name: 'headline', title: 'Headline', type: 'text', rows: 3, description: 'The large headline that greets visitors. e.g. "Deep in the mountains of the Breede Valley, is a hidden sanctuary."', validation: (Rule) => Rule.required() }),
-        defineField({ name: 'intro', title: 'Introduction', type: 'text', rows: 3, description: 'A short opening line under the headline. e.g. "Haumanskloof is a land of contrast, where vibrant Renosterveld and Fynbos meet the arid beauty of the Succulent Karoo."', validation: (Rule) => Rule.required() }),
-        defineField({ name: 'body', title: 'Body', type: 'text', rows: 4, description: 'The main welcome paragraph in the hero. e.g. "Just two hours from Cape Town, Haumanskloof is a family-run sanctuary where nature and community thrive..."', validation: (Rule) => Rule.required() }),
-        defineField({ name: 'cta', title: 'Closing invite text', type: 'text', rows: 3, description: 'A closing sentence that invites visitors in. e.g. "Come experience this special intersection of rolling mountains, pristine landscapes and rugged roads — we invite you to join us!"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'intro', title: 'Introduction', type: 'text', rows: 3, description: 'A short opening line under the headline. e.g. "Haumanskloof is a land of contrast, where vibrant Renosterveld and Fynbos meet the arid beauty of the Succulent Karoo."' }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 4, description: 'The main welcome paragraph in the hero. e.g. "Just two hours from Cape Town, Haumanskloof is a family-run sanctuary where nature and community thrive..."' }),
+        defineField({ name: 'cta', title: 'Closing invite text', type: 'text', rows: 3, description: 'A closing sentence that invites visitors in. e.g. "Come experience this special intersection of rolling mountains, pristine landscapes and rugged roads — we invite you to join us!"' }),
         defineField({
           name: 'image',
           title: 'Background image',
