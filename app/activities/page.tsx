@@ -93,6 +93,25 @@ const activityIcons: Record<string, React.ReactNode> = {
       <circle cx="12" cy="13" r="4" />
     </svg>
   ),
+  gym: (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="2" y="7" width="3" height="10" rx="0.5" />
+      <rect x="5" y="9.5" width="2" height="5" />
+      <line x1="7" y1="12" x2="17" y2="12" />
+      <rect x="17" y="9.5" width="2" height="5" />
+      <rect x="19" y="7" width="3" height="10" rx="0.5" />
+    </svg>
+  ),
 }
 
 export default async function ActivitiesPage() {

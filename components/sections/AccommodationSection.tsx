@@ -28,7 +28,7 @@ export default function AccommodationSection({ data }: { data?: HomeAccommodatio
             <div className="relative h-[200px] bg-bg-mid">
               <Image
                 src={bunkhouse.image}
-                alt={bunkhouse.name}
+                alt={data?.bunkhouse?.imageAlt || bunkhouse.name}
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
                 priority
@@ -55,7 +55,7 @@ export default function AccommodationSection({ data }: { data?: HomeAccommodatio
               <div className="relative h-[200px] bg-bg-mid">
                 <Image
                   src={nextUnit.image}
-                  alt={nextUnit.name}
+                  alt={data?.nextUnit?.imageAlt || nextUnit.name}
                   fill
                   sizes="(max-width: 640px) 100vw, 50vw"
                   className="object-cover"

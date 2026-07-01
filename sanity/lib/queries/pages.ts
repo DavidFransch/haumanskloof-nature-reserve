@@ -10,14 +10,14 @@ import {
 // Get homepage singleton content
 export const homePageQuery = groq`
   *[_type == "homePage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {
-    "hero": hero { eyebrow, headline, intro, body, cta, "image": image { asset, hotspot, crop } },
-    "about": about { label, heading, body, "image": image { asset, hotspot, crop } },
+    "hero": hero { eyebrow, headline, intro, body, cta, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
+    "about": about { label, heading, body, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
     "pillars": pillars[] { _key, icon, title, body },
     "gallery": gallery { label, heading },
     "accommodation": accommodation {
       label, heading, body,
       "bunkhouse": bunkhouse { name, desc, tag, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
-      "nextUnit": nextUnit { name, desc, tag, "image": image { asset, hotspot, crop } }
+      "nextUnit": nextUnit { name, desc, tag, "image": image { asset, hotspot, crop }, "imageAlt": image.altText }
     },
     "cta": cta { heading, body }
   }
@@ -40,7 +40,7 @@ export const accommodationPageQuery = groq`
       "mainImageAlt": mainImage.altText,
       "gallery": gallery[] | order(order asc) { _key, "image": image { asset, hotspot, crop }, altText, label, category, order }
     },
-    "compostToilet": compostToilet { eyebrow, heading, body, note, "image": image { asset, hotspot, crop } },
+    "compostToilet": compostToilet { eyebrow, heading, body, note, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
     "amenities": amenities[] { _key, icon, title, body },
     "cta": cta { heading, body }
   }

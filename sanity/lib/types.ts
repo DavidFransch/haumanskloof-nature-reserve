@@ -92,6 +92,7 @@ export interface HomeHero {
   body: string
   cta: string
   image?: string | null
+  imageAlt?: string | null
 }
 
 export interface HomeAbout {
@@ -99,6 +100,7 @@ export interface HomeAbout {
   heading: string
   body: string
   image?: string | null
+  imageAlt?: string | null
 }
 
 export interface HomePillar {
@@ -120,6 +122,7 @@ export interface HomeAccommodationBunkhouse {
   desc: string
   tag: string
   image: string
+  imageAlt?: string | null
 }
 
 export interface HomeAccommodationNextUnit {
@@ -127,6 +130,7 @@ export interface HomeAccommodationNextUnit {
   desc: string
   tag?: string | null
   image?: string | null
+  imageAlt?: string | null
 }
 
 export interface HomeAccommodation {
@@ -232,6 +236,7 @@ export interface SanityAccommodationPage {
     body: string
     note: string
     image: SanityImage | null
+    imageAlt: string | null
   }
   amenities: Array<{
     _key?: string

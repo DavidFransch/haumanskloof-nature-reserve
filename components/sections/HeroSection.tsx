@@ -10,7 +10,7 @@ export default function HeroSection({ data }: { data?: HomeHero | null }) {
       {/* Background image */}
       <Image
         src={hero.image ?? '/images/gallery/home-hero/home-hero-1.webp'}
-        alt="Haumanskloof Nature Reserve"
+        alt={data?.imageAlt || 'Haumanskloof Nature Reserve'}
         fill
         sizes="100vw"
         priority

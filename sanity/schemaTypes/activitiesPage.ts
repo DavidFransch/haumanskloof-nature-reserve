@@ -48,6 +48,7 @@ export default defineType({
                 { title: 'Hiking', value: 'hiking' },
                 { title: 'Camera', value: 'camera' },
                 { title: 'Cycling', value: 'cycling' },
+                { title: 'Gym / Weights', value: 'gym' },
               ],
               layout: 'dropdown',
             },

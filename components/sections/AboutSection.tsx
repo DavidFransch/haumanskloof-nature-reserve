@@ -24,7 +24,7 @@ export default function AboutSection({ data }: { data?: HomeAbout | null }) {
         <div className="relative h-80 rounded-lg overflow-hidden bg-bg-mid">
           <Image
             src={about.image ?? '/images/gallery/home-about/home-about-1.webp'}
-            alt="Haumanskloof Nature Reserve"
+            alt={data?.imageAlt || 'Haumanskloof Nature Reserve'}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"

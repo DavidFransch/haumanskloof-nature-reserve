@@ -7,6 +7,7 @@ interface GalleryItem {
   label: string
   image: string
   category: string
+  altText?: string
 }
 
 interface AccommodationGalleryProps {
@@ -81,7 +82,7 @@ export default function AccommodationGallery({ gallery }: AccommodationGalleryPr
             <div className="relative aspect-4/3 rounded-md overflow-hidden bg-bg-mid border border-border/50">
               <Image
                 src={item.image}
-                alt={item.label}
+                alt={item.altText || item.label}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -172,7 +173,7 @@ export default function AccommodationGallery({ gallery }: AccommodationGalleryPr
           >
             <Image
               src={currentItem.image}
-              alt={currentItem.label}
+              alt={currentItem.altText || currentItem.label}
               width={1920}
               height={1920}
               className="max-w-full max-h-[85vh] w-auto h-auto object-contain"

@@ -121,6 +121,7 @@ export default async function AccommodationPage() {
           label: item.label,
           image: urlForImage(item.image).width(800).height(600).url(),
           category: item.category ?? '',
+          altText: item.altText || item.label,
         }))
       : sc.bunkhouse.gallery,
   }
@@ -257,7 +258,7 @@ export default async function AccommodationPage() {
             <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
               <Image
                 src={compostToilet.image}
-                alt={compostToilet.heading}
+                alt={data?.compostToilet?.imageAlt || compostToilet.heading}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
