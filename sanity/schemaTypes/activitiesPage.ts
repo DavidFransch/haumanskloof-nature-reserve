@@ -39,7 +39,7 @@ export default defineType({
             name: 'icon',
             title: 'Icon',
             type: 'string',
-            validation: (Rule) => Rule.required(),
+            description: 'Optional. If left blank, no icon will be shown for this activity.',
             options: {
               list: [
                 { title: 'Wildlife', value: 'wildlife' },

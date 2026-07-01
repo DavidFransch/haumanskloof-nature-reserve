@@ -98,6 +98,7 @@ async function seed() {
       altText: 'Inside the bunkhouse — living area',
       category: 'interior',
       key: 'gallery-1',
+      order: 1,
     },
     {
       file: '/images/gallery/accommodation-bunkhouse-interior/accommodation-bunkhouse-kitchen.webp',
@@ -106,6 +107,7 @@ async function seed() {
       altText: 'Inside the bunkhouse — kitchen',
       category: 'interior',
       key: 'gallery-2',
+      order: 2,
     },
     {
       file: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-1.webp',
@@ -114,6 +116,7 @@ async function seed() {
       altText: 'The Bunkhouse on Protea Lane — exterior view',
       category: 'landscape',
       key: 'gallery-3',
+      order: 3,
     },
     {
       file: '/images/gallery/accommodation-bunkhouse-facilities/accommodation-bunkhouse-facilities-1.webp',
@@ -122,6 +125,7 @@ async function seed() {
       altText: 'Wood-fired hot tub overlooking the valley',
       category: 'exterior',
       key: 'gallery-4',
+      order: 4,
     },
     {
       file: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
@@ -130,6 +134,7 @@ async function seed() {
       altText: 'Mountain views from the bunkhouse deck',
       category: 'landscape',
       key: 'gallery-5',
+      order: 5,
     },
   ]
 
@@ -143,6 +148,7 @@ async function seed() {
       altText: def.altText,
       label: def.label,
       category: def.category,
+      order: def.order,
     })
     console.log(`  ✓ ${def.label}`)
   }

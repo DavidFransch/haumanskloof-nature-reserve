@@ -31,6 +31,25 @@ const activityIcons: Record<string, React.ReactNode> = {
       <circle cx="12" cy="9" r="1.5" fill="currentColor" opacity="0.4" />
     </svg>
   ),
+  cycling: (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="6" cy="17" r="4" />
+      <circle cx="18" cy="17" r="4" />
+      <path d="M6 17 L10 9 L14 9 L18 17" />
+      <path d="M10 9 L13 17" />
+      <path d="M14 9 L17 6" />
+    </svg>
+  ),
   mountain: (
     <svg
       width="28"

@@ -38,7 +38,7 @@ export const accommodationPageQuery = groq`
       "story": story[] { _key, text },
       "mainImage": mainImage { asset, hotspot, crop },
       "mainImageAlt": mainImage.altText,
-      "gallery": gallery[] { _key, "image": image { asset, hotspot, crop }, altText, label, category }
+      "gallery": gallery[] | order(order asc) { _key, "image": image { asset, hotspot, crop }, altText, label, category, order }
     },
     "compostToilet": compostToilet { eyebrow, heading, body, note, "image": image->image },
     "amenities": amenities[] { _key, icon, title, body },

@@ -65,10 +65,14 @@ export default function AccommodationGallery({ gallery }: AccommodationGalleryPr
 
   const currentItem = lightboxIndex !== null ? gallery[lightboxIndex] : null
 
+  const displayCount = gallery.length < 3 ? gallery.length : Math.floor(gallery.length / 3) * 3
+  const displayedGallery = gallery.slice(0, displayCount)
+  const hiddenCount = gallery.length - displayCount
+
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {gallery.slice(0, 4).map((item, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {displayedGallery.map((item, index) => (
           <div
             key={index}
             className="space-y-3 group cursor-pointer"
@@ -79,17 +83,17 @@ export default function AccommodationGallery({ gallery }: AccommodationGalleryPr
                 src={item.image}
                 alt={item.label}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10">
                 <span className="text-[10px] text-white tracking-widest uppercase border border-white/30 px-3 py-1.5 rounded-sm backdrop-blur-sm">
-                  {index === 3 && gallery.length > 4 ? `View all (${gallery.length})` : 'Enlarge'}
+                  {index === displayCount - 1 && hiddenCount > 0 ? `View all (${gallery.length})` : 'Enlarge'}
                 </span>
               </div>
-              {index === 3 && gallery.length > 4 && (
+              {index === displayCount - 1 && hiddenCount > 0 && (
                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center pointer-events-none group-hover:bg-black/30 transition-colors">
-                  <span className="text-white font-medium text-lg">+ {gallery.length - 4}</span>
+                  <span className="text-white font-medium text-lg">+{hiddenCount}</span>
                 </div>
               )}
             </div>

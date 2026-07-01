@@ -76,7 +76,7 @@ export default defineType({
           name: 'gallery',
           title: 'Photo gallery',
           type: 'array',
-          description: 'Images shown in the accommodation photo gallery.',
+          description: 'Images shown in the accommodation photo gallery. Use the order field to control the sequence.',
           of: [{
             type: 'object',
             name: 'galleryItem',
@@ -92,6 +92,7 @@ export default defineType({
               defineField({ name: 'altText', title: 'Alt text', type: 'string', validation: (Rule) => Rule.required() }),
               defineField({ name: 'label', title: 'Label', type: 'string', description: 'e.g. "Inside: Living Area"', validation: (Rule) => Rule.required() }),
               defineField({ name: 'category', title: 'Category', type: 'string', description: 'e.g. interior / exterior / landscape' }),
+              defineField({ name: 'order', title: 'Display order', type: 'number', description: 'Controls the order images appear in the gallery. Lower numbers appear first.' }),
             ],
             preview: { select: { title: 'label', media: 'image' } },
           }],
