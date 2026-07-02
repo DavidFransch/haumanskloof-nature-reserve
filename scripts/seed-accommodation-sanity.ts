@@ -199,28 +199,7 @@ async function seed() {
         sale: { onSale: false },
       },
       storyTitle: 'The story behind the build',
-      story: [
-        {
-          _key: 'story-1',
-          text: 'The unit was constructed with the hope of having a minimal ecological footprint during its occupancy and construction. Recycled and up-cycled materials were therefore used where possible, however, the sacrifice of comfort was non-negotiable. New materials thus had to be transported in for substructures, decking, internal walling and ceiling purposes.',
-        },
-        {
-          _key: 'story-2',
-          text: 'Due to the isolation of the house, the rocky terrain and the proximity to a stream – many variables had to be approached very cautiously. It is for this reason that we opted for a compost toilet rather than a septic tank system. The sinking of a septic tank system often requires water based flush and overflow mechanisms – which in this water scarce area and within this proximity to the stream was just not an option. The bunkhouse also boasts an unconventional electrical earth mat which was designed into the decking substructure to avoid unnecessary soil disturbance.',
-        },
-        {
-          _key: 'story-3',
-          text: "The bathroom is built out of fully up-cycled and recycled materials (aside for some structural timber where required by legislation). Double wooden doors, originally installed in the main building, were replaced with glass sliding doors to maximize one's opportunity for a view in the house. These double doors now clad the bathroom to allow for additional 360⁰ views of nature while showering. The bathroom's internal cladding – even the cabinetry – is made from offcuts from the rest of the house. This cabinetry rule further extends to the main house. All the furniture, aside from a few select couches and bed frames, were crafted from recycled timber on the farm. Bedframes were also manufactured on the farm, however, new timber was essential for these pieces to enable maximum comfort and peace of mind.",
-        },
-        {
-          _key: 'story-4',
-          text: 'Paintings are all up-cycled from our personal collections on the farm, and any additional works are intended to be sourced locally. Please reach out if you would like to find out more regarding this.',
-        },
-        {
-          _key: 'story-5',
-          text: 'The house was meticulously built and designed to be enjoyed in nature, without disturbing it – We hope that you experience and enjoy the fruits of these efforts!',
-        },
-      ],
+      story: 'The unit was constructed with the hope of having a minimal ecological footprint during its occupancy and construction. Recycled and up-cycled materials were therefore used where possible, however, the sacrifice of comfort was non-negotiable. New materials thus had to be transported in for substructures, decking, internal walling and ceiling purposes.\n\nDue to the isolation of the house, the rocky terrain and the proximity to a stream – many variables had to be approached very cautiously. It is for this reason that we opted for a compost toilet rather than a septic tank system. The sinking of a septic tank system often requires water based flush and overflow mechanisms – which in this water scarce area and within this proximity to the stream was just not an option. The bunkhouse also boasts an unconventional electrical earth mat which was designed into the decking substructure to avoid unnecessary soil disturbance.\n\nThe bathroom is built out of fully up-cycled and recycled materials (aside for some structural timber where required by legislation). Double wooden doors, originally installed in the main building, were replaced with glass sliding doors to maximize one\'s opportunity for a view in the house. These double doors now clad the bathroom to allow for additional 360⁰ views of nature while showering. The bathroom\'s internal cladding – even the cabinetry – is made from offcuts from the rest of the house. This cabinetry rule further extends to the main house. All the furniture, aside from a few select couches and bed frames, were crafted from recycled timber on the farm. Bedframes were also manufactured on the farm, however, new timber was essential for these pieces to enable maximum comfort and peace of mind.\n\nPaintings are all up-cycled from our personal collections on the farm, and any additional works are intended to be sourced locally. Please reach out if you would like to find out more regarding this.\n\nThe house was meticulously built and designed to be enjoyed in nature, without disturbing it – We hope that you experience and enjoy the fruits of these efforts!',
       gallery,
     },
 
@@ -252,7 +231,20 @@ async function seed() {
   if (result._createdAt === result._updatedAt) {
     console.log('✓ Accommodation document created with images.')
   } else {
-    console.log('Accommodation document already exists — skipped. Delete it in Studio first to re-seed.')
+    console.log('  — Accommodation document already exists — checking for stale fields...')
+
+    // Migrate story from array-of-paragraphs to a single text field if needed.
+    const existing = await client.fetch<{ bunkhouse?: { story?: unknown } }>(
+      `*[_id == $id][0]{ "bunkhouse": bunkhouse { story } }`,
+      { id: ACCOMMODATION_DOCUMENT_ID }
+    )
+    if (Array.isArray(existing?.bunkhouse?.story)) {
+      const storyString = (existing.bunkhouse.story as Array<{ text: string }>)
+        .map((p) => p.text)
+        .join('\n\n')
+      await client.patch(ACCOMMODATION_DOCUMENT_ID).set({ 'bunkhouse.story': storyString }).commit()
+      console.log('  ✓ Migrated bunkhouse.story from paragraphs array to single text field.')
+    }
   }
   console.log('View and edit at: https://haumanskloof.co.za/studio/structure/accommodationPage')
 }

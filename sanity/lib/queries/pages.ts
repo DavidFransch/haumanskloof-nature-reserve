@@ -53,7 +53,7 @@ export const accommodationPageQuery = groq`
       details,
       "rates": rates { baseRate, baseRateCaption, additionalRate, additionalRateCaption, "sale": sale { onSale, label, salePrice, caption } },
       storyTitle,
-      "story": story[] { _key, text },
+      story,
       "mainImage": mainImage { asset, hotspot, crop },
       "mainImageAlt": mainImage.altText,
       "gallery": gallery[] | order(order asc) { _key, "image": image { asset, hotspot, crop }, altText, label, category, order }

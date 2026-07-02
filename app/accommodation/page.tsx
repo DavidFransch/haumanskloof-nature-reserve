@@ -109,9 +109,7 @@ export default async function AccommodationPage() {
     details: data?.bunkhouse?.details?.length ? data.bunkhouse.details : sc.bunkhouse.details,
     rates: data?.bunkhouse?.rates ?? sc.bunkhouse.rates,
     storyTitle: data?.bunkhouse?.storyTitle ?? sc.bunkhouse.storyTitle,
-    story: data?.bunkhouse?.story?.length
-      ? data.bunkhouse.story.map((p) => p.text)
-      : sc.bunkhouse.story.split('\n\n').filter(Boolean),
+    story: (typeof data?.bunkhouse?.story === 'string' ? data.bunkhouse.story : sc.bunkhouse.story).split('\n\n').filter(Boolean),
     mainImage: data?.bunkhouse?.mainImage
       ? urlForImage(data.bunkhouse.mainImage).width(900).height(600).url()
       : sc.bunkhouse.mainImage,

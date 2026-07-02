@@ -116,21 +116,7 @@ export default defineType({
           ],
         }),
         defineField({ name: 'storyTitle', title: 'Story disclosure title', type: 'string', description: 'The clickable title of the collapsible story section. e.g. "The story behind the build"', validation: (Rule) => Rule.required() }),
-        defineField({
-          name: 'story',
-          title: 'Story',
-          type: 'array',
-          description: 'The build story, written as separate paragraphs. Add one item for each paragraph.',
-          of: [{
-            type: 'object',
-            name: 'paragraph',
-            title: 'Paragraph',
-            fields: [
-              defineField({ name: 'text', title: 'Text', type: 'text', rows: 4, description: 'One paragraph of the build story. e.g. "The unit was constructed with the hope of having a minimal ecological footprint..."', validation: (Rule) => Rule.required() }),
-            ],
-            preview: { select: { title: 'text' } },
-          }],
-        }),
+        defineField({ name: 'story', title: 'Story', type: 'text', rows: 20, description: 'The build story. Press Enter twice between paragraphs to create paragraph breaks.', validation: (Rule) => Rule.required() }),
         defineField({
           name: 'gallery',
           title: 'Photo gallery',

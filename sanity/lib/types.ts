@@ -252,7 +252,7 @@ export interface SanityAccommodationPage {
       sale?: RateSale | null
     }
     storyTitle: string
-    story: Array<{ _key: string; text: string }>
+    story: string
     mainImage: SanityImage | null
     mainImageAlt: string | null
     gallery: SanityAccommodationGalleryItem[]
