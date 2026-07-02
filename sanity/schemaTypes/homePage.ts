@@ -214,6 +214,7 @@ export default defineType({
         defineField({ name: 'label', title: 'Label', type: 'string', description: 'The small label above the accommodation heading. e.g. "Where to stay"', validation: (Rule) => Rule.required() }),
         defineField({ name: 'heading', title: 'Heading', type: 'string', description: 'The heading for the accommodation section. e.g. "Accommodation at Haumanskloof Nature Reserve"', validation: (Rule) => Rule.required() }),
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short paragraph about the accommodation. e.g. "Wake up to birdsong, fall asleep under clear mountain skies..."', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'showComingSoon', title: 'Show "coming soon" placeholder', type: 'boolean', description: 'When enabled, a placeholder card is shown after the listed units to signal more accommodation is on the way.', initialValue: false }),
 
         defineField({
           name: 'units',

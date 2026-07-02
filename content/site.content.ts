@@ -109,13 +109,6 @@ export const siteContent = {
           image: '/images/gallery/accommodation-bunkhouse-exterior/accommodation-bunkhouse-exterior-2.webp',
           imageAlt: 'The Bunkhouse exterior at Haumanskloof Nature Reserve',
         },
-        {
-          name: 'More coming soon',
-          desc: 'Additional accommodation will be added as the reserve grows.',
-          tag: null,
-          image: null,
-          imageAlt: null,
-        },
       ],
     },
 

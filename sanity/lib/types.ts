@@ -143,6 +143,7 @@ export interface HomeAccommodation {
   label: string
   heading: string
   body: string
+  showComingSoon?: boolean | null
   units: HomeAccommodationUnit[]
 }
 
@@ -167,6 +168,7 @@ export interface SanityHomePage extends Omit<HomePage, 'hero' | 'about' | 'galle
   about: Omit<HomeAbout, 'image'> & { image: SanityImage | null }
   gallery: SanityHomeGallery
   accommodation: Omit<HomeAccommodation, 'units'> & {
+    showComingSoon: boolean | null
     units: Array<{
       name: string
       desc: string

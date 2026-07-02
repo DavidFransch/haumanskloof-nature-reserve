@@ -12,16 +12,15 @@ function resolveUnitImage(image: SanityImage | string | null | undefined): strin
 }
 
 export default function AccommodationSection({ data }: { data?: SanityHomeAccommodation | null }) {
+
   const sc = siteContent.home.accommodation
 
   const label = data?.label ?? sc.label
   const heading = data?.heading ?? sc.heading
   const body = data?.body ?? sc.body
-  const units = data?.units?.length ? data.units : sc.units
-
-  // Render complete pairs only, but never hide a lone single unit.
-  const displayCount = units.length === 1 ? 1 : Math.floor(units.length / 2) * 2
-  const displayedUnits = units.slice(0, displayCount)
+  const rawUnits = data?.units?.length ? data.units : sc.units
+  const units = rawUnits.filter((u) => resolveUnitImage(u.image))
+  const showComingSoon = data?.showComingSoon ?? false
 
   return (
     <section className="section-padding border-b border-border">
@@ -35,11 +34,9 @@ export default function AccommodationSection({ data }: { data?: SanityHomeAccomm
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {displayedUnits.map((unit, i) => {
+          {units.map((unit, i) => {
             const imageSrc = resolveUnitImage(unit.image)
-
-            // Live unit when an image is set, "coming soon" placeholder otherwise.
-            return imageSrc ? (
+            return (
               <Link
                 key={i}
                 href="/accommodation"
@@ -47,7 +44,7 @@ export default function AccommodationSection({ data }: { data?: SanityHomeAccomm
               >
                 <div className="relative h-[200px] bg-bg-mid">
                   <Image
-                    src={imageSrc}
+                    src={imageSrc!}
                     alt={unit.imageAlt || unit.name}
                     fill
                     sizes="(max-width: 640px) 100vw, 50vw"
@@ -67,25 +64,24 @@ export default function AccommodationSection({ data }: { data?: SanityHomeAccomm
                   )}
                 </div>
               </Link>
-            ) : (
-              <div
-                key={i}
-                className="border border-dashed border-border rounded-lg overflow-hidden opacity-50"
-              >
-                <div className="h-[200px] bg-bg-light flex items-center justify-center">
-                  <div className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-text-muted text-xl">
-                    +
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-heading text-xl text-text-muted mb-1.5">
-                    {unit.name}
-                  </h3>
-                  <p className="text-[13px] text-text-muted">{unit.desc}</p>
-                </div>
-              </div>
             )
           })}
+
+          {showComingSoon && (
+            <div className="border border-dashed border-border rounded-lg overflow-hidden opacity-50">
+              <div className="h-[200px] bg-bg-light flex items-center justify-center">
+                <div className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-text-muted text-xl">
+                  +
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="font-heading text-xl text-text-muted mb-1.5">
+                  More coming soon
+                </h3>
+                <p className="text-[13px] text-text-muted">Additional accommodation will be added as the reserve grows.</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

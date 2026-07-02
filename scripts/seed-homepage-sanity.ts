@@ -191,6 +191,7 @@ async function seed() {
       label: 'Where to stay',
       heading: 'Accommodation at Haumanskloof Nature Reserve',
       body: 'Wake up to birdsong, fall asleep under clear mountain skies. Our units are designed to keep you close to the land without sacrificing comfort.',
+      showComingSoon: true,
       units: [
         {
           _key: 'unit-bunkhouse',
@@ -202,11 +203,6 @@ async function seed() {
             asset: ref(bunkhouseImageId),
             altText: 'The Bunkhouse on Protea Lane',
           },
-        },
-        {
-          _key: 'unit-coming-soon',
-          name: 'More coming soon',
-          desc: 'Additional accommodation will be added as the reserve grows.',
         },
       ],
     },

@@ -28,7 +28,7 @@ export const homePageQuery = groq`
       }
     },
     "accommodation": accommodation {
-      label, heading, body,
+      label, heading, body, showComingSoon,
       "units": units[] {
         name,
         desc,
