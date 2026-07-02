@@ -149,26 +149,21 @@ async function seed() {
       },
     },
 
-    pillars: [
-      {
-        _key: 'pillar-wildlife',
-        icon: 'wildlife',
-        title: 'Wildlife & ecology',
-        body: 'Camera trap monitoring, diverse Renosterveld, Fynbos and Succulent Karoo flora, and exploration through indigenous habitat.',
-      },
-      {
-        _key: 'pillar-accommodation',
-        icon: 'accommodation',
-        title: 'Accommodation',
-        body: 'Comfortable bunkhouse unit nestled in the reserve. Fall asleep to the sounds of the bush.',
-      },
-      {
-        _key: 'pillar-mountain',
-        icon: 'mountain',
-        title: 'Ancient landscapes',
-        body: 'Explore a timeless landscape through scenic walks, stargazing, photography and quiet immersion in nature.',
-      },
-    ],
+    pillar1: {
+      icon: 'wildlife',
+      title: 'Wildlife & ecology',
+      body: 'Camera trap monitoring, diverse Renosterveld, Fynbos and Succulent Karoo flora, and exploration through indigenous habitat.',
+    },
+    pillar2: {
+      icon: 'accommodation',
+      title: 'Accommodation',
+      body: 'Comfortable bunkhouse unit nestled in the reserve. Fall asleep to the sounds of the bush.',
+    },
+    pillar3: {
+      icon: 'mountain',
+      title: 'Ancient landscapes',
+      body: 'Explore a timeless landscape through scenic walks, stargazing, photography and quiet immersion in nature.',
+    },
 
     gallery: {
       label: 'The reserve',
@@ -186,8 +181,8 @@ async function seed() {
         },
         {
           _key: 'strip-3',
-          image: { _type: 'image', asset: ref(strip3Id), altText: 'Wildlife captured by camera trap at Haumanskloof' },
-          category: 'camera-trap',
+          image: { _type: 'image', asset: ref(strip3Id), altText: 'Road less travelled' },
+          category: 'landscapes',
         },
       ],
     },

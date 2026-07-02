@@ -12,7 +12,11 @@ export const homePageQuery = groq`
   *[_type == "homePage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {
     "hero": hero { eyebrow, headline, intro, body, cta, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
     "about": about { label, heading, body, "image": image { asset, hotspot, crop }, "imageAlt": image.altText },
-    "pillars": pillars[] { _key, icon, title, body },
+    "pillars": [
+      pillar1 { icon, title, body },
+      pillar2 { icon, title, body },
+      pillar3 { icon, title, body }
+    ][@ != null],
     "gallery": gallery {
       label,
       heading,

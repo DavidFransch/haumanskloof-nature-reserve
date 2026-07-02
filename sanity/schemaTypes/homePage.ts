@@ -59,37 +59,78 @@ export default defineType({
 
     // ─── 3. Pillars ─────────────────────────────────────────────────────────
     defineField({
-      name: 'pillars',
-      title: 'Pillars',
-      type: 'array',
-      description: 'The three feature pillars shown below the about section. Exactly 3 required.',
-      validation: (Rule) => Rule.length(3).error('Exactly 3 pillars are required — the layout does not support more or fewer.'),
-      of: [
-        {
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'icon',
-              title: 'Icon',
-              type: 'string',
-              description: 'The icon shown above this pillar.',
-              validation: (Rule) => Rule.required(),
-              options: {
-                list: [
-                  { title: 'Wildlife', value: 'wildlife' },
-                  { title: 'Accommodation', value: 'accommodation' },
-                  { title: 'Mountain', value: 'mountain' },
-                ],
-                layout: 'radio',
-              },
-            }),
-            defineField({ name: 'title', title: 'Title', type: 'string', description: 'The pillar heading. e.g. "Wildlife & ecology"', validation: (Rule) => Rule.required() }),
-            defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short description for this pillar. e.g. "Camera trap monitoring, diverse Renosterveld, Fynbos and Succulent Karoo flora..."', validation: (Rule) => Rule.required() }),
-          ],
-          preview: {
-            select: { title: 'title', subtitle: 'icon' },
+      name: 'pillar1',
+      title: 'Pillar 1 — Wildlife & Ecology',
+      type: 'object',
+      description: 'The first feature pillar. Edit the title, icon, and description.',
+      fields: [
+        defineField({
+          name: 'icon',
+          title: 'Icon',
+          type: 'string',
+          description: 'The icon shown above this pillar.',
+          validation: (Rule) => Rule.required(),
+          options: {
+            list: [
+              { title: 'Wildlife', value: 'wildlife' },
+              { title: 'Accommodation', value: 'accommodation' },
+              { title: 'Mountain', value: 'mountain' },
+            ],
+            layout: 'radio',
           },
-        },
+        }),
+        defineField({ name: 'title', title: 'Title', type: 'string', description: 'The pillar heading. e.g. "Wildlife & ecology"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short description for this pillar. e.g. "Camera trap monitoring, diverse Renosterveld, Fynbos and Succulent Karoo flora..."', validation: (Rule) => Rule.required() }),
+      ],
+    }),
+    defineField({
+      name: 'pillar2',
+      title: 'Pillar 2 — Accommodation',
+      type: 'object',
+      description: 'The second feature pillar. Edit the title, icon, and description.',
+      fields: [
+        defineField({
+          name: 'icon',
+          title: 'Icon',
+          type: 'string',
+          description: 'The icon shown above this pillar.',
+          validation: (Rule) => Rule.required(),
+          options: {
+            list: [
+              { title: 'Wildlife', value: 'wildlife' },
+              { title: 'Accommodation', value: 'accommodation' },
+              { title: 'Mountain', value: 'mountain' },
+            ],
+            layout: 'radio',
+          },
+        }),
+        defineField({ name: 'title', title: 'Title', type: 'string', description: 'The pillar heading. e.g. "Accommodation"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short description for this pillar. e.g. "Comfortable bunkhouse unit nestled in the reserve..."', validation: (Rule) => Rule.required() }),
+      ],
+    }),
+    defineField({
+      name: 'pillar3',
+      title: 'Pillar 3 — Ancient Landscapes',
+      type: 'object',
+      description: 'The third feature pillar. Edit the title, icon, and description.',
+      fields: [
+        defineField({
+          name: 'icon',
+          title: 'Icon',
+          type: 'string',
+          description: 'The icon shown above this pillar.',
+          validation: (Rule) => Rule.required(),
+          options: {
+            list: [
+              { title: 'Wildlife', value: 'wildlife' },
+              { title: 'Accommodation', value: 'accommodation' },
+              { title: 'Mountain', value: 'mountain' },
+            ],
+            layout: 'radio',
+          },
+        }),
+        defineField({ name: 'title', title: 'Title', type: 'string', description: 'The pillar heading. e.g. "Ancient landscapes"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short description for this pillar. e.g. "Explore a timeless landscape through scenic walks, stargazing..."', validation: (Rule) => Rule.required() }),
       ],
     }),
 
