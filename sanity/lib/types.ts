@@ -288,7 +288,7 @@ export interface SanityAboutPage {
   storyImageAlt: string | null
   vision: string
   mission: string
-  values: Array<{ _key: string; icon: string; title: string; body: string }>
+  values: Array<{ _key?: string; icon: string; title: string; body: string }>
   cta: { heading: string; body: string }
 }
 

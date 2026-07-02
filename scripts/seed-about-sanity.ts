@@ -122,26 +122,21 @@ Tucked away in this ancient valley is more than just a destination – it's a wa
 
     mission: 'To protect and restore the natural integrity of Haumanskloof through responsible stewardship, sustainable living, and meaningful experiences that inspire conservation, simplicity and connection.',
 
-    values: [
-      {
-        _key: 'value-integrity',
-        icon: 'integrity',
-        title: 'Integrity',
-        body: 'We lead with honesty, transparency and respect in everything we do.',
-      },
-      {
-        _key: 'value-stewardship',
-        icon: 'stewardship',
-        title: 'Stewardship',
-        body: 'We believe the land is not ours to own, but ours to care for and preserve.',
-      },
-      {
-        _key: 'value-passion',
-        icon: 'mountain',
-        title: 'Passion',
-        body: 'Our love for nature, community and meaningful living guides every decision we make.',
-      },
-    ],
+    value1: {
+      icon: 'integrity',
+      title: 'Integrity',
+      body: 'We lead with honesty, transparency and respect in everything we do.',
+    },
+    value2: {
+      icon: 'stewardship',
+      title: 'Stewardship',
+      body: 'We believe the land is not ours to own, but ours to care for and preserve.',
+    },
+    value3: {
+      icon: 'mountain',
+      title: 'Passion',
+      body: 'Our love for nature, community and meaningful living guides every decision we make.',
+    },
 
     cta: {
       heading: 'Come experience the reserve',

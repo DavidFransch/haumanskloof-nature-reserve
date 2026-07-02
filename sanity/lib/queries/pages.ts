@@ -73,7 +73,11 @@ export const aboutPageQuery = groq`
     "storyImageAlt": storyImage.altText,
     vision,
     mission,
-    "values": values[] { _key, icon, title, body },
+    "values": [
+      value1 { icon, title, body },
+      value2 { icon, title, body },
+      value3 { icon, title, body }
+    ][@ != null],
     "cta": cta { heading, body }
   }
 `

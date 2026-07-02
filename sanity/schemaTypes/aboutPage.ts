@@ -49,33 +49,79 @@ export default defineType({
 
     // ─── 4. Values ──────────────────────────────────────────────────────────
     defineField({
-      name: 'values',
-      title: 'Values',
-      type: 'array',
-      description: 'The core values shown in the values grid. Add one entry for each value.',
-      of: [{
-        type: 'object',
-        fields: [
-          defineField({
-            name: 'icon',
-            title: 'Icon',
-            type: 'string',
-            description: 'The icon shown next to this value.',
-            validation: (Rule) => Rule.required(),
-            options: {
-              list: [
-                { title: 'Integrity (shield)', value: 'integrity' },
-                { title: 'Stewardship (circle)', value: 'stewardship' },
-                { title: 'Mountain', value: 'mountain' },
-              ],
-              layout: 'dropdown',
-            },
-          }),
-          defineField({ name: 'title', title: 'Title', type: 'string', description: 'The name of this value. e.g. "Stewardship"', validation: (Rule) => Rule.required() }),
-          defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short description of this value. e.g. "We believe the land is not ours to own, but ours to care for and preserve."', validation: (Rule) => Rule.required() }),
-        ],
-        preview: { select: { title: 'title', subtitle: 'icon' } },
-      }],
+      name: 'value1',
+      title: 'Value 1 — Integrity',
+      type: 'object',
+      description: 'The first core value shown in the values grid. Edit the title, icon, and description.',
+      fields: [
+        defineField({
+          name: 'icon',
+          title: 'Icon',
+          type: 'string',
+          description: 'The icon shown next to this value.',
+          validation: (Rule) => Rule.required(),
+          options: {
+            list: [
+              { title: 'Integrity (shield)', value: 'integrity' },
+              { title: 'Stewardship (circle)', value: 'stewardship' },
+              { title: 'Mountain', value: 'mountain' },
+            ],
+            layout: 'dropdown',
+          },
+        }),
+        defineField({ name: 'title', title: 'Title', type: 'string', description: 'The name of this value. e.g. "Integrity"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short description of this value. e.g. "We lead with honesty, transparency and respect in everything we do."', validation: (Rule) => Rule.required() }),
+      ],
+    }),
+    defineField({
+      name: 'value2',
+      title: 'Value 2 — Stewardship',
+      type: 'object',
+      description: 'The second core value shown in the values grid. Edit the title, icon, and description.',
+      fields: [
+        defineField({
+          name: 'icon',
+          title: 'Icon',
+          type: 'string',
+          description: 'The icon shown next to this value.',
+          validation: (Rule) => Rule.required(),
+          options: {
+            list: [
+              { title: 'Integrity (shield)', value: 'integrity' },
+              { title: 'Stewardship (circle)', value: 'stewardship' },
+              { title: 'Mountain', value: 'mountain' },
+            ],
+            layout: 'dropdown',
+          },
+        }),
+        defineField({ name: 'title', title: 'Title', type: 'string', description: 'The name of this value. e.g. "Stewardship"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short description of this value. e.g. "We believe the land is not ours to own, but ours to care for and preserve."', validation: (Rule) => Rule.required() }),
+      ],
+    }),
+    defineField({
+      name: 'value3',
+      title: 'Value 3 — Passion',
+      type: 'object',
+      description: 'The third core value shown in the values grid. Edit the title, icon, and description.',
+      fields: [
+        defineField({
+          name: 'icon',
+          title: 'Icon',
+          type: 'string',
+          description: 'The icon shown next to this value.',
+          validation: (Rule) => Rule.required(),
+          options: {
+            list: [
+              { title: 'Integrity (shield)', value: 'integrity' },
+              { title: 'Stewardship (circle)', value: 'stewardship' },
+              { title: 'Mountain', value: 'mountain' },
+            ],
+            layout: 'dropdown',
+          },
+        }),
+        defineField({ name: 'title', title: 'Title', type: 'string', description: 'The name of this value. e.g. "Passion"', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 3, description: 'A short description of this value. e.g. "Our love for nature, community and meaningful living guides every decision we make."', validation: (Rule) => Rule.required() }),
+      ],
     }),
 
     // ─── 5. CTA ─────────────────────────────────────────────────────────────
