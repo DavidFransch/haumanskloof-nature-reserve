@@ -52,16 +52,16 @@ export default function HeroSection({ data }: { data?: HomeHero | null }) {
           </div>
         )}
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
           <Link
             href="#about"
-            className="text-[11px] py-2.5 px-6 bg-primary text-primary-light rounded-sm no-underline tracking-wider hover:bg-primary-hover transition-colors"
+            className="text-[11px] text-center py-2.5 px-6 w-full sm:w-auto bg-primary text-primary-light rounded-sm no-underline tracking-wider hover:bg-primary-hover transition-colors"
           >
             Explore the reserve
           </Link>
           <Link
             href="/accommodation"
-            className="text-[11px] py-2.5 px-6 bg-transparent text-text-light border border-white/30 rounded-sm no-underline tracking-wider hover:bg-white/10 transition-colors"
+            className="text-[11px] text-center py-2.5 px-6 w-full sm:w-auto bg-transparent text-text-light border border-white/30 rounded-sm no-underline tracking-wider hover:bg-white/10 transition-colors"
           >
             View accommodation
           </Link>
